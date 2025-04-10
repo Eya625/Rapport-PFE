@@ -1,0 +1,423 @@
+\documentclass[a4paper,11pt]{report}
+\usepackage[utf8]{inputenc} 
+\usepackage{lmodern}
+\usepackage[margin=2.5cm]{geometry} % regler les marges
+\usepackage{titlesec}
+\titlespacing*{\subsection}{25pt}{2ex}{2ex}
+
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{enumitem}
+
+\renewcommand{\thesection}{\arabic{section}}
+
+
+\begin{document}
+
+% __________ page de garde ____________
+
+	\begin{titlepage}
+		\begin{center}
+		% partie haut head (logos / institutions)
+		{\large Ministère de l'enseignement supérieur } \\
+		{\large Université de sousse} \\ 
+		\vspace{2cm}
+	
+		%tit	re principal
+		{ \huge \textbf{Rapport de projet de Fin d'étude }}
+		\end{center}	
+	
+	\end{titlepage}
+
+% table de matière 
+\newpage 
+\section*{ Introduction générale}
+l'informatique joue un rôle stratégique dans la gestion des entreprises en structurant et on optimisant le traitement des données. Dans un contexte où les organisations doivent gérer d'importants volumes d'informations complexes, hétérogènes et en temps réel, la prise de décision devient un enjeu critique.
+\newline
+Les entreprises font face à des défis majeurs dans la gestion de plusieurs ressources essentielles , notamment : 
+\begin{itemize}
+	\item Parcs automobiles,
+	\item Télecommunications,
+	\item Consommation carburant,
+	\item Gestion des imprimantes(Printer Parc),
+	\item Infrastructures autoroutières(Tunisie Autoroute),
+	\item Avantages en nature à l'aéroport Enfidha-Hammamet.
+\end{itemize}
+L'absence d'un système centralisée et intelligent entraîne une dispersion des données et complique l'analyse décisionnelle. Les défis majeurs sont :
+\begin{itemize}
+	\item Comment structurer et exploiter efficacement ces informations ?
+	\item Quelle solution technologique permettrait d'automatiser leur gestion tout en garantissant des décisions rapides et précises ?
+\end{itemize}
+Notre projet vise à développer une application web intégrant un système décisionnel intelligent pour centraliser, analyser et optimiser la gestion de ces ressources stratégiques.\\
+L'approche repose sur :\\
+  	 - Un entrepôt de données(Data Warehouse) pour la consolidation des informations.\\
+  	 - Des indicateurs de performance (KPIs) pour un suivi en temps réel.\\
+  	 - Des outils de reporting et de visualisation avancés pour une prise de décision proactive. 
+\vspace{0.2cm}
+\newline
+Notre solution exploite les données actuellement gérées sur Excel et les synchronise dans une infrastructure moderne et automatisée, garantissant l'efficacité, la fiabilité et le gain de temps.
+\vspace{0.2cm}
+\newline
+En combinant informatique décisionnelle et automatisation, cette plateforme permettra aux entreprises d'optimiser la gestion de leurs ressources, d'améliorer leur performance et de sécuriser leurs décisions stratégiques.
+\newpage
+\chapter{Cadre générale du projet }
+\section*{Plan}
+
+1. Introduction  \\
+2. Présentation de l'organisme d'accueil\\
+3. Présentation du projet\\
+4. Etude et critique de l'existant\\
+5. Solution proposée et objectifs visés \\
+6. Méthode adoptée
+\newpage 
+\section{Introduction : }
+Avant d'élaborer notre projet, nous avons rédigé ce premier chapitre afin de nous familiariser avec notre entreprise d'accueil, le contexte du projet et la méthodologie adoptée pour mener à bien notre travail.\\
+Cette phase introductive nous permet de mieux comprendre l'environnement dans lequel nous évoluons et d'identifier les objectifs et enjeux liés à notre mission.
+\section{Présentation de l'organisme d'accueil : }
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.6\textwidth]{C:/Users/bouka/Downloads/logo_tav-removebg-preview.png}
+\caption{logo de TAV Airport}
+\end{figure}
+
+\textbf{TAV Tunisie SA} est une filiale du groupe turc\textbf{ TAV Airports} (fondée en 1997), spécialisé dans la gestion des aéroports \textbf{d'Enfidha-Hammamet} (2009) et \textbf{de Monastir Habib Bourguiba} (2017).
+Ces platformes soutiennent le tourisme et le transport aérien en Tunisie.
+En 2012, le groupe \textbf{ADP} acquis 46.12\% de TAV Airports, apportant expertise et technologie de pointe pour optimiser les opérations et l'expérience des passagers.
+
+\textbf{Domaine d'activités :} 
+
+\begin{itemize}
+\item Gestion aéroportuaire :
+	\begin{itemize}
+	\item Exploitation des terminaux et gestion des services de sûreté, enregistrement et embarquement.
+	\item Maintenance des infrastructures afin de garantir des opérations fluides et sécurisées.
+	\end{itemize}
+	
+\item Services commerciaux:
+	\begin{itemize}
+		\item Boutique duty-free(ATU) proposant des produits hors taxes(parfums, alcools...).
+		\item Restauration et cafés(BTA) pour répondre aux besoins des passagers.
+	\end{itemize}
+
+	\item Assistance en escale :
+	\begin{itemize}
+	\item Services de Handling(Havas) pour l'assistance aux avions et la gestion des bagages.
+	\item Salons VIP(TAV OS) offrant des prestations haut de gamme pour les passagers premium.
+	\end{itemize}
+\end{itemize}
+
+\textbf{Présentation de l'organigramme de l'entreprise}
+
+
+
+\newpage
+\section{Présentation du projet: }
+
+L'amélioration de la qualité des services et l'optimisation des opérations internes sont des priorités stratégiques, notamment dans le domaine aéroportuaire.L'intégration de technologies innovantes et de solution digitales est essentielles pour renforcer l'efficacité opérationnelle et la satisfaction des utilisateurs.
+\newline
+Dans ce contexte, notre projet vise à developper une plateforme digitale dédiée à la gestion optimisée des \textbf{ ressources aéroportuaires}  à l'aéroport international d'Enfidha-Hammamet. Cette solution centralisera le suivi des \textbf{véhicules} , de la \textbf{maintenance} , de la \textbf{consommation de carburant} , des \textbf{télécommunications} , des \textbf{imprimantes} , des \textbf{infrastructures autoroutières}  et des \textbf{avantages en nature} . L'objectif est d'améliorer la \textbf{visibilité en temps réel}, de \textbf{réduire les coûts opérationnels}  et de  \textbf{réduire les temps d'immobilisation}. La plateforme permettra ainsi d'\textbf{optimiser les ressources},améliorer \textbf{la productivité des équipes opérationnelles}  et d'assurer une \textbf{gestion proactive des ressources critiques}  , renforçant ainsi la qualité des services et \textbf{ la satisfaction des utilisateurs}.
+
+\section{Etude et critique de l'existant : }
+
+\subsection{Etude de l'existant :}
+
+TAV Tunisie s'appuie sur un ERP Oracle afin de gérer les départements clés notamment la finance, les achats, la comptabilité et les revenus. Cet outil, d'origine turque, centralise et optimise les processus métiers dans ces domaines.
+\newline
+\\
+Cependant, la gestion des véhicules ainsi que d'autres ressources essentielles, telles que les parcs d'impression, les infrastructures autoroutières, les télécommunications, les avantages en natures et la facturation associée, reste actuellement manuelle. Des processus comme les visites techniques, les maintenances curatives et préventives, les réparations, les ordres de mission, le suivi de la consommation de carburant, ainsi que la gestion des historiques et des documents, manquent d'automatisation. Cette absence de système intégré entraîne une gestion fragmentée, inefficace et source de nombreux risques, notamment des erreurs humaines.
+\\
+\\
+De plus, les données sont enregistrées dans des fichiers Excel cela ralentit les opérations et empêche une prise de décision rapide et éclairée . Il devient donc impératif de mettre en place une solution automatisée et centralisée afin d'optimiser la gestion de ces ressources stratégiques et d'améliorer l'efficacité organisationnelle. 
+
+\subsection{Critique de l'existant}
+
+Dans le cadre de notre projet, nous avons identifié plusieurs problématiques liées aux processus actuels. Ces constats nous permettent de mieux comprendre les failles et d'envisager des axes d'amélioration afin d'optimiser la performance globale.
+
+
+\begin{enumerate}
+
+\item \textbf{Gestion manuelle des véhicules : } 
+\begin{itemize}
+	\item Activités: suivi de la consommation de carburant, gestion de l'historique.
+	\item Risque élevé d'erreurs humaines.
+	\item Coordination inefficace entre les équipes.
+	\item Difficulté à suivre les historiques et les réparations. \\
+	 \newline
+
+\end{itemize}
+
+\item \textbf{Gestion manuelle des télécommunications :} 
+\begin{itemize}
+	\item Activités: Gestions des GSM Corporate et intense, fibre optique, ligne fixes, voie IP, ADSL.
+	\item Processus longs et sujets à des oublis.
+	\item Difficulté de mise à jour des informations en temps réel.
+	\item Absence de suivi automatisé des coûts.	 
+\end{itemize}
+
+\item \textbf{Gestion manuelle des parcs d'impression:}
+\begin{itemize}
+	\item Activités: Saisie de nouveaux parcs, gestion de la facturation, maintenance préventive et curative.
+	\item Système fragmentée sans centralisation.
+	\item Temps de gestion accru pour la facturation.
+	\item Risque de conflits d'information entre les services.
+\end{itemize}
+
+\item \textbf{Gestion manuelle des infrastructures autoroutières(Tunisie Autoroute) : } \nopagebreak[4]
+
+\begin{itemize}
+	\item Activités : Suivi des interventions et maintenance.
+	\item Mauvaise traçabilité des interventions.
+	\item Manque de réactivité dans la gestion des urgences.
+\end{itemize}
+
+\item \textbf{Gestion manuelle de la consommation d'énergie(OLA energy) : } \nopagebreak[4]
+\begin{itemize}
+	\item Activités : Enregistrements des nouvelles consommations, visualisation des statistiques.
+	\item Suivi des consommations inefficaces.
+	\item Absence de système de prévision des dépenses énergétiques.
+	\item Manque de transparence dans les rapports de consommation.
+\end{itemize}
+\item \textbf{Gestion manuelle des avantages en nature : }
+\begin{itemize}
+	\item Activités : Visualisation des statistiques globales des avantages.
+	\item Manque de contrôle sur les statistiques globales.
+	\item Risque d'erreurs dans la gestion des avantages.
+	\item Difficulté à évaluer les bénéfices réels.
+\end{itemize}
+\item \textbf{Utilisation des fichiers Excels : }
+\begin{itemize}
+	\item Activités : Gestion des données, suivi des ressources, analyse des performances.
+	\item Perte potentielle de données cruciales.
+	\item Difficulté à traiter un volume élevé d'informations.
+	\item Risque de doublons et incohérences dans les données.
+\end{itemize}
+
+\item \textbf{Absence d'outil d'analyse : }
+\begin{itemize}
+	\item Activités : Absence de tableaux de bord et d'indicateurs de performance.
+	\item Manque de visibilité sur les performances.
+	\item Analyse limitée et pas en temps réel.
+	\item Décisions prises sans base de donnée fiable.
+\end{itemize}
+
+\item \textbf{Problèmes organisationnels :}
+
+\begin{itemize}
+
+	\item Activités : Planification des maintenances, suivi des missions de carburant.
+	\item Planification inefficace des maintenances.
+	\item Temps d'immobilisation prolongé des ressources.
+	\item Difficulté à suivre les coûts opérationnels de manière précise.
+\end{itemize}
+
+\end{enumerate}
+
+
+\section{Solution Proposée et objectifs visés : }
+
+Pour résoudre les problèmes identifiés, nous proposons le développement d'une plateforme numérique intégrée permettant l'automatisation et la centralisation de la gestion des véhicules, des télécommunications, des parcs d'impression, des infrastructures autoroutières, de la consommation d'énergie et des avantages en nature. Cette solution permettra de:
+\begin{itemize}
+\item Automatiser le suivi et consommation de carburant des véhicules.
+\item Gérer les services de télécommunications(GSM, fibres optique , lignes fixes) en temps réel.
+\item Optimiser l'enregistrement, la facturation et la maintenance des parcs d'impression.
+\item Améliorer la gestion des infrastructures autoroutières et la consommation d'énergie via des outils de suivi et des statistiques détaillées.
+\item Automatiser la gestion des avantages en nature.
+
+\end{itemize}
+Des outils d'analyse et de reporting, tels que des tableaux de bord et des indicateurs de performance, permettront une prise de décision rapide et efficace, garantissant une gestion optimisée et une réduction des erreurs humaines.
+
+\section{Méthode adoptée : }
+Dans le cadre de notre projet, nous avons choisi de mettre en œuvre un démarche méthodologique rigoureuse afin d'assurer une gestion optimale du développement
+Cette étape est cruciale pour garantir la qualité du livrable final et favoriser une adaptation continue aux évolutions du projet
+
+
+\subsection{Choix de la méthode et présentation de Scrum :}
+
+Scrum est une méthodologie agile utilisée pour le developpement de produits complexes. Son choix repose sur plusieurs facteurs : 
+
+\begin{itemize}
+	\item \textbf{Flexibilité :}  Scrum s'adapte aux changements fréquents des exigences.
+	\item \textbf{Efficacité :} Il permet de livrer rapidement des produits fonctionnels grâce à des intérations courtes(appelées \textbf{Sprints}).
+	\item \textbf{Collaboration : } Scrum encourage une communication constante entre l'équipe et le client pour garantir que les priorités restent alignées. 
+\end{itemize}
+\textbf{Pourquoi ce Choix} : 
+\newline
+Ce choix justifie pleinement dans le cadre de notre projet, où les besoins peuvent évoluer au fil de temps. 
+En optant pour Scrum, nous disposons d'un cadre de travail agile et structuré, capable de s'adapter rapidement aux changements tout en maintenant une vision claire des objectifs. Ce mode de fonctionnement favorise non seulement un pilotage efficace du projet, mais aussi une meilleur répartition des tâches et une dynamique de collaboration continue entre les membres de l'équipe.
+
+
+\subsection{Rôle de Scrum : }
+
+Scrum définit trois rôles principaux qui contribuent au succès de la méthodologie :
+
+\begin{itemize}
+	\item \textbf{Product Owner(PO)} : Le représentant des parties prenantes et des utilisateurs. Le PO est responsable de la gestion du \textbf{Product Backlog}, en s'assurant que les priorités sont claires pour l'équipe.
+	\item \textbf{Scrum Master} : il est chargé de faciliter le processus Scrum et de veiller à ce que l'équipe respecte les principes et les pratiques de Scrum. Il élimine les obstacles et aide l'équipe à améliorer sa productivité.
+	\item \textbf{Development Team (équipe de développement) : } : Composée de professionnels qui travaillent ensemble pour livrer le produit.L'équipe est auto-organisée, multidisciplinaire et collaborative.
+\end{itemize}
+
+\subsection{Fonctionnement de Scrum : }
+
+
+Scrum fonctionne à travers un processus cyclique organisé en \textbf{Sprints}. Voici les principaux éléments : 
+\begin{itemize}
+	\item \textbf{Sprints} : Des périodes de travail de 1 à 4 semaines, à la fin desquelles un incrément du produit est livré.
+	\item \textbf{Product Backlog} : Une liste priorisée des exigences, créée et gérée par le Product Owner.
+	\item \textbf{Sprint Backlog} : Les éléments du Product Backlog choisis pour un sprint, plus les tâches nécessaires pour les accomplir.
+	\item \textbf{Réunions Scrum } : 
+	\begin{itemize}
+		\item \textbf{Sprint Planning} : Planification du sprint, où l'équipe définit les objectifs et les tâches à accomplir.
+		\item \textbf{Daily Scrum} : Une réunion courte(souvent appelée "stand-up") tous les jours pour faire le point sur l'avancement 
+		\item \textbf{Sprint Review} : à la fin de chaque sprint, l'équipe présente ce qui à été accompli.
+		\item \textbf{Sprint Retrospective} : Une réunion pour réfléchir sur le sprint passé et trouver des moyens d'améliorer le processus pour le prochain sprint.
+	\end{itemize}
+\end{itemize}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=1\textwidth]{C:/Users/bouka/Downloads/scrum3.jpg}
+\caption{Méthodologie SCRUM}
+\end{figure}
+
+\subsection{Conclusion}
+
+Ce chapitre a permis de poser un cadre méthodologique en analysant minutieusement le contexte et les enjeux du projet. A travers cette analyse, nous avons pu dégager les axes stratégiques et les fondements opérationnels qui structurent notre travail. 
+Le travail accompli jusqu'ici démontre une compréhension approfondie des contraintes et des opportunités, posant ainsi une base solide pour la suite de l'étude. Cette réflexion préalable met en valeur la cohérence entre les objectifs globaux et les exigences spécifiques, valorisant le travail préparatoire réalisé.
+\newline
+\newline
+La suite de ce rapport protera sur l'identification des besoins ainsi que sur l'étude technique détaillée, étape clés pour proposer des solutions adaptées. Nous abordons désormais la phase initiale de la méthodologie Scrum, à savoir le \textbf{Sprint 0} .
+
+
+
+\newpage
+
+\chapter{ SPRINT 0 : EXPRESSION DES BESOINS ET ÉTUDE TECHNIQUE  }
+\section*{Plan}
+
+1. Introduction\\
+2. Identification des besoins \\
+3. Pilotage du projet avec SCRUM\\
+4. Environnement de développement et choix technique \\
+5. Architecture générale de l'application \\
+6. Conclusion \\
+
+\newpage
+\section{Introduction}
+
+Ce chapitre est déidée à la premiere phase de la méthodologie SCRUM, dénommée \textbf{Sprint 0}, 
+une étape stratégique et déterminante pour le succès global du projet.
+\newline
+\newline
+Cette phase préliminaire, bien plus qu'une simple préparation, consiste à établir un socle solide qui orientera l'ensemble du développement itératif. Le travail s'articule autour de trois axes principaux : 
+ \begin{itemize}
+ 	\item \textbf{Définition des fonctionnalités clés} : Il s'agit d'identifier et d' hiérarchiser les éléments indispensables qui continueront la base du développement.
+ 	\item \textbf{élaboration d'un diagramme de cas d'utilisation} : Cette démarche vise à représenter de manière claire et consise les interactions entre les divers utilisateurs et le système. 
+ 	\item \textbf{Création du Product Backlog } : Cette étape consiste à rassembler et organiser l'ensemble des besoins et des tâches, facilitant ainsi la planification efficace des releases futures.\\
+ \end{itemize}
+
+
+En outre, le sprint 0 permet également d'anticiper les principaux risques et met en place une communication simple, garantissant ainsi une préparation optimale du projet et une coordination efficace dès le début.
+
+
+\section{Identification des Besoins}
+Cette section  recense de manière exhaustive l'ensemble des besoins du projet, tant sur le plan fonctionnel que technique tout en garantissant une compréhension commune des enjeux.
+
+\subsection{Identification des Acteurs}
+L'identification d'un acteur consiste à réparer toute entité, humaine ou système, qui interagit avec l'application. Elle est nécessaire pour comprendre les besoins fonctionnels, définir les cas d'utilisation et garantir que la solution réponde aux attentes de chaque partie prenante.
+\\
+\\
+\textbf{A. Acteurs Principales : }
+\begin{itemize}
+	\item \textbf{Administrateur} : Personne qui interagit directement avec le système pour assurer la gestion, le suivi des véhicules, des parcs d'impression, de la télécommunication , de la consommation de carburant, des infrastructures autoroutières(Tunisie Autoroute), des avantages en nature, ainsi que des opérations liées à leur état.
+	\item \textbf{Responsable Finance, Responsable Achat} : Utilisateurs interagissant directement avec le système pour assurer le suivi des activités liées aux véhicules à travers un tableau de bord centralisé.
+\end{itemize}
+\textbf{B. Acteurs Secondaires : }\\
+
+\newpage
+
+
+
+\subsection{Besoins Fonctionnels}
+
+
+\begin{itemize}
+	\item \textbf{Fonctionnalités de l'Administrateur}  :
+	\begin{itemize}
+		\item \textbf{Gestion de la consommation OLA energy (Landside)} :\\
+		Cette fonctionnalité permet à l'administrateur de gérer les transactions de carburant réalisées via les cartes OLA Energy, utilisées par les véhicules opérant sur les routes classiques(Landside). Il peut:
+		\begin{itemize}
+			\item Consulter et filtrer les données de consommations selon divers critères.
+			\item Ajouter, modifier et supprimer les enregistrements.
+			\item suivre et gérer les états de facturation avec possibilité d'édition de rapport.
+			\item Analyser les statistiques de consommation OLA Energy.\\
+		\end{itemize}
+	
+		\item \textbf{Gestion de la Consommation APS(Airside)} : \\
+Cette fonctionnalité s'adresse aux véhicules opérant sur les pistes(Airside) via l'Aéroport Petrol Service. L'administrateur peut :
+	\begin{itemize}
+		\item Suivre la consommation détaillée en carburant des véhicules sur zone aéroportuaire.
+		\item Visualiser les volumes distribués par point de ravitaillement APS.
+		\item Analyser les statistiques de consommation spécifiques à l'activité aéroportuaire.\\
+	\end{itemize}
+	
+	% partie de gestion printer parc
+	\item \textbf{Gestion des Parcs d'Impression :} \\
+	L'administrateur est chargé de la gestion complète des équipements d'impression, répartis dans différents départements. Cette fonctionnalité comprend : 
+	\begin{itemize}
+		\item L'ajout, la modification et la suppression de données relatives aux imprimantes.
+		\item Le filtrage des données selon différents critères.
+		\item La consultation d'un tableau de bord de suivi.
+		\item La gestion des opérations de maintenance curative en cas de panne ou de dysfonctionnement.
+		\item La gestion de la facturation associée au activités liées aux équipements.\\ 
+	\end{itemize}	 
+	
+	\item \textbf{Gestion des Télécommunications: }\\
+Cette fonctionnalité permet à l'administrateur de gérer l'ensemble des ressources et infrastructures de télécommunication de l'organisation. Cela inclut: 
+\begin{itemize}
+	\item La gestion des abonnements et lignes liés aux solutions APS Corporate et intense.
+	\item L'administration et le suivi des infrastructures telles que : figure optique, lignes fixes , VoIP (voix sur IP), ADSL.
+	\item le suivi de la consommation, des incidents et de la disponiblité des services.
+	\item La gestion des fournisseurs, contrats et coûts liés aux télécommunications.\\
+\end{itemize}
+
+
+	\item \textbf{Gestion des Infrastructures autoroutières (Tunisie Autoroute)} : \\
+Cette tâche permet à l'administrateur de gérer et d'optimiser les opérations sur les infrastructures autoroutières en .
+	\begin{itemize}
+		\item Optimisant l'utilisation des ressources grâce à des outils d'analyse et de reporting.
+		\item Planifiant et suivant les interventions et opérations de maintenance en temps réel.\\
+		\newline
+		\newline
+		\newline
+	\end{itemize}
+	
+	\item \textbf{Gestion  des avantages en nature}:\\
+	Cette fonctionnalité permet à l'administrateur de gérer efficacement les avantages en nature en :
+	\begin{itemize}
+		\item Proposant un Tableau de Bord interactif pour la visualisation en temps réel des statistiques globales.
+		\item Intégrant un système de contrôle et de validation automatique des données pour garantir leur fiabilité.
+		\item Offrant un module de détection et d'alerte en cas d'incohérences ou d'erreurs dans la gestion.
+		\item Fournissant des outils d'analyse comparative pour évaluer et optimiser les bénéfices réels des avantages proposés.
+	\end{itemize}
+
+\end{itemize}
+\item \textbf{Fonctionnalités de Responsable Finance} \\
+Cette fonctionnalité permet au Responsable Achat d'assurer le suivi stratégique des flux financiers à travers un dashboard centralisé, optimisant ainsi la performance économique.
+
+\item \textbf{Fonctionnalités de Responsable Achat}:\\
+Cette tâche permet au responsable Achat de piloter les opérations d'approvisionnement via une interface dédiée, garantissant une gestion proactive et efficiente des ressources.\\
+\end{itemize}
+
+\subsection{Besoins non fonctionnels :}
+\begin{itemize}[label = --]
+	\item \textbf{Rapidité} : La plateforme doit offrir une réponse quasi instantanée aux demandes des utilisateurs, garantissant ainsi un suivi en temps réel des ressources.
+	\item \textbf{Fiabilité} : Le système doit fonctionner de manière ininterrompue et sans défaillance assurant une gestion continue et une disponibilité permanente des services.
+	\item \textbf{Performance} : Conçue pour supporter une charge importante d'utilisateurs et d'actions, la solution doit maintenir une réactivité constante et une gestion efficace.
+	\item \textbf{Sécurité} : L'intégration d'un mécanisme d'authentification robuste et cruciale pour assurer un accès sécurisé et personnalisé, protégeant ainsi les données sensibles et renforçant la confiance des utilisateurs. 
+	\item \textbf{Ergonomie} : Les interfaces, dynamiques et intuitives, sont conçues pour offrir un expérience utilisateur simplifiée, favorisant une utilisation aisée et efficace dès le premier contact.
+\end{itemize}
+
+
+
+\end{document}
