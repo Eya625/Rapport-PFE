@@ -1,16 +1,76 @@
 \documentclass[a4paper,11pt]{report}
-\usepackage[utf8]{inputenc} 
+
+% Encodage et fontes
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
 \usepackage{lmodern}
-\usepackage[margin=2.5cm]{geometry} % regler les marges
+
+% Mise en page
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{parskip}
+
+% Langue
+\usepackage[french]{babel}
+\DeclareUnicodeCharacter{202F}{\,}
+
+% Titres
 \usepackage{titlesec}
 \titlespacing*{\subsection}{25pt}{2ex}{2ex}
+\titleformat{\chapter}[block]
+  {\filcenter\bfseries\LARGE\scshape\color{blue!60!black}}
+  {}
+  {0pt}
+  {\MakeUppercase}
+\titlespacing*{\chapter}{0pt}{-1em}{2em}
 
+% Listes et colonnes
+\usepackage{enumitem}
+\setlist[itemize]{leftmargin=*,topsep=0pt,parsep=0pt,itemsep=0pt}
+\usepackage{multicol}
+\setlength{\columnsep}{1cm}
+
+% Graphiques et cadres
 \usepackage{xcolor}
 \usepackage{graphicx}
 \usepackage{float}
-\usepackage{enumitem}
+\usepackage{wrapfig}
+\usepackage[most]{tcolorbox}
+\tcbuselibrary{skins,breakable}
+\tcbset{
+  colback=white, colframe=black!75,
+  fonttitle=\bfseries, title filled,
+  boxrule=0.5pt, arc=4pt,
+  left=5pt,right=5pt,top=5pt,bottom=5pt,
+  enhanced, sharp corners=southwest
+}
+\usepackage{booktabs}
+\usepackage{caption}
 
-\renewcommand{\thesection}{\arabic{section}}
+% Numérotation figures et tables par chapitre
+\usepackage{chngcntr}
+\counterwithin{figure}{chapter}
+\counterwithin{table}{chapter}
+\renewcommand\thefigure{\thechapter.\arabic{figure}}
+\renewcommand\thetable{\thechapter.\arabic{table}}
+\setlength{\fboxrule}{1pt}  % épaisseur du cadre
+\setlength{\fboxsep}{3pt}   % espacement entre l'image et le cadre
+
+% découpler sections des chapitres
+\counterwithout{section}{chapter}
+% n’afficher que le numéro de section pur
+\renewcommand\thesection{\arabic{section}}
+\usepackage{float}               % pour l’option [H]
+\usepackage[section]{placeins}   % pour \FloatBarrier
+
+\usepackage{multirow}  % dans le préambule
+
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{array}
+
+
+
+
 
 
 \begin{document}
@@ -65,19 +125,17 @@ En combinant informatique décisionnelle et automatisation, cette plateforme per
 \section*{Plan}
 
 1. Introduction  \\
-2. Présentation de l'organisme d'accueil\\
-3. Présentation du projet\\
-4. Etude et critique de l'existant\\
-5. Solution proposée et objectifs visés \\
-6. Méthode adoptée
+2. Présentation du projet\\
+3. Etude et critique de l'existant\\
+4. Solution proposée et objectifs visés \\
+5. Méthode adoptée
 \newpage 
 \section{Introduction : }
 Avant d'élaborer notre projet, nous avons rédigé ce premier chapitre afin de nous familiariser avec notre entreprise d'accueil, le contexte du projet et la méthodologie adoptée pour mener à bien notre travail.\\
 Cette phase introductive nous permet de mieux comprendre l'environnement dans lequel nous évoluons et d'identifier les objectifs et enjeux liés à notre mission.
-\section{Présentation de l'organisme d'accueil : }
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.6\textwidth]{C:/Users/bouka/Downloads/logo_tav-removebg-preview.png}
+\includegraphics[width=0.6\textwidth]{C:/Documents issue de one drive/Bureau/TAV Airports/LOGO_Outils/logo.png}
 \caption{logo de TAV Airport}
 \end{figure}
 
@@ -305,7 +363,7 @@ La suite de ce rapport protera sur l'identification des besoins ainsi que sur l'
 \newpage
 \section{Introduction}
 
-Ce chapitre est déidée à la premiere phase de la méthodologie SCRUM, dénommée \textbf{Sprint 0}, 
+Ce chapitre est dédiée à la première phase de la méthodologie SCRUM, dénommée \textbf{Sprint 0}, 
 une étape stratégique et déterminante pour le succès global du projet.
 \newline
 \newline
@@ -417,6 +475,1680 @@ Cette tâche permet au responsable Achat de piloter les opérations d'approvisio
 	\item \textbf{Sécurité} : L'intégration d'un mécanisme d'authentification robuste et cruciale pour assurer un accès sécurisé et personnalisé, protégeant ainsi les données sensibles et renforçant la confiance des utilisateurs. 
 	\item \textbf{Ergonomie} : Les interfaces, dynamiques et intuitives, sont conçues pour offrir un expérience utilisateur simplifiée, favorisant une utilisation aisée et efficace dès le premier contact.
 \end{itemize}
+\newpage
+\subsection{Besoins décisionnels :}
+
+\textcolor{red}{partie sur les besoins décisionnels de projet }
+
+
+
+
+\newpage
+\subsection{Diagramme de Cas d'utilisation Globale}
+
+
+Ce schéma illustre de manière synthétique les interactions principales entre les différents acteurs et le système cible.  
+Il met en évidence les fonctionnalités clés ainsi que les flux d’échanges indispensables au bon déroulement des processus métier.  
+Cette représentation visuelle facilite la compréhension globale des exigences et sert de référence pour les phases de modélisation ultérieures.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=1\textwidth]{C:/Documents issue de one drive/Bureau/TAV Airports/diagrammes/DCU.png}
+\caption{Diagramme de Cas d'utilisation Globale}
+\end{figure}
+
+\newpage
+\section{Pilotage du projet avec SCRUM}
+
+\subsection{Equipes et Rôles }
+
+\par En suivant la méthodologie Scrum, Notre équipe de projet sera réparti en 3 roles :
+\begin{itemize}[label = --]
+	\item \textbf{le Product Owner(PO)} : Kaies Douiri, chargé de définir les besoins et de valider les livrables.
+	
+	\item \textbf{Scrum Masters} : Neila Hochlef, Besma Hakim , responsables de suivi méthodologiques et de la coordination du processus agile.
+	\item \textbf{Equipes de développement} : Doua dhemayed et Eya Boukadida, responsables de la conception, du développement et de la mise en production des solutions techniques.\\
+	 
+\end{itemize}
+\par
+
+\subsection{Product Backlog}
+
+% Description de la méthode de priorisation et d’estimation
+Les user stories ont été définies en collaboration avec les parties prenantes et classées selon leur criticité métier.  
+La priorité reflète l’impact sur l’utilisateur final, et l’estimation en jours a été réalisée en s’appuyant sur la méthodologie Scrum, au cours des cérémonies d’estimation et de planification d’itération.  
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|p{0.65\textwidth}|c|c|}
+\hline
+\textbf{User Story} & \textbf{Priorité} & \textbf{Estimation} \\
+\hline
+En tant qu’administrateur, je veux consulter OLA Energy & 1 & 8 \\
+\hline
+
+\hline
+En tant qu’administrateur, je veux gérer les parcs impression & 1 & 8 \\
+\hline
+En tant qu’admin, je veux gérer les télécommunications & 1 & 13 \\
+\hline
+
+En tant qu’administrateur, je veux consulter le TB lié à l’avantage en nature & 2 & 9 \\
+\hline
+En tant qu’administrateur, je veux consulter les véhicules & 3 & 3 \\
+\hline
+
+En tant que responsable achat et logistique, responsable finance, je veux consulter le TB centralisé & 4 & 7 \\
+\hline
+En tant qu’administrateur, je veux gérer l’APS & 4 & 8 \\
+\hline
+En tant qu’administrateur, je veux gérer les infrastructures autoroutières & 4 & 8 \\
+\hline
+\end{tabular}
+\caption{Product Backlog}
+\end{table}
+
+	
+\newpage
+
+\subsection{Planification des Sprints}
+\renewcommand{\arraystretch}{1.5} % augmente la hauteur des lignes
+
+% Description de la planification par sprints
+Nous appliquons une méthodologie Scrum centrée exclusivement sur les sprints, chaque itération constituant un cycle de développement à livrable incrémental.  
+
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|c|p{0.75\linewidth}|}
+\hline
+\textbf{Sprint} & \textbf{Objectifs} \\
+\hline
+Sprint 1 & 
+– Scraping des données \\
+\hline
+Sprint 2 & 
+– Gestion des utilisateurs \\
+\hline
+Sprint 3 & 
+– Gestion OLA Energy  
+\newline – Gestion de l’APS \\
+\hline
+Sprint 4 & 
+– Gestion des télécommunications  
+\newline – Gestion du parc impression  
+\newline – Gestion des infrastructures autoroutières (Tunisie Autoroute) \\
+\hline
+Sprint 5 & 
+– Analyse des données  
+\newline – Mise en place du tableau de bord centralisé \\
+\hline
+\end{tabular}
+\caption{Planification des sprints}
+\end{table}
+
+\section{Environnement de développement et choix techniques}
+
+On va aborder maintenant cette partie dédiée à l’environnement de développement et aux choix techniques, essentiels pour encadrer la mise en œuvre du projet. Cette section présente les outils, technologies et ressources matérielles qui ont permis d’assurer un développement efficace, structuré et cohérent avec les exigences du projet.
+
+\subsection{Environnement matériel}
+
+Cette sous-section décrit les ressources physiques utilisées lors du développement et des tests de l’application.
+
+\begin{table}[h]
+\centering
+\renewcommand{\arraystretch}{1.3} % hauteur des lignes
+\begin{tabular}{|p{0.2\linewidth}|p{0.22\linewidth}|p{0.15\linewidth}|p{0.18\linewidth}|p{0.18\linewidth}|}
+\hline
+\textbf{Poste} & \textbf{Processeur} & \textbf{RAM} & \textbf{Stockage} & \textbf{Carte graphique} \\
+\hline
+POST étudiant 1 & 11th Gen Intel(R) Core(TM) i5-11320H @ 3,20 GHz (4 cœurs, 8 threads) & 8 Go DDR4 & NVMe SAMSUNG MZALQ512HBLU-00B (476,94 Go) & Intel(R) Iris(R) Xe Graphics (4 115 Mo) \\
+
+\hline
+POST étudiant 2 \\
+\hline
+\end{tabular}
+\caption{Spécifications des postes de développement}
+\end{table}
+
+\newpage
+\section*{Écosystème logiciel et outils de développement}
+
+L’environnement de développement mis en place repose sur des technologies modernes, robustes et complémentaires. Il couvre tous les aspects d’un projet logiciel : conception, développement, gestion de projet, testing, déploiement et documentation.
+
+\vspace{1em}
+
+% ----------- IDE et modélisation -----------
+\subsection*{IDE et modélisation}
+
+\tcolorbox[title=Visual Studio Code]
+\begin{minipage}{0.15\textwidth}
+  \includegraphics[width=\linewidth]{C:/Documents issue de one drive/Bureau/TAV Airports/LOGO_Outils/vscode2.png}
+\end{minipage}
+\hfill
+\begin{minipage}{0.8\textwidth}
+\textbf{Visual Studio Code} est un éditeur de code moderne, léger, personnalisable via des extensions et doté d’un écosystème riche. Il prend en charge de nombreux langages, dont JavaScript, LaTeX, Vue.js et Python. Il offre l'autocomplétion, un débogueur intégré, Git, des outils de test, ainsi qu’un terminal en ligne.
+\end{minipage}
+\endtcolorbox
+
+\tcolorbox[title=IBM Rational Software Architect]
+\begin{minipage}{0.15\textwidth}
+  \includegraphics[width=\linewidth]{C:/Documents issue de one drive/Bureau/TAV Airports/LOGO_Outils/ibm2.png}
+\end{minipage}
+\hfill
+\begin{minipage}{0.8\textwidth}
+\textbf{IBM RSA} est un environnement de modélisation UML professionnel. Il facilite la conception d’architectures logicielles complexes à travers des diagrammes normalisés (classes, séquences, cas d’utilisation, etc.). Il permet aussi la génération automatique de code à partir des modèles.
+\end{minipage}
+\endtcolorbox
+
+\vspace{1em}
+
+% ----------- Gestion de projet -----------
+\subsection*{Gestion de projet}
+
+\tcolorbox[title=Trello]
+\begin{minipage}{0.15\textwidth}
+  \includegraphics[width=\linewidth]{C:/Documents issue de one drive/Bureau/TAV Airports/LOGO_Outils/trello2.png}
+\end{minipage}
+\hfill
+\begin{minipage}{0.8\textwidth}
+\textbf{Trello} est un outil de gestion de projet collaboratif reposant sur la méthode Kanban. Il permet d’organiser les tâches en colonnes (backlog, en cours, terminé), d’assigner des membres aux tâches et de suivre la progression des sprints de manière visuelle.
+\end{minipage}
+\endtcolorbox
+
+\vspace{1em}
+
+% ----------- Front-End -----------
+\subsection*{Développement Front-End}
+
+\tcolorbox[title=Vue.js]
+\begin{minipage}{0.15\textwidth}
+  \includegraphics[width=\linewidth]{C:/Documents issue de one drive/Bureau/TAV Airports/LOGO_Outils/vue_js.png}
+\end{minipage}
+\hfill
+\begin{minipage}{0.8\textwidth}
+\textbf{Vue.js} est un framework JavaScript progressif, orienté composant, facilitant le développement d'interfaces web dynamiques, interactives et maintenables. Il est rapide à prendre en main tout en étant extrêmement puissant et modulaire.
+\end{minipage}
+\endtcolorbox
+
+\tcolorbox[title=Chart.js]
+\begin{minipage}{0.15\textwidth}
+  \includegraphics[width=\linewidth]{C:/Documents issue de one drive/Bureau/TAV Airports/LOGO_Outils/chart js.png}
+\end{minipage}
+\hfill
+\begin{minipage}{0.8\textwidth}
+\textbf{Chart.js} est une bibliothèque JavaScript légère qui permet de générer des graphiques interactifs (barres, lignes, donuts, etc.) à partir de jeux de données JSON. Elle a été utilisée pour visualiser la consommation de carburant dans les dashboards.
+\end{minipage}
+\endtcolorbox
+
+\vspace{1em}
+
+% ----------- Back-End et Données -----------
+\subsection*{Back-End et gestion des données}
+
+\tcolorbox[title=Node.js]
+\begin{minipage}{0.15\textwidth}
+  \includegraphics[width=\linewidth]{C:/Documents issue de one drive/Bureau/TAV Airports/LOGO_Outils/node js.png}
+\end{minipage}
+\hfill
+\begin{minipage}{0.8\textwidth}
+\textbf{Node.js} est une plateforme JavaScript côté serveur, reposant sur un moteur asynchrone non bloquant. Elle a permis de développer des API REST efficaces, utilisées pour faire communiquer le front-end et le back-end en temps réel.
+\end{minipage}
+\endtcolorbox
+
+\tcolorbox[title=Python]
+\begin{minipage}{0.15\textwidth}
+  \includegraphics[width=\linewidth]{C:/Documents issue de one drive/Bureau/TAV Airports/LOGO_Outils/python.png}
+\end{minipage}
+\hfill
+\begin{minipage}{0.8\textwidth}
+\textbf{Python} est un langage polyvalent qui a été utilisé ici pour le traitement de documents PDF via OCR. Grâce à des bibliothèques comme Tesseract et PDF2Image, il a permis l’extraction automatisée de données à partir de factures.
+\end{minipage}
+\endtcolorbox
+
+\tcolorbox[title=Postman]
+\begin{minipage}{0.15\textwidth}
+  \includegraphics[width=\linewidth]{C:/Documents issue de one drive/Bureau/TAV Airports/LOGO_Outils/postman2.png}
+\end{minipage}
+\hfill
+\begin{minipage}{0.8\textwidth}
+\textbf{Postman} est un outil de test d’API REST. Il permet d’envoyer des requêtes personnalisées, d’inspecter les réponses, d’automatiser des scénarios et de documenter les routes de manière structurée et réutilisable.
+\end{minipage}
+\endtcolorbox
+
+\tcolorbox[title=MongoDB]
+\begin{minipage}{0.15\textwidth}
+  \includegraphics[width=\linewidth]{C:/Documents issue de one drive/Bureau/TAV Airports/LOGO_Outils/mongodb.png}
+\end{minipage}
+\hfill
+\begin{minipage}{0.8\textwidth}
+\textbf{MongoDB} est une base NoSQL orientée documents. Elle offre de la souplesse dans la structuration des données, avec un stockage sous forme de documents JSON. Idéal pour des structures évolutives comme les historiques de consommation, les données de facturation, etc.
+\end{minipage}
+\endtcolorbox
+
+\vspace{1em}
+% ----------- Collaboration et gestion de versions -----------  
+\subsection*{Collaboration et gestion de versions}
+
+\tcolorbox[title=Git]
+\begin{minipage}{0.15\textwidth}
+  \includegraphics[width=\linewidth]{C:/Documents issue de one drive/Bureau/TAV Airports/LOGO_Outils/git.png}
+\end{minipage}
+\hfill
+\begin{minipage}{0.8\textwidth}
+\textbf{Git} est un outil de gestion de versions utilisé pour collaborer efficacement autour du code source. Il a permis de partager l'avancement du projet entre les membres de l'équipe, d'assurer la synchronisation des fichiers, et de centraliser le développement via une plateforme distante (GitHub). L’intégration avec Visual Studio Code a facilité les mises à jour continues du projet durant tout le cycle de développement.\\
+\end{minipage}
+\endtcolorbox
+\newpage
+
+% ----------- Documentation -----------
+\subsection*{Rédaction de la documentation}
+
+\tcolorbox[title=LaTeX]
+\begin{minipage}{0.15\textwidth}
+  \includegraphics[width=\linewidth]{C:/Documents issue de one drive/Bureau/TAV Airports/LOGO_Outils/latex2.png}
+\end{minipage}
+\hfill
+\begin{minipage}{0.8\textwidth}
+\textbf{LaTeX} est un système de composition de documents utilisé pour la rédaction du rapport final. Il permet de produire des documents structurés, avec une typographie professionnelle, des figures flottantes, des bibliographies automatiques et une excellente gestion des références.
+\end{minipage}
+\endtcolorbox
+\tcolorbox[title=Microsoft Word]
+\begin{minipage}{0.15\textwidth}
+  \includegraphics[width=\linewidth]{C:/Documents issue de one drive/Bureau/TAV Airports/LOGO_Outils/word.png}
+\end{minipage}
+\hfill
+\begin{minipage}{0.8\textwidth}
+\textbf{Microsoft Word} a été utilisé pour l’élaboration des livrables intermédiaires : planification, feuilles de route, documentation technique préliminaire. Sa compatibilité bureautique et ses fonctionnalités de mise en forme rapide en font un outil complémentaire à LaTeX pour la gestion de documents.
+\end{minipage}
+\endtcolorbox
+
+
+\newpage
+\section{Organisation architecturale de l’application}
+\label{sec:organisation-archi}
+
+Pour garantir une base logicielle à la fois claire, modulaire et facilement maintenable, il est essentiel d’adopter un schéma d’organisation des composants pensé dès la phase de conception. Notre objectif principal est de dissocier nettement les responsabilités — gestion des données, traitement métier et présentation — afin de réduire la complexité cyclomatique, d’améliorer la traçabilité des modifications et de fluidifier le travail collaboratif. C’est dans cette optique que le pattern MVC s’est avéré particulièrement adapté : il offre un cadre mature, éprouvé dans de nombreux projets industriels, permettant de faire évoluer chaque volet de l’application sans créer d’effets de bord dans les autres.  
+
+En pratique, cette structure assurera :
+\begin{itemize}
+  \item une isolation claire des responsabilités pour minimiser les dépendances croisées,  
+  \item une testabilité renforcée grâce à des interfaces bien définies entre les couches,  
+  \item une facilité d’extension fonctionnelle, les nouvelles exigences pouvant être implémentées dans la couche appropriée sans remise en cause globale,  
+  \item une collaboration optimisée, chaque développeur pouvant se concentrer sur un domaine (données, UI, logique) avec un impact maîtrisé.  
+\end{itemize}
+
+Vous trouverez dans les sections suivantes la justification détaillée de ce choix (section \ref{ssec:adoption-mvc}) ainsi que la description précise de la mise en œuvre de chaque composant MVC (section \ref{ssec:structure-mvc}).
+
+\subsection{Adoption du pattern MVC}
+\label{ssec:adoption-mvc}
+
+Dans le but d’obtenir une base de code claire, évolutive et testable, nous avons choisi d’adopter le pattern MVC (Modèle–Vue–Contrôleur). Ce découpage structuré permet de compartimenter les responsabilités :  
+\begin{itemize}
+  \item \textbf{Indépendance des couches} : chaque équipe peut travailler simultanément sur la manipulation des données, la présentation ou la logique métier sans risque d’effet de bord.  
+  \item \textbf{Réutilisabilité du code} : les composants Modèle et Vue peuvent être réemployés dans d’autres contextes (API, applications mobiles) en adaptant uniquement le contrôleur.  
+  \item \textbf{Robustesse fonctionnelle} : en isolant la logique métier, on facilite l’écriture de tests unitaires et d’intégration ciblés, ce qui améliore la fiabilité globale.   
+  \item \textbf{Évolutivité} : l’ajout de nouvelles fonctionnalités ou le refactoring se fait localement dans la couche concernée, sans impacter le reste de l’application.  
+\end{itemize}
+
+\newpage
+\subsection{Structure MVC et illustration}
+\label{ssec:structure-mvc}
+
+L’architecture MVC se compose de trois entités principales :
+
+\begin{itemize}
+  \item \textbf{Modèle} : responsable de l’accès aux données (lecture, écriture) et de leur structuration.
+  \item \textbf{Vue} : interface utilisateur, chargée d’afficher les informations et de capter les actions.
+  \item \textbf{Contrôleur} : médiateur qui reçoit les événements de la vue, sollicite le modèle et renvoie les résultats à la vue.
+\end{itemize}
+\begin{figure}[H]
+\centering
+\includegraphics[width=1\textwidth]{C:/Documents issue de one drive/Bureau/TAV Airports/LOGO_Outils/MVC.png}
+\caption{Shéma simplifié de l'architecture MVC}
+\end{figure}
+
+\subsection{Cartographie de déploiement de l’infrastructure}
+\label{ssec:cartographie-deploiement}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.9\textwidth]{C:/Documents issue de one drive/Bureau/TAV Airports/diagrammes/deploiement.png}
+  \caption{Diagramme de déploiement de l’application}
+  \label{fig:deployment}
+\end{figure}
+
+\vspace{1em}
+
+\begin{table}[H]
+  \centering
+  \label{tab:description-noeuds}
+  \begin{tabular}{@{}p{4cm}p{9.5cm}@{}}
+    \toprule
+    \multicolumn{2}{c}{\textbf{Description des nœuds}} \\ 
+    \midrule
+    \textbf{Nœud}            & \textbf{Rôle et fonction} \\ 
+    \midrule
+    PC ADMIN                 & Poste pour l’administrateur, qui gère les ressources de l’entreprise : flotte de véhicules, parcs d’impression, partenaires (Tunisie Autoroute, Ola Energy, APS, télécommunications). \\[4pt]
+    PC ResponsableFinance   & Poste pour le responsable des finances : visualisation des analyses des achats et évaluation de leur impact sur la santé financière de l’entreprise. \\[4pt]
+    PC Responsable Achats    & Poste pour le responsable des achats : suivi et analyse des commandes ainsi que leur incidence financière. \\[4pt]
+    Serveur d’Application     & Héberge l’application principale et gère la logique métier ; fournit les services web (API REST) aux clients. \\[4pt]
+    Serveur BD                & Base de données centrale (MySQL) : stockage des informations utilisateurs, transactions, rapports d’achats, avec réplication pour haute disponibilité. \\[4pt]
+    Imprimante Réseau         & Dispositif partagé pour l’impression des rapports financiers, des bons de commande et des documents administratifs. \\ 
+    \bottomrule
+  \end{tabular}
+    \caption{Description détaillée des nœuds déployés}
+
+\end{table}
+
+\section{Conclusion}
+
+
+Au cours de ce Sprint 0, nous avons d’abord clarifié les objectifs fonctionnels et techniques du projet (sect. 1–2), puis mis en place un pilotage agile via Scrum (sect. 3) pour garantir une organisation itérative et adaptative. Nous avons défini l’environnement de développement, sélectionné les technologies clés et justifié ces choix (sect. 4). Enfin, nous avons élaboré l’architecture générale de l’application, en adoptant le pattern MVC et en détaillant la répartition des composants (sect. 5). Cette phase préparatoire jette les bases d’un développement structuré, favorise la collaboration et minimise les risques techniques pour les prochains sprints.
+
+
+
+\newpage
+
+% Titre de chapitre simple, sans saut de ligne ni commande centrage
+\chapter{Sprint 1 -- Scrapping des Données}
+\thispagestyle{empty}
+\addcontentsline{toc}{chapter}{Chapitre \thechapter\quad Sprint 1 -- Scrapping des Données}
+% Mise en forme manuelle du sous-titre
+\vspace{2cm}
+\begin{center}
+  {\Huge\bfseries Sprint 1}\\[0.8em]
+  {\LARGE\bfseries Scrapping des Données}
+\end{center}
+
+% Séparation graphique
+\vspace{1.5cm}
+\begin{center}
+  \color{blue!60!black}\rule{0.6\textwidth}{1pt}
+\end{center}
+\vspace{1.5cm}
+
+% Plan du Sprint 1
+\begin{center}
+  {\huge\bfseries Plan}\\[0.5em]
+ 
+\end{center}
+\vspace{1em}
+
+\begin{enumerate}[%
+  label=\bfseries\Large\arabic*., 
+  leftmargin=2cm, 
+  itemsep=1em,
+  start=1
+]
+  \item Introduction
+  \item Collecte des données de Consommation OLA Energy
+  \item Analyse technique \& automatisation du pipeline
+  \item Insertion dans la base MongoDB
+  \item Clonage structuré vers le modèle final
+  \item Résultats et observations
+  \item Conclusion
+\end{enumerate}
+
+% Séparation graphique de bas de page
+\vfill
+\begin{center}
+  \color{blue!60!black}\rule{0.6\textwidth}{0.8pt}
+\end{center}
+
+\newpage
+\setcounter{section}{0}
+
+\section{Introduction}
+
+La gestion des consommations OLA Energy pour la flotte des véhicules Landside, mise à disposition des personnels exerçant en dehors de l'aéroport, s'inscrit dans une démarche de modernisation et d'optimisation opérationnelle. 
+
+Longtemps, la collecte et l'agrégation des données reposaient sur des pratiques manuelles fastidieuses : chaque année, un nouveau fichier Excel était généré pour répertorier, de manière isolée, les consommations mensuelles et annuelles. Ce procédé, bien que fonctionnel, s'est révélé peu adapté aux exigences d'une analyse en temps réel.
+
+Dès le Sprint 1, un processus entièrement repensé a été mis en place. Grâce à un script Python sur mesure, les informations issues des anciens fichiers Excel sont désormais capturées automatiquement et centralisées dans une base MongoDB. Cette architecture NoSQL, choisie pour sa scalabilité, offre une flexibilité sans précédent. Un protocole rigoureux de nettoyage et de transformation harmonise et enrichit ces données brutes, garantissant une qualité irréprochable pour l’étape analytique.
+
+En intégrant ces données structurées dans Power BI, un tableau de bord interactif, basé sur un modèle en étoile, fournit une vision claire et détaillée des consommations. Dès la finalisation des fichiers OLA, l’administrateur édite les factures correspondantes, assurant une parfaite synchronisation entre consommation et facturation. Ce mécanisme joue un rôle déterminant dans la prise de décision, en offrant aux responsables une compréhension en temps réel des tendances et en optimisant l’affectation des ressources.
+
+
+\section{Collecte des données de Consommation OLA Energy}
+
+Dans cette étape, nous avons collecté et centralisé les fichiers Excel relatifs aux consommations OLA Energy ainsi qu’aux factures générées annuellement par l’administrateur. Ces fichiers, souvent hétérogènes et dispersés, contenaient les données mensuelles et annuelles de consommation par employé, ainsi que les montants facturés correspondants.
+
+Cette collecte structurée constitue une base essentielle pour les phases de traitement et d’analyse. Elle garantit une traçabilité complète entre consommation réelle et facturation.
+
+% --- Figure 1
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=\textwidth]{C:/Users/bouka/Downloads/imageslatex/invoice2024.png}
+  \caption{Fichier Excel contenant les données de facturation OLA (2024)}
+  \label{fig:facturation-ola-2024}
+\end{figure}
+
+
+\vspace{-1em} % Réduction de l'espace vertical entre les deux figures
+
+% --- Figure 2
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=\textwidth]{C:/Users/bouka/Downloads/imageslatex/invoice2024.png}
+  \caption{Fichier Excel contenant les données de facturation OLA (2024)}
+  \label{fig:facturation-ola-2024}
+\end{figure}
+
+\newpage
+
+\section{Analyse Technique et Automatisation du Pipeline de Traitement des Données}
+
+Dans cette partie, nous présentons une vue d'ensemble de l'architecture technique mise en place pour automatiser le traitement des données. L'objectif est de transformer des opérations manuelles, souvent fastidieuses, en un processus robuste et fiable, garantissant l'intégrité des informations et facilitant leur exploitation dans la base de données MongoDB.
+
+\vspace{1em}
+
+\noindent Ci-dessous, nous illustrons le schéma global du processus d’intégration et d’automatisation des données OLA Energy :
+
+\vspace{0.5em}
+
+
+\begin{tcolorbox}[%
+  colback=gray!5,
+  colframe=blue!50!black,
+  title=\textbf{Schéma global du pipeline de traitement OLA Energy},
+  fonttitle=\bfseries\large,
+  boxrule=0.8pt,
+  arc=4pt,
+  enhanced,
+  sharp corners=south,
+  breakable,
+  center title
+]
+  \vspace{0.5em}
+  \centering
+  \includegraphics[width=0.96\textwidth]{C:/Users/bouka/Downloads/imageslatex/processus integration ETL.png}
+  \vspace{0.5em}
+  \captionof{figure}{Processus global d’intégration et d’automatisation des données OLA}
+  \label{fig:processus-automation}
+\end{tcolorbox}
+
+
+\vspace{1em}
+Ce pipeline établit un lien fluide entre les fichiers de données brutes au format Excel, leur transformation selon des standards internes, et leur insertion cohérente dans MongoDB.\\
+
+Afin d’illustrer clairement cette démarche, le script principal est présenté ci-dessous en \textbf{figures distinctes}, chacune correspondant à une étape spécifique du processus. 
+
+\begin{figure}[htbp]
+  \centering
+  \fbox{%
+    \includegraphics[width=\textwidth]{C:/Users/bouka/Downloads/imageslatex/jupyter1.png}%
+  }
+  \caption{Importation des bibliothèques nécessaires et initialisation de la connexion à la base de données MongoDB.\\
+   Ce code prépare l’environnement Python en important les bibliothèques utiles, puis établit la connexion avec la base de données \texttt{BackendData}.}
+  \label{fig:import-mongo}
+\end{figure}
+\begin{figure}[H]
+  \centering
+  \setlength{\fboxrule}{1pt}
+  \setlength{\fboxsep}{3pt}
+  % 4.2 - Nettoyage des colonnes
+  \fbox{\includegraphics[width=\textwidth]{C:/Users/bouka/Downloads/imageslatex/jupyter2.png}}
+  \caption{Fonction de nettoyage des noms des colonnes.}
+  \label{fig:clean-columns}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \setlength{\fboxrule}{1pt}
+  \setlength{\fboxsep}{3pt}
+  % 4.3 - Formatage des mois
+  \fbox{\includegraphics[width=\textwidth]{C:/Users/bouka/Downloads/imageslatex/jupyter3.png}}
+  \caption{Fonction de formatage des colonnes mensuelles.}
+  \label{fig:format-months}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \setlength{\fboxrule}{1pt}
+  \setlength{\fboxsep}{3pt}
+  % 4.4 - Mise à jour des types
+  \fbox{\includegraphics[width=\textwidth]{C:/Users/bouka/Downloads/imageslatex/jupyter4.png}}
+  \caption{Fonction de mise à jour des types de champs.}
+  \label{fig:update-types}
+\end{figure}
+
+% Vide la file d’attente des flottants avant le texte
+\FloatBarrier
+
+% Votre paragraphe explicatif
+Ces figures regroupent les fonctions essentielles à la standardisation des données : nettoyage des noms de colonnes, conversion des intitulés de mois, et homogénéisation des types de champs dans MongoDB afin d’assurer une structure cohérente et exploitable.
+
+% --- Figures Excel → MongoDB
+\begin{figure}[H]
+  \centering
+  \setlength{\fboxrule}{1pt}
+  \setlength{\fboxsep}{3pt}
+  \fbox{\includegraphics[width=\textwidth]{C:/Users/bouka/Downloads/imageslatex/jupyter5.png}}
+  \caption{Traitement des fichiers Excel et synchronisation avec MongoDB.}
+  \label{fig:excel-mongo-1}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \setlength{\fboxrule}{1pt}
+  \setlength{\fboxsep}{3pt}
+  \fbox{\includegraphics[width=\textwidth]{C:/Users/bouka/Downloads/imageslatex/jupyter6.png}}
+  \caption{Traitement des fichiers Excel et synchronisation avec MongoDB (suite).}
+  \label{fig:excel-mongo-2}
+\end{figure}
+
+\FloatBarrier
+
+% Votre paragraphe final
+Ce code automatise le traitement des fichiers Excel OLA présents dans un répertoire spécifique, en appliquant des transformations sur les données brutes. Il procède ensuite à l'insertion ou à la mise à jour des enregistrements dans la base de données MongoDB.
+
+
+% ------------------------------------------------------------------------
+\section{Insertion des données dans la Base MongoDB}
+
+À l’issue du pipeline de traitement, les données filtrées, nettoyées et conformes aux standards internes ont été directement intégrées dans une collection spécifique de la base MongoDB.
+
+Pour assurer une visualisation optimale, une vérification rigoureuse et, au besoin, des ajustements manuels ciblés, MongoDB Compass a été mobilisé en tant qu’interface graphique. Cet outil intuitif permet d’explorer les documents en profondeur, d’en garantir la qualité structurelle, et de gérer efficacement les enregistrements relatifs à la consommation de carburant dans un environnement stable, lisible et maîtrisé.
+
+\begin{figure}[H]
+  \centering
+  \setlength{\fboxrule}{1pt}
+  \setlength{\fboxsep}{3pt}
+  \fbox{\includegraphics[width=\textwidth]{C:/Users/bouka/Downloads/imageslatex/mongo1.png}}
+  \caption{Données importées dans MongoDB.}
+  \label{fig:import-mongo-db}
+\end{figure}
+
+% ------------------------------------------------------------------------
+\section{Clonage structuré de la Collection vers Modèle Final}
+
+Dans une logique de normalisation et de consolidation du modèle de données, la collection temporaire \texttt{olaconsumption2024}, issue de l'importation automatisée, a été clonée vers la collection cible \texttt{olaConsumptions}. Cette opération s’inscrit dans une démarche de centralisation, où toutes les données pertinentes relatives à la consommation de carburant sont regroupées dans un modèle unique, stable et pérenne au sein de la base \texttt{BackendData}.
+
+Le clonage a été effectué en utilisant MongoDB Shell, garantissant ainsi une opération rapide, scriptable et sans perte d’intégrité. Ces commandes ont été exécutées dans le contexte de la base de données cible :
+
+\begin{figure}[H]
+  \centering
+  \setlength{\fboxrule}{1pt}
+  \setlength{\fboxsep}{3pt}
+  \fbox{\includegraphics[width=\textwidth]{C:/Users/bouka/Downloads/imageslatex/mongo2.png}}
+  \caption{Clonage de la collection \texttt{olaconsumption2024} vers \texttt{olaConsumptions}.}
+  \label{fig:clone-collection}
+\end{figure}
+
+Dans ce code, une nouvelle structure de document est générée, regroupant les données mensuelles sous un objet \texttt{consumptions}, avec conversion des valeurs en nombres. L’ensemble des documents transformés est ensuite inséré dans la collection \texttt{olaConsumptions} pour l’année 2024, consolidant ainsi les données sous un format final et exploitable.
+
+\begin{figure}[H]
+  \centering
+  \setlength{\fboxrule}{1pt}
+  \setlength{\fboxsep}{3pt}
+  \fbox{\includegraphics[width=\textwidth]{C:/Users/bouka/Downloads/imageslatex/mongo3.png}}
+  \caption{Résultat du clonage des données dans la collection cible.}
+  \label{fig:clone-result}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \setlength{\fboxrule}{1pt}
+  \setlength{\fboxsep}{3pt}
+  \fbox{\includegraphics[width=\textwidth]{C:/Users/bouka/Downloads/imageslatex/mongo4.png}}
+  \caption{Aperçu des documents importés dans MongoDB via MongoDB Compass.}
+  \label{fig:compass-preview}
+\end{figure}
+
+% ------------------------------------------------------------------------
+\section{Résultats et observations}
+
+Cette section met en avant le rendu final après intégration, démontrant la cohérence entre les données stockées et leur affichage dans l’interface utilisateur. L’illustration ci-dessous montre comment les informations sont restituées dans le front-end du projet, suite aux transformations réalisées.
+
+\begin{figure}[H]
+  \centering
+  \setlength{\fboxrule}{1pt}
+  \setlength{\fboxsep}{3pt}
+  \fbox{\includegraphics[width=\textwidth]{C:/Users/bouka/Downloads/imageslatex/mongo5.png}}
+  \caption{ Aperçu des documents importés dans l’application.\\}
+  \label{fig:compass-preview}
+\end{figure}
+\section{Conclusion}
+Le premier sprint a permis de franchir une étape essentielle du projet en assurant la récupération, le nettoyage et la structuration des données issues de la source brute. Grâce aux traitements réalisés, les données ont été préparées dans un format cohérent et fiable, facilitant leur exploitation dans les modules à venir. Cette base de travail claire et conforme marque un point de départ solide pour la suite du développement.
+
+
+
+
+\newpage
+
+% Chapitre Sprint 2
+\chapter{Étude et réalisation du Sprint 2}
+\thispagestyle{empty}
+\addcontentsline{toc}{chapter}{Chapitre \thechapter\quad Étude et réalisation du Sprint 2}
+
+% Espace avant le sous-titre
+\vspace{2cm}
+\begin{center}
+  {\Huge\bfseries Sprint 2}\\[0.8em]
+  {\LARGE\bfseries Étude et réalisation du Sprint 2}
+\end{center}
+
+% Séparation graphique
+\vspace{1.5cm}
+\begin{center}
+  \color{blue!60!black}\rule{0.6\textwidth}{1pt}
+\end{center}
+\vspace{1.5cm}
+
+% Plan du Sprint 2
+\begin{center}
+  {\huge\bfseries Plan}\\[0.5em]
+\end{center}
+\vspace{1em}
+
+\begin{enumerate}[%
+  label=\bfseries\Large\arabic*., 
+  leftmargin=2cm, 
+  itemsep=1em
+]
+  \item Introduction
+  \item Sprint Backlog
+  \item Spécification des besoins du Sprint
+  \item Conception
+  \item Réalisation et tests
+  \item Utilisation des outils de Scrum
+  \item Conclusion
+\end{enumerate}
+
+% Séparation graphique de bas de page
+\vfill
+\begin{center}
+  \color{blue!60!black}\rule{0.6\textwidth}{0.8pt}
+\end{center}
+
+\newpage
+\setcounter{section}{0}
+
+\section{Introduction}
+
+Ce sprint se focalise sur le développement et l’optimisation du module d’authentification et de gestion des utilisateurs afin d’assurer un accès sécurisé adapté aux rôles spécifiques tels que l’Administrateur, le Responsable Finance et le Responsable Achat. Il comprend la mise en place d’une authentification robuste via email/mot de passe, l’intégration de mécanismes de sécurité avancés pour protéger les données et une gestion efficace des droits d’accès.\\
+
+
+\section{Sprint Backlog}
+\begin{table}[htbp]
+  \centering
+  \caption{Sprint Backlog}
+  \label{tab:sprint-backlog}
+  \begin{tabular}{|p{3cm}|p{8cm}|c|c|}
+    \hline
+    \textbf{CU globale} 
+      & \textbf{User Story} 
+      & \textbf{Priorité} 
+      & \textbf{Estimation (j)} \\ 
+    \hline
+    % Epic administrateur (3 stories)
+    \multirow{3}{=}{\parbox{3cm}{En tant qu’administrateur\\je veux gérer les\\comptes utilisateurs}}
+      & En tant qu’administrateur, je veux ajouter un compte utilisateur. 
+      & 1 & 1 \\ \cline{2-4}
+    & En tant qu’administrateur, je veux modifier le compte d’un utilisateur. 
+      & 2 & 1 \\ \cline{2-4}
+    & En tant qu’administrateur, je veux supprimer un compte lorsque je consulte la liste des comptes. 
+      & 3 & 1 \\ 
+    \hline
+    % Epic utilisateur (4 stories)
+    \multirow{4}{=}{\parbox{3cm}{}}
+      & En tant qu’utilisateur(Responsable Achat,Responsable Finance,Administrateur), Je veux m’authentifier. 
+      & 1 & 2 \\ \cline{2-4}
+    & En tant qu’utilisateur(Responsable Achat,Responsable Finance,Administrateur),Je veux consulter mon profil. 
+      & 4 & 1 \\ \cline{2-4}
+    & En tant qu’utilisateur(Responsable Achat,Responsable Finance,Administrateur),Je veux modifier mes informations personnelles. 
+      & 5 & 1 \\ \cline{2-4}
+    & En tant qu’utilisateur(Responsable Achat,Responsable Finance,Administrateur), Je veux réinitialiser mon mot de passe. 
+      & 1 & 2 \\
+    \hline
+  \end{tabular}
+\end{table}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\section{Spécification des besoins du Sprint}
+
+\subsection{Diagramme de Cas d'utilisation}
+
+
+\begin{figure}[H]
+  \centering
+  \setlength{\fboxrule}{1pt}
+  \setlength{\fboxsep}{3pt}
+  \fbox{\includegraphics[width=\textwidth]{C:/Users/bouka/Downloads/imageslatex/DCU.png}}
+  \caption{Diagramme de cas d’utilisation Sprint 2.}
+  \label{fig:clone-result}
+\end{figure}
+\subsection{ Description textuelle des cas d’utilisations}
+
+\textbf{Description textuelle de cu S'authentifier}
+
+
+
+
+\newpage
+
+\section{Conception}
+% Votre texte ici
+
+\section{Réalisation et tests}
+% Votre texte ici
+
+\section{Utilisation des outils de Scrum}
+% Votre texte ici
+
+\section{Conclusion}
+% Votre texte ici
+
+
+\newpage
+
+% Chapitre Sprint 3
+\chapter{Étude et réalisation du Sprint 3}
+\thispagestyle{empty}
+\addcontentsline{toc}{chapter}{Chapitre \thechapter\quad Étude et réalisation du Sprint 3}
+
+\vspace{2cm}
+\begin{center}
+  {\Huge\bfseries Sprint 3}\\[0.8em]
+  {\LARGE\bfseries Étude et réalisation du Sprint 3}
+\end{center}
+
+\vspace{1.5cm}
+\begin{center}
+  \color{blue!60!black}\rule{0.6\textwidth}{1pt}
+\end{center}
+\vspace{1.5cm}
+
+\begin{center}
+  {\huge\bfseries Plan}\\[0.5em]
+\end{center}
+\vspace{1em}
+
+\begin{enumerate}[%
+  label=\bfseries\Large\arabic*., 
+  leftmargin=2cm, 
+  itemsep=1em
+]
+   \item Introduction
+  \item Sprint Backlog
+  \item Spécification des besoins du Sprint
+  \item Conception
+  \item Réalisation et tests
+  \item Utilisation des outils de Scrum
+  \item Conclusion
+\end{enumerate}
+
+\vfill
+\begin{center}
+  \color{blue!60!black}\rule{0.6\textwidth}{0.8pt}
+\end{center}
+
+\newpage
+\setcounter{section}{0}
+
+\section{Introduction}
+
+Ce sprint se concentre sur le développement et l’optimisation d’un module dédié à la gestion de la consommation de carburant. L’objectif est de fournir un suivi en temps réel, d’analyser les données de consommation pour identifier et corriger les écarts, et d’offrir des rapports dynamiques permettant d’optimiser l’usage des ressources. Le module sera conçu pour s’intégrer harmonieusement avec l’ensemble du système et répondre aux besoins spécifiques des partenaires OLA Energy (Landside) et APS (Airport Petrol Service).
+
+\section{Sprint Backlog}
+
+\begin{table}[htbp]
+  \centering
+  \caption{Sprint Backlog – Sprint 3}
+  \label{tab:sprint3-backlog}
+  \begin{tabular}{|p{3.5cm}|p{8cm}|c|c|}
+    \hline
+    \textbf{CU globale} 
+      & \textbf{User Story} 
+      & \textbf{Priorité} 
+      & \textbf{Estimation (j)} \\ 
+    \hline
+    \multirow{8}{=}{\parbox{3.5cm}{En tant qu’administrateur,\\je veux gérer les consommations\\OLA Energy (Landside)}} 
+      & En tant qu'administrateur, je veux ajouter une carte de consommation carburant OLA. 
+      & 1 & 1 \\ \cline{2-4}
+    & En tant qu'administrateur, je veux modifier les données d’une carte OLA. 
+      & 1 & 1 \\ \cline{2-4}
+    & En tant qu'administrateur, je veux consulter le TB de suivi OLA. 
+      & 1 & 1 \\ \cline{2-4}
+    & En tant qu'administrateur, je veux supprimer des enregistrements de consommation carburant OLA. 
+      & 2 & 1 \\ \cline{2-4}
+    & En tant qu'administrateur, je veux supprimer une carte de consommation carburant OLA. 
+      & 2 & 1 \\ \cline{2-4}
+    & En tant qu'administrateur, je veux gérer la facturation (ajout, modification, suppression). 
+      & 2 & 1 \\ \cline{2-4}
+    & En tant qu'administrateur, je veux consulter l’historique de la section OLA Energy. 
+      & 3 & 1 \\ \cline{2-4}
+    & En tant qu'administrateur, je veux filtrer les données de consommation selon des critères (DepCode, année, Location, …). 
+      & 3 & 1 \\
+    \hline
+    \multirow{7}{=}{\parbox{3.5cm}{En tant qu’administrateur,\\je veux gérer les consommations\\APS (Airside)}} 
+      & En tant qu'administrateur, je veux ajouter une carte de consommation carburant APS. 
+      & 3 & 1 \\ \cline{2-4}
+    & En tant qu'administrateur, je veux consulter le TB de suivi APS. 
+      & 4 & 2 \\ \cline{2-4}
+    & En tant qu'administrateur, je veux supprimer des enregistrements de consommation carburant APS. 
+      & 4 & 1 \\ \cline{2-4}
+    & En tant qu'administrateur, je veux supprimer une carte de consommation carburant APS. 
+      & 5 & 1 \\ \cline{2-4}
+    & En tant qu'administrateur, je veux filtrer les données de consommation APS selon des critères. 
+      & 5 & 1 \\ \cline{2-4}
+    & En tant qu'administrateur, je veux gérer la facturation APS (ajout, modification, suppression). 
+      & 5 & 2 \\ \cline{2-4}
+    & En tant qu'administrateur, je veux consulter l’historique de la section APS. 
+      & 5 & 1 \\
+    \hline
+  \end{tabular}
+\end{table}
+
+\section{Spécification des besoins du Sprint 3}
+\subsection{Diagramme de cas d’utilisation Sprint 3}
+\begin{figure}[H]
+  \centering
+  \setlength{\fboxrule}{1pt}
+  \setlength{\fboxsep}{3pt}
+  \fbox{\includegraphics[width=\textwidth]{C:/Users/bouka/Downloads/imageslatex/sprint 3.png}}
+  \caption{Diagramme de cas d’utilisation Sprint 3.}
+  \label{fig:clone-result}
+\end{figure}
+\subsection{Description textuelle des cas d'utilisation}
+
+\textbf{spécification textuelle de CU “Ajouter Carte OLA”}
+
+
+\begin{table}[H]
+  \centering
+  \renewcommand{\arraystretch}{1.5}
+  \caption{Spécification textuelle du cas d'utilisation "Ajouter Carte OLA"}
+  \begin{tabularx}{\textwidth}{|l|X|}
+    \hline
+    \textbf{Cas d'utilisation} & Ajouter Carte OLA \\ \hline
+    \textbf{Acteur} & Administrateur \\ \hline
+    \textbf{Préconditions} & 
+    \begin{itemize}
+      \item L’administrateur est authentifié dans le système.
+      \item L’administrateur est dans la section \textit{Gestion de véhicules}.
+    \end{itemize} \\ \hline
+    \textbf{Postconditions} & 
+    \begin{itemize}
+      \item Une nouvelle carte de consommation OLA est créée dans le système.
+      \item Une notification est affichée pour confirmer la création.
+    \end{itemize} \\ \hline
+    \textbf{Scénario de base} & 
+    \begin{enumerate}
+      \item L’administrateur accède à la section \textit{Gérer OLA Energy}.
+      \item Le système affiche l’interface de gestion de la consommation OLA.
+      \item L’administrateur choisit de créer une nouvelle carte OLA.
+      \item Le système affiche un formulaire d’ajout de carte OLA.
+      \item L’administrateur saisit l’année de la carte.
+      \item L’administrateur clique sur le bouton “save”.
+      \item Le système vérifie la validité des informations saisies.
+      \item Le système crée la nouvelle carte OLA et l’ajoute à la liste des consommations OLA.
+      \item Le système informe l’administrateur de la création de la carte avec succès.
+    \end{enumerate} \\ \hline
+    \textbf{Scénario alternatif} & 
+    \textbf{6.a Information non valides :}
+    \begin{itemize}
+      \item Le système affiche un message d’erreur.
+      \item Retour à l’étape 4 du scénario de base.
+    \end{itemize} \\ \hline
+  \end{tabularx}
+\end{table}
+
+
+
+\textbf{spécification textuelle de CU “Modifier Carte OLA”}
+
+
+\begin{table}[H]
+  \centering
+  \renewcommand{\arraystretch}{1.5}
+  \caption{Spécification textuelle du cas d'utilisation "Modifier Carte OLA"}
+  \begin{tabularx}{\textwidth}{|l|X|}
+    \hline
+    \textbf{Cas d'utilisation} & Modifier Carte OLA \\ \hline
+    \textbf{Acteur} & Administrateur \\ \hline
+    \textbf{Préconditions} & 
+    \begin{itemize}
+      \item L’administrateur est authentifié dans le système.
+      \item Il est dans la section \textit{Gestion de consommation OLA}.
+      \item La liste des cartes OLA est affichée.
+    \end{itemize} \\ \hline
+    \textbf{Postconditions} & 
+    \begin{itemize}
+      \item Les données de consommation de la carte sont modifiées.
+      \item Une notification informe l’administrateur de la modification.
+    \end{itemize} \\ \hline
+    \textbf{Scénario de base} & 
+    \begin{enumerate}
+      \item L’administrateur sélectionne une carte OLA à modifier.
+      \item Le système affiche les données de la carte sélectionnée.
+      \item L’administrateur choisit de modifier un enregistrement de consommation.
+      \item L’administrateur clique sur le bouton “Update”.
+      \item Le système affiche le formulaire de modification.
+      \item L’administrateur modifie les informations.
+      \item L’administrateur clique sur “save”.
+      \item Le système vérifie les informations.
+      \item Le système met à jour la carte.
+      \item Une notification informe de la réussite de la modification.
+    \end{enumerate} \\ \hline
+    \textbf{Scénario alternatif} & 
+    \textbf{7.a Informations modifiées non valides :}
+    \begin{itemize}
+      \item Le système affiche un message d’erreur.
+      \item Retour à l’étape 4 du scénario de base.
+    \end{itemize} \\ \hline
+  \end{tabularx}
+\end{table}
+
+
+
+\textbf{spécification textuelle de CU “Supprimer Carte OLA”
+}
+
+
+
+\begin{table}[H]
+  \centering
+  \renewcommand{\arraystretch}{1.5}
+  \caption{Spécification textuelle du cas d'utilisation "Supprimer Carte OLA"}
+  \begin{tabularx}{\textwidth}{|l|X|}
+    \hline
+    \textbf{Cas d'utilisation} & Supprimer Carte OLA \\ \hline
+    \textbf{Acteur} & Administrateur \\ \hline
+    \textbf{Préconditions} & 
+    \begin{itemize}
+      \item L’administrateur est authentifié dans le système.
+      \item Il est dans la section \textit{Gestion de consommation OLA}.
+      \item La liste des cartes OLA est affichée.
+    \end{itemize} \\ \hline
+    \textbf{Postconditions} & 
+    \begin{itemize}
+      \item La carte est supprimée du système.
+      \item Une notification confirme la suppression.
+    \end{itemize} \\ \hline
+    \textbf{Scénario de base} & 
+    \begin{enumerate}
+      \item L’administrateur sélectionne une carte OLA à supprimer.
+      \item L’administrateur clique sur le bouton de suppression.
+      \item Le système supprime la carte OLA.
+      \item Le système informe l’administrateur de la suppression.
+    \end{enumerate} \\ \hline
+  \end{tabularx}
+\end{table}
+
+
+
+
+
+\textbf{spécification textuelle de CU “Supprimer données consommations”
+}
+
+\begin{table}[H]
+  \centering
+  \renewcommand{\arraystretch}{1.5}
+  \caption{Spécification textuelle du cas d'utilisation "Supprimer Données consommations"}
+  \begin{tabularx}{\textwidth}{|l|X|}
+    \hline
+    \textbf{Cas d'utilisation} & Supprimer Données consommations \\ \hline
+    \textbf{Acteur} & Administrateur \\ \hline
+    \textbf{Préconditions} & 
+    \begin{itemize}
+      \item L’administrateur est authentifié.
+      \item Il est dans la section \textit{Gestion de consommation OLA}.
+      \item La liste des cartes OLA est affichée.
+    \end{itemize} \\ \hline
+    \textbf{Postconditions} & 
+    \begin{itemize}
+      \item Les données de consommation sont supprimées.
+      \item La carte est mise à jour.
+      \item Une notification confirme la suppression.
+    \end{itemize} \\ \hline
+    \textbf{Scénario de base} & 
+    \begin{enumerate}
+      \item L’administrateur sélectionne une carte OLA à modifier.
+      \item Le système affiche les données de la carte.
+      \item L’administrateur choisit de supprimer un enregistrement.
+      \item L’administrateur clique sur le bouton “Delete”.
+      \item Le système supprime les données sélectionnées.
+      \item Le système met à jour la carte.
+      \item Une notification informe l’administrateur de la suppression.
+    \end{enumerate} \\ \hline
+  \end{tabularx}
+\end{table}
+
+
+
+
+\textbf{spécification textuelle de CU “Consulter Historique OLA”
+}
+
+\begin{table}[H]
+  \centering
+  \renewcommand{\arraystretch}{1.5}
+  \caption{Spécification textuelle du cas d'utilisation "Consulter Historique OLA"}
+  \begin{tabularx}{\textwidth}{|l|X|}
+    \hline
+    \textbf{Cas d'utilisation} & Consulter Historique OLA \\ \hline
+    \textbf{Acteur}            & Administrateur \\ \hline
+    \textbf{Préconditions}     & 
+      \begin{itemize}
+        \item L’administrateur est authentifié dans le système.
+      \end{itemize} \\ \hline
+    \textbf{Postconditions}    & 
+      \begin{itemize}
+        \item La liste des actions historiques est affichée.
+      \end{itemize} \\ \hline
+    \textbf{Scénario de base}  & 
+      \begin{enumerate}
+        \item L’administrateur accède à la section gestion de véhicules.
+        \item Il choisit la section historique.
+        \item Le système affiche la liste de l'historique.
+      \end{enumerate} \\ \hline
+    \textbf{Scénario alternatif} & 
+      \textbf{3.a Liste historique vide :}
+      \begin{itemize}
+        \item Le système informe l’administrateur qu’aucune action n’est enregistrée.
+      \end{itemize} \\ \hline
+  \end{tabularx}
+\end{table}
+
+
+\textbf{Spécification textuelle de CU “Vider Historique OLA”}
+
+\begin{table}[H]
+  \centering
+  \renewcommand{\arraystretch}{1.5}
+  \caption{Spécification textuelle du cas d'utilisation "Vider Historique OLA"}
+  \begin{tabularx}{\textwidth}{|l|X|}
+    \hline
+    \textbf{Cas d'utilisation} & Vider Historique OLA \\ \hline
+    \textbf{Acteur}            & Administrateur \\ \hline
+    \textbf{Préconditions}     & 
+      \begin{itemize}
+        \item L’administrateur est authentifié.
+        \item Il est dans la section historique.
+      \end{itemize} \\ \hline
+    \textbf{Postconditions}    & 
+      \begin{itemize}
+        \item La liste historique est vidée.
+        \item Le système informe qu’aucune action n’est enregistrée.
+      \end{itemize} \\ \hline
+    \textbf{Scénario de base}  & 
+      \begin{enumerate}
+        \item L’administrateur choisit de supprimer tout l’historique.
+        \item Le système affiche un message de confirmation.
+        \item L’administrateur clique sur “Confirm”.
+        \item Le système supprime toute la liste historique.
+        \item Le système informe qu’aucune action n’est enregistrée.
+      \end{enumerate} \\ \hline
+    \textbf{Scénario alternatif} & 
+      \textbf{3.a Annulation de la suppression :}
+      \begin{itemize}
+        \item La liste historique est réaffichée.
+      \end{itemize} \\ \hline
+  \end{tabularx}
+\end{table}
+
+
+\textbf{Spécification textuelle de CU “Ajouter Facture”}
+
+\begin{table}[H]
+  \centering
+  \renewcommand{\arraystretch}{1.5}
+  \caption{Spécification textuelle du cas d'utilisation "Ajouter Facture"}
+  \begin{tabularx}{\textwidth}{|l|X|}
+    \hline
+    \textbf{Cas d'utilisation} & Ajouter Facture \\ \hline
+    \textbf{Acteur}            & Administrateur \\ \hline
+    \textbf{Préconditions}     & 
+      \begin{itemize}
+        \item L’administrateur est authentifié.
+        \item Il est dans la section gestion de véhicules.
+      \end{itemize} \\ \hline
+    \textbf{Postconditions}    & 
+      \begin{itemize}
+        \item Une facture de consommation est ajoutée à la liste.
+      \end{itemize} \\ \hline
+    \textbf{Scénario de base}  & 
+      \begin{enumerate}
+        \item L’administrateur accède à la section facturation.
+        \item Il choisit d’ajouter une nouvelle facture.
+        \item Le système affiche un formulaire d’ajout.
+        \item L’administrateur saisit les informations de la facture.
+        \item Il clique sur “save”.
+        \item Le système vérifie les informations.
+        \item Le système ajoute la facture et met à jour le total.
+        \item Le système informe de l’ajout.
+      \end{enumerate} \\ \hline
+    \textbf{Scénario alternatif} & 
+      \textbf{5.a Informations erronées :}
+      \begin{itemize}
+        \item Le système affiche un message d’erreur.
+        \item Retour à l’étape 4 du scénario de base.
+      \end{itemize} \\ \hline
+  \end{tabularx}
+\end{table}
+
+
+\textbf{Spécification textuelle de CU “Modifier Facture”}
+
+\begin{table}[H]
+  \centering
+  \renewcommand{\arraystretch}{1.5}
+  \caption{Spécification textuelle du cas d'utilisation "Modifier Facture"}
+  \begin{tabularx}{\textwidth}{|l|X|}
+    \hline
+    \textbf{Cas d'utilisation} & Modifier Facture \\ \hline
+    \textbf{Acteur}            & Administrateur \\ \hline
+    \textbf{Préconditions}     & 
+      \begin{itemize}
+        \item L’administrateur est authentifié.
+        \item Il est dans la section gestion de véhicules.
+        \item La liste des factures est affichée.
+      \end{itemize} \\ \hline
+    \textbf{Postconditions}    & 
+      \begin{itemize}
+        \item La facture est mise à jour (total, etc.).
+      \end{itemize} \\ \hline
+    \textbf{Scénario de base}  & 
+      \begin{enumerate}
+        \item L’administrateur accède à la section facturation.
+        \item Le système affiche la liste des factures.
+        \item Il choisit une facture à modifier.
+        \item Il clique sur “Update”.
+        \item Le système affiche le formulaire prérempli.
+        \item Il modifie les informations.
+        \item Il valide la soumission.
+        \item Le système vérifie les nouvelles données.
+        \item Le système met à jour la facture.
+        \item Le système informe de la modification.
+      \end{enumerate} \\ \hline
+    \textbf{Scénario alternatif} & 
+      \textbf{8.a Informations invalides :}
+      \begin{itemize}
+        \item Le système affiche un message d’erreur.
+        \item Retour à l’étape 5 du scénario de base.
+      \end{itemize} \\ \hline
+  \end{tabularx}
+\end{table}
+
+
+\textbf{Spécification textuelle de CU “Supprimer Facture”}
+
+\begin{table}[H]
+  \centering
+  \renewcommand{\arraystretch}{1.5}
+  \caption{Spécification textuelle du cas d'utilisation "Supprimer Facture"}
+  \begin{tabularx}{\textwidth}{|l|X|}
+    \hline
+    \textbf{Cas d'utilisation} & Supprimer Facture \\ \hline
+    \textbf{Acteur}            & Administrateur \\ \hline
+    \textbf{Préconditions}     & 
+      \begin{itemize}
+        \item L’administrateur est authentifié.
+        \item Il est dans la section gestion de véhicules.
+        \item La liste des factures est affichée.
+      \end{itemize} \\ \hline
+    \textbf{Postconditions}    & 
+      \begin{itemize}
+        \item La facture est supprimée de la liste.
+      \end{itemize} \\ \hline
+    \textbf{Scénario de base}  & 
+      \begin{enumerate}
+        \item L’administrateur accède à la section facturation.
+        \item Le système affiche la liste des factures.
+        \item Il choisit de supprimer une facture.
+        \item Il clique sur “Delete”.
+        \item Le système supprime la facture.
+      \end{enumerate} \\ \hline
+    \textbf{Scénario alternatif} & 
+      \textbf{5.a Annulation de la suppression :}
+      \begin{itemize}
+        \item Le système annule la suppression.
+        \item Retour à l’étape 2 du scénario de base.
+      \end{itemize} \\ \hline
+  \end{tabularx}
+\end{table}
+
+
+\textbf{Spécification textuelle de CU “Téléverser Facture OLA”}
+
+\begin{table}[H]
+  \centering
+  \renewcommand{\arraystretch}{1.5}
+  \caption{Spécification textuelle du cas d'utilisation "Téléverser Facture OLA"}
+  \begin{tabularx}{\textwidth}{|l|X|}
+    \hline
+    \textbf{Cas d'utilisation} & Téléverser Facture OLA \\ \hline
+    \textbf{Acteur}            & Administrateur \\ \hline
+    \textbf{Préconditions}     & 
+      \begin{itemize}
+        \item L’administrateur est authentifié.
+        \item Il est dans la section facturation.
+      \end{itemize} \\ \hline
+    \textbf{Postconditions}    & 
+      \begin{itemize}
+        \item La facture est ajoutée à la liste.
+        \item Une notification confirme le succès.
+      \end{itemize} \\ \hline
+    \textbf{Scénario de base}  & 
+      \begin{enumerate}
+        \item L’administrateur clique sur “Téléverser une facture”.
+        \item Le système ouvre la boîte de dialogue sélection de fichier.
+        \item Il choisit un fichier PDF.
+        \item Il clique sur “Upload”.
+        \item Le système vérifie le format.
+        \item Le système enregistre la facture.
+        \item Le système affiche une notification de succès.
+      \end{enumerate} \\ \hline
+    \textbf{Scénario alternatif} & 
+      \textbf{6.a Fichier non valide (format) :}
+      \begin{itemize}
+        \item Le système affiche un message d’erreur.
+        \item Retour à l’étape 4 du scénario de base.
+      \end{itemize} \\ \hline
+  \end{tabularx}
+\end{table}
+
+\textbf{Spécification textuelle de CU “Téléverser relevé de consommation OLA”}
+
+\begin{table}[H]
+  \centering
+  \renewcommand{\arraystretch}{1.5}
+  \caption{Spécification textuelle du cas d'utilisation "Téléverser relevé de consommation OLA"}
+  \begin{tabularx}{\textwidth}{|l|X|}
+    \hline
+    \textbf{Cas d'utilisation} & Téléverser relevé de consommation OLA \\ \hline
+    \textbf{Acteur}            & Administrateur \\ \hline
+    \textbf{Préconditions}     & 
+      \begin{itemize}
+        \item L’administrateur est authentifié.
+        \item Il est dans la section consulter carte OLA.
+      \end{itemize} \\ \hline
+    \textbf{Postconditions}    & 
+      \begin{itemize}
+        \item Les consommations mensuelles sont mises à jour pour chaque carte.
+        \item Une notification confirme le succès.
+      \end{itemize} \\ \hline
+    \textbf{Scénario de base}  & 
+      \begin{enumerate}
+        \item L’administrateur accède à la section consulter carte OLA.
+        \item Le système affiche la liste des cartes.
+        \item Il sélectionne une carte.
+        \item Il clique sur “Téléverser relevé consommation”.
+        \item Le système ouvre la boîte de dialogue.
+        \item Il choisit un fichier PDF.
+        \item Il clique sur “Upload relevé”.
+        \item Le système vérifie le format.
+        \item Le système met à jour les consommations.
+        \item Le système affiche une notification de succès.
+      \end{enumerate} \\ \hline
+    \textbf{Scénario alternatif} & 
+      \begin{itemize}
+        \item \textbf{8.a Fichier non valide (format) :} Le système affiche un avertissement et revient à l’étape 6.
+        \item \textbf{8.b Relevé déjà existant :} Le système alerte de l’existence et revient à l’étape 6.
+      \end{itemize} \\ \hline
+  \end{tabularx}
+\end{table}
+
+\subsection{Maquette des Interfaces du Sprint 3}
+
+
+
+\begin{figure}[H]
+  \centering
+  \setlength{\fboxrule}{1pt}
+  \setlength{\fboxsep}{3pt}
+  \fbox{\includegraphics[width=\textwidth]{C:/Documents issue de one drive/Bureau/TAV Airports/Maquette Balsamic/OLA Dashboard.png
+}}
+  \caption{Dashboard OLA Energy }
+  \label{fig:clone-result}
+\end{figure}
+
+
+\begin{figure}[H]
+  \centering
+  \setlength{\fboxrule}{1pt}
+  \setlength{\fboxsep}{3pt}
+  \fbox{\includegraphics[width=\textwidth]{C:/Documents issue de one drive/Bureau/TAV Airports/Maquette Balsamic/OLA manage vers corrig .png
+}}
+  \caption{Gestion OLA energy 
+ }
+  \label{fig:clone-result}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \setlength{\fboxrule}{1pt}
+  \setlength{\fboxsep}{3pt}
+  \fbox{\includegraphics[width=\textwidth]{C:/Documents issue de one drive/Bureau/TAV Airports/Maquette Balsamic/Ola consumption details .png
+}}
+  \caption{ Détails consommation Carte OLA.
+ }
+  \label{fig:clone-result}
+\end{figure}
+
+
+\begin{figure}[H]
+  \centering
+  \setlength{\fboxrule}{1pt}
+  \setlength{\fboxsep}{3pt}
+  \fbox{\includegraphics[width=\textwidth]{C:/Documents issue de one drive/Bureau/TAV Airports/Maquette Balsamic/OLA Billing.png
+}}
+  \caption{ Gestion Facturation OLA
+ }
+  \label{fig:clone-result}
+\end{figure}
+\begin{figure}[H]
+  \centering
+  \setlength{\fboxrule}{1pt}
+  \setlength{\fboxsep}{3pt}
+  \fbox{\includegraphics[width=\textwidth]{C:/Documents issue de one drive/Bureau/TAV Airports/Maquette Balsamic/OLa history.png
+}}
+  \caption{  Historique 
+ }
+  \label{fig:clone-result}
+\end{figure}
+
+
+\section{Conception}
+\subsection{Diagramme de séquence du Sprint 3}
+
+\newpage
+\textbf{Diagramme de séquence :“Ajouter Carte de consommation OLA” }
+
+\begin{figure}[H]
+  \centering
+  \setlength{\fboxrule}{1pt}
+  \setlength{\fboxsep}{3pt}
+  \fbox{\includegraphics[width=\textwidth]{C:/Users/bouka/Downloads/imageslatex/DCU1 corr.png
+}}
+  \caption{Diagramme de séquence de cu “Ajouter Carte de consommation OLA”
+ }
+  \label{fig:clone-result}
+\end{figure}
+
+\newpage
+\textbf{Diagramme de séquence de cu “Supprimer Carte OLA”
+ }
+
+\begin{figure}[H]
+  \centering
+  \setlength{\fboxrule}{1pt}
+  \setlength{\fboxsep}{3pt}
+  \fbox{\includegraphics[width=\textwidth]{C:/Users/bouka/Downloads/imageslatex/DCU corr.png
+}}
+  \caption{ Diagramme de séquence de cu : Supprimer Carte OLA
+ }
+  \label{fig:clone-result}
+\end{figure}
+
+
+
+
+\newpage
+\textbf{ Diagramme de séquence de cu "Supprimer  Données de consommation OLA"
+ }
+
+\begin{figure}[H]
+  \centering
+  \setlength{\fboxrule}{1pt}
+  \setlength{\fboxsep}{3pt}
+  \fbox{\includegraphics[width=\textwidth]{C:/Users/bouka/Downloads/imageslatex/DCU supp données consomm.png
+}}
+  \caption{ Diagramme de séquence de cu : Supprimer  Données de consommation OLA
+ }
+  \label{fig:clone-result}
+\end{figure}
+
+
+\newpage
+\textbf{ Diagramme de séquence de cu “modifier donnée de consommation OLA”}
+
+\begin{figure}[H]
+  \centering
+  \setlength{\fboxrule}{1pt}
+  \setlength{\fboxsep}{3pt}
+  \fbox{\includegraphics[width=\textwidth]{C:/Users/bouka/Downloads/imageslatex/DS3.png
+}}
+  \caption{ Diagramme de séquence de cu :modifier donnée de consommation OLA
+ }
+  \label{fig:clone-result}
+\end{figure}
+
+
+
+
+\newpage
+\textbf{ Diagramme de séquence de cu “Consulter Historique OLA”}
+
+\begin{figure}[H]
+  \centering
+  \setlength{\fboxrule}{1pt}
+  \setlength{\fboxsep}{3pt}
+  \fbox{\includegraphics[width=\textwidth]{C:/Users/bouka/Downloads/imageslatex/DSconsulterhistola.png
+}}
+  \caption{ Diagramme de séquence de cu :Consulter Historique OLA
+ }
+  \label{fig:clone-result}
+\end{figure}
+
+
+\newpage
+\textbf{ Diagramme de séquence de cu “Filtrer données OLA”}
+
+\begin{figure}[H]
+  \centering
+  \setlength{\fboxrule}{1pt}
+  \setlength{\fboxsep}{3pt}
+  \fbox{\includegraphics[width=\textwidth]{C:/Users/bouka/Downloads/imageslatex/DSconsulterhistola.png
+}}
+  \caption{ Diagramme de séquence de cu : Filtrer données OLA”
+ }
+  \label{fig:clone-result}
+\end{figure}
+
+\newpage
+\textbf{ Diagramme de séquence de cu “vider Historique ”}
+
+\begin{figure}[H]
+  \centering
+  \setlength{\fboxrule}{1pt}
+  \setlength{\fboxsep}{3pt}
+  \fbox{\includegraphics[width=\textwidth]{C:/Users/bouka/Downloads/imageslatex/DS vider historique.png
+}}
+  \caption{ Diagramme de séquence de cu : vider Historique 
+ }
+  \label{fig:clone-result}
+\end{figure}
+
+\newpage
+\textbf{ Diagramme de séquence de cu “Ajouter Facture  ”}
+
+\begin{figure}[H]
+  \centering
+  \setlength{\fboxrule}{1pt}
+  \setlength{\fboxsep}{3pt}
+  \fbox{\includegraphics[width=\textwidth]{C:/Users/bouka/Downloads/imageslatex/DSajout facture.png
+}}
+  \caption{ Diagramme de séquence de cu : Ajouter Facture 
+ }
+  \label{fig:clone-result}
+\end{figure}
+\newpage
+\textbf{ Diagramme de séquence de cu “modifier Facture”}
+
+\begin{figure}[H]
+  \centering
+  \setlength{\fboxrule}{1pt}
+  \setlength{\fboxsep}{3pt}
+  \fbox{\includegraphics[width=\textwidth]{C:/Users/bouka/Downloads/imageslatex/DSmodiffactureola.png
+}}
+  \caption{ Diagramme de séquence de cu : modifier Facture
+ }
+  \label{fig:clone-result}
+\end{figure}
+
+\newpage
+\textbf{ Diagramme de séquence de cu “supprimer Facture ”}
+
+\begin{figure}[H]
+  \centering
+  \setlength{\fboxrule}{1pt}
+  \setlength{\fboxsep}{3pt}
+  \fbox{\includegraphics[width=\textwidth]{C:/Users/bouka/Downloads/imageslatex/DS suppfactureola.png
+}}
+  \caption{ Diagramme de séquence de cu : supprimer Facture 
+ }
+  \label{fig:clone-result}
+\end{figure}
+
+\newpage
+\textbf{ Diagramme de séquence de cu “supprimer Facture ”}
+
+\begin{figure}[H]
+  \centering
+  \setlength{\fboxrule}{1pt}
+  \setlength{\fboxsep}{3pt}
+  \fbox{\includegraphics[width=\textwidth]{C:/Users/bouka/Downloads/imageslatex/DS suppfactureola.png
+}}
+  \caption{ Diagramme de séquence de cu : supprimer Facture 
+ }
+  \label{fig:clone-result}
+\end{figure}
+
+
+\newpage
+\textbf{ Diagramme de séquence de cu “Televerser facture ola ”}
+
+\begin{figure}[H]
+  \centering
+  \setlength{\fboxrule}{1pt}
+  \setlength{\fboxsep}{3pt}
+  \fbox{\includegraphics[width=\textwidth]{C:/Users/bouka/Downloads/imageslatex/DSupload facture.png
+}}
+  \caption{ Diagramme de séquence de cu : Televerser facture ola
+ }
+  \label{fig:clone-result}
+\end{figure}
+
+
+\newpage
+\textbf{ Diagramme de séquence de cu “Téléverser relevé de consommation OLA ”}
+
+\begin{figure}[H]
+  \centering
+  \setlength{\fboxrule}{1pt}
+  \setlength{\fboxsep}{3pt}
+  \fbox{\includegraphics[width=\textwidth]{C:/Users/bouka/Downloads/imageslatex/DS upload relevé 1.png
+}}
+  \caption{ Diagramme de séquence de cu : Téléverser relevé de consommation OLA
+ }
+  \label{fig:clone-result}
+\end{figure}
+
+
+\subsection{Diagramme de Classe de Sprint 3}
+
+
+
+\begin{figure}[H]
+  \centering
+  \setlength{\fboxrule}{1pt}
+  \setlength{\fboxsep}{3pt}
+  \fbox{\includegraphics[width=\textwidth]{C:/Users/bouka/Downloads/imageslatex/DC sprint 3.png
+}}
+  \caption{ Diagramme de Classe de Sprint 3
+ }
+  \label{fig:clone-result}
+\end{figure}
+
+
+\newpage
+\section{Réalisation et tests }
+\subsection{Interface Obtenus et Fonctionnement de l'application}
+
+\textbf{      \\ 1. Interface de gestion carburante OLA}
+
+La figure \ref{fig:clone-result} ci-dessous présente l’interface de gestion carburante d’OLA, avec les principaux modules de suivi de consommation et de facturation.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{C:/Users/bouka/Downloads/imageslatex/Interface de gestion OLA .png}
+  \caption{Interface de gestion carburante OLA}
+  \label{fig:clone-result}
+\end{figure}
+
+
+
+
+\textbf{      \\ 2. Interface  "Ajouter Carte OLA "}
+
+La figure \ref{fig:clone-result} ci-dessous présente l’interface d'ajout d'une carte de consommation Carburante OLA
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{C:/Users/bouka/Downloads/imageslatex/addcard.png}
+  \caption{Interface d'Ajout Carte OLA}
+  \label{fig:clone-result}
+\end{figure}
+
+
+
+
+
+\textbf{      \\ 3. Interface  "gestion de facturation OLA "}
+\\
+Cette interface permet de générer, modifier et suivre en temps réel les factures liées aux consommations OLA, avec un accès direct au détail des montants, au calcul automatique des totaux et à l’historique des paiements.
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{C:/Users/bouka/Downloads/imageslatex/interfacefacturation.png}
+  \caption{Interface de gestion Facturation OLA}
+  \label{fig:clone-result}
+\end{figure}
+
+
+\section{Utilisation des outils de suivi de Scrum}
+
+\subsection{ScrumBoard : Trello}
+
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{C:/Users/bouka/Downloads/imageslatex/trello scrum board.png}
+  \caption{Scrum Board Sprint 3}
+  \label{fig:clone-result}
+\end{figure}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
