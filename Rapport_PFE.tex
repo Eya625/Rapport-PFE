@@ -67,8 +67,14 @@
 \usepackage{booktabs}
 \usepackage{tabularx}
 \usepackage{array}
+% Pour gérer les figures flottantes avec l’option [H]
+\usepackage{float}
+% Pour les sous-figures (subfigures)
+\usepackage{subcaption}
 
-
+\captionsetup[subfigure]{labelformat=empty,labelsep=none}
+\usepackage{grffile}    % pour gérer les espaces dans les noms de fichiers
+\usepackage{grffile}    % gérer les espaces dans les noms de fichiers
 
 
 
@@ -901,13 +907,13 @@ Au cours de ce Sprint 0, nous avons d’abord clarifié les objectifs fonctionne
 
 \section{Introduction}
 
-La gestion des consommations OLA Energy pour la flotte des véhicules Landside, mise à disposition des personnels exerçant en dehors de l'aéroport, s'inscrit dans une démarche de modernisation et d'optimisation opérationnelle. 
+La gestion des consommations OLA Energy pour la flotte des véhicules Landside, mise à disposition des personnels exerçant en dehors de l’aéroport, s’inscrit dans une démarche de modernisation et d’optimisation opérationnelle.
 
-Longtemps, la collecte et l'agrégation des données reposaient sur des pratiques manuelles fastidieuses : chaque année, un nouveau fichier Excel était généré pour répertorier, de manière isolée, les consommations mensuelles et annuelles. Ce procédé, bien que fonctionnel, s'est révélé peu adapté aux exigences d'une analyse en temps réel.
+Longtemps, la collecte et l’agrégation des données reposaient sur des pratiques manuelles fastidieuses : chaque année, un nouveau fichier Excel était généré pour répertorier, de manière isolée, les consommations mensuelles et annuelles. Ce procédé, bien que fonctionnel, s’est révélé peu adapté aux exigences d’une analyse en temps réel.
 
-Dès le Sprint 1, un processus entièrement repensé a été mis en place. Grâce à un script Python sur mesure, les informations issues des anciens fichiers Excel sont désormais capturées automatiquement et centralisées dans une base MongoDB. Cette architecture NoSQL, choisie pour sa scalabilité, offre une flexibilité sans précédent. Un protocole rigoureux de nettoyage et de transformation harmonise et enrichit ces données brutes, garantissant une qualité irréprochable pour l’étape analytique.
+Dès le Sprint 1, un pipeline entièrement repensé a été déployé. Grâce à un script Python sur mesure, les informations issues des anciens fichiers Excel sont désormais capturées automatiquement et centralisées dans une base MongoDB. Cette architecture NoSQL, choisie pour sa scalabilité, offre une flexibilité sans précédent. Un protocole rigoureux de nettoyage et de transformation harmonise et enrichit ces données brutes, garantissant une qualité irréprochable pour l’étape analytique.
 
-En intégrant ces données structurées dans Power BI, un tableau de bord interactif, basé sur un modèle en étoile, fournit une vision claire et détaillée des consommations. Dès la finalisation des fichiers OLA, l’administrateur édite les factures correspondantes, assurant une parfaite synchronisation entre consommation et facturation. Ce mécanisme joue un rôle déterminant dans la prise de décision, en offrant aux responsables une compréhension en temps réel des tendances et en optimisant l’affectation des ressources.
+En exposant ces données via une API REST développée en Express.js, puis en les affichant dans un tableau de bord web interactif basé sur Chart.js, nous bénéficions d’une visualisation temps réel et d’une compréhension fine des consommations OLA Energy. Ce dispositif offre aux décideurs une interface claire et réactive, facilitant l’analyse des tendances et l’optimisation opérationnelle.
 
 
 \section{Collecte des données de Consommation OLA Energy}
@@ -919,13 +925,12 @@ Cette collecte structurée constitue une base essentielle pour les phases de tra
 % --- Figure 1
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=\textwidth]{C:/Users/bouka/Downloads/imageslatex/invoice2024.png}
-  \caption{Fichier Excel contenant les données de facturation OLA (2024)}
-  \label{fig:facturation-ola-2024}
+  \includegraphics[width=\textwidth]{C:/Users/bouka/Downloads/imageslatex/ola2024.png}
+  \caption{Fichier Excel contenant les données de consommation OLA (2024)}
+  \label{fig:consomm-ola-2024}
 \end{figure}
 
-
-\vspace{-1em} % Réduction de l'espace vertical entre les deux figures
+\vspace{-1em} % Réduction de l’espace vertical entre les deux figures
 
 % --- Figure 2
 \begin{figure}[htbp]
@@ -939,13 +944,15 @@ Cette collecte structurée constitue une base essentielle pour les phases de tra
 
 \section{Analyse Technique et Automatisation du Pipeline de Traitement des Données}
 
-Dans cette partie, nous présentons une vue d'ensemble de l'architecture technique mise en place pour automatiser le traitement des données. L'objectif est de transformer des opérations manuelles, souvent fastidieuses, en un processus robuste et fiable, garantissant l'intégrité des informations et facilitant leur exploitation dans la base de données MongoDB.
+Dans cette partie, nous présentons une vue d’ensemble de l’architecture technique mise en place pour automatiser le traitement des données. L’objectif est de transformer des opérations manuelles, souvent fastidieuses, en un processus robuste et fiable, garantissant l’intégrité des informations et facilitant leur exploitation dans MongoDB.
 
 \vspace{1em}
 
-\noindent Ci-dessous, nous illustrons le schéma global du processus d’intégration et d’automatisation des données OLA Energy :
+\noindent Ci-dessous, nous illustrons le schéma global du pipeline d’intégration et d’automatisation des données OLA Energy :
 
 \vspace{0.5em}
+% (Insérer ici votre tcolorbox/modèle de schéma mis à jour)
+
 
 
 \begin{tcolorbox}[%
@@ -962,9 +969,9 @@ Dans cette partie, nous présentons une vue d'ensemble de l'architecture techniq
 ]
   \vspace{0.5em}
   \centering
-  \includegraphics[width=0.96\textwidth]{C:/Users/bouka/Downloads/imageslatex/processus integration ETL.png}
+  \includegraphics[width=0.96\textwidth]{C:/Users/bouka/Downloads/imageslatex/processetl.png}
   \vspace{0.5em}
-  \captionof{figure}{Processus global d’intégration et d’automatisation des données OLA}
+  \captionof{figure}{Processus global d'intégration et d'automatisation des données OLA energy}
   \label{fig:processus-automation}
 \end{tcolorbox}
 
@@ -1205,22 +1212,6 @@ Ce sprint se focalise sur le développement et l’optimisation du module d’au
   \end{tabular}
 \end{table}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 \section{Spécification des besoins du Sprint}
 
 \subsection{Diagramme de Cas d'utilisation}
@@ -1236,7 +1227,202 @@ Ce sprint se focalise sur le développement et l’optimisation du module d’au
 \end{figure}
 \subsection{ Description textuelle des cas d’utilisations}
 
-\textbf{Description textuelle de cu S'authentifier}
+\textbf{Description textuelle de cu Consulter Profil }
+
+\begin{table}[H]
+  \centering
+  \renewcommand{\arraystretch}{1.5}
+  \caption{Spécification textuelle du cas d'utilisation "Consulter Profil"}
+  \begin{tabularx}{\textwidth}{|l|X|}
+    \hline
+    \textbf{Cas d'utilisation} & Consulter Profil \\ \hline
+    \textbf{Acteurs}           & Utilisateurs (Administrateur / Responsable achat / Responsable finance) \\ \hline
+    \textbf{Préconditions}     &
+    \begin{itemize}[leftmargin=*]
+      \item L’utilisateur est bien authentifié.
+      \item Le système est opérationnel et accessible.
+    \end{itemize} \\ \hline
+    \textbf{Postconditions}    &
+    \begin{itemize}[leftmargin=*]
+      \item Les informations du profil sont affichées correctement.
+    \end{itemize} \\ \hline
+    \textbf{Scénario de base}  &
+    \begin{enumerate}[leftmargin=*]
+      \item L’utilisateur choisit de consulter son profil.
+      \item Le système affiche les informations du profil de l’utilisateur.
+      \item \texttt{<<extend>>} Modifier données profil.
+    \end{enumerate} \\ \hline
+  \end{tabularx}
+\end{table}
+
+
+\textbf{Description textuelle de cas d’utilisation “Modifier données profil”}
+
+\begin{table}[H]
+  \centering
+  \renewcommand{\arraystretch}{1.5}
+  \caption{Spécification textuelle du cas d'utilisation "Modifier données profil"}
+  \begin{tabularx}{\textwidth}{|l|X|}
+    \hline
+    \textbf{Cas d'utilisation} & Modifier données profil \\ \hline
+    \textbf{Acteur principal}   & Administrateur / Responsable achat / Responsable finance \\ \hline
+    \textbf{Description}        & Ce cas d'utilisation permet à un utilisateur authentifié de modifier ses informations personnelles sur son profil. Une fois les modifications validées, les nouvelles données sont enregistrées et mises à jour dans le système. \\ \hline
+    \textbf{Préconditions}      &
+    \begin{itemize}[leftmargin=*]
+      \item L’utilisateur est authentifié.
+      \item Le système est opérationnel.
+      \item L’utilisateur a accédé à la section « Profil ».
+    \end{itemize} \\ \hline
+    \textbf{Postconditions}     &
+    \begin{itemize}[leftmargin=*]
+      \item Les informations modifiées sont mises à jour dans le système.
+    \end{itemize} \\ \hline
+    \textbf{Scénario de base}   &
+    \begin{enumerate}[leftmargin=*]
+      \item L’utilisateur saisit les nouvelles modifications dans les champs du formulaire.
+      \item L’utilisateur clique sur « Valider ».
+      \item Le système vérifie la validité des nouvelles données.
+      \item Le système met à jour le profil et affiche un message de confirmation.
+    \end{enumerate} \\ \hline
+    \textbf{Scénario alternatif} &
+    \begin{itemize}[leftmargin=*]
+      \item \textbf{3.a Informations invalides :}
+        \begin{itemize}[leftmargin=1em]
+          \item Le système informe l’utilisateur que les données saisies sont incorrectes.
+          \item Retour à l’étape 1 du scénario de base.
+        \end{itemize}
+    \end{itemize} \\ \hline
+  \end{tabularx}
+\end{table}
+
+\textbf{Description textuelle de cas d’utilisation “Modifier mot de passe”}
+
+\begin{table}[H]
+  \centering
+  \renewcommand{\arraystretch}{1.5}
+  \caption{Spécification textuelle du cas d'utilisation "Modifier mot de passe"}
+  \begin{tabularx}{\textwidth}{|l|X|}
+    \hline
+    \textbf{Cas d'utilisation} & Modifier mot de passe \\ \hline
+    \textbf{Acteur principal}  & Utilisateur \\ \hline
+    \textbf{Acteur secondaire} & Système de messagerie \\ \hline
+    \textbf{Description}       & Ce cas d'utilisation permet à un utilisateur non authentifié de réinitialiser son mot de passe en cas d'oubli. Le système envoie un lien de réinitialisation sécurisé à l'adresse email associée au compte. \\ \hline
+    \textbf{Préconditions}     &
+    \begin{itemize}[leftmargin=*]
+      \item L’utilisateur possède un compte valide avec une adresse email enregistrée.
+      \item Le système est opérationnel.
+    \end{itemize} \\ \hline
+    \textbf{Postconditions}    &
+    \begin{itemize}[leftmargin=*]
+      \item L’utilisateur reçoit un email contenant le lien de réinitialisation.
+      \item Le nouveau mot de passe est enregistré et remplace l'ancien.
+    \end{itemize} \\ \hline
+    \textbf{Scénario de base}   &
+    \begin{enumerate}[leftmargin=*]
+      \item L’utilisateur accède à la page de connexion et choisit « Mot de passe oublié ».
+      \item Le système affiche un formulaire demandant l’adresse email associée au compte.
+      \item L’utilisateur saisit son adresse email.
+      \item L’utilisateur valide la demande de réinitialisation.
+      \item Le système vérifie l’existence de l’email dans la liste des comptes.
+      \item Le système envoie le lien de réinitialisation temporaire au service de messagerie.
+      \item L’utilisateur clique sur le lien de réinitialisation reçu.
+      \item Le système affiche un formulaire pour définir un nouveau mot de passe.
+      \item L’utilisateur saisit un nouveau mot de passe.
+      \item L’utilisateur valide l’ajout du nouveau mot de passe.
+      \item Le système vérifie la conformité du nouveau mot de passe.
+      \item Le système enregistre le nouveau mot de passe.
+      \item Le système envoie un message de confirmation de la mise à jour.
+    \end{enumerate} \\ \hline
+    \textbf{Scénario alternatif} &
+    \begin{itemize}[leftmargin=*]
+      \item \textbf{5.1 Email non reconnu :}
+        \begin{itemize}[leftmargin=1em]
+          \item Le système informe l’utilisateur que l’adresse email est incorrecte ou non enregistrée.
+          \item Retour à l’étape 2 du scénario de base.
+        \end{itemize}
+      \item \textbf{7.1 Lien expiré ou invalide :}
+        \begin{itemize}[leftmargin=1em]
+          \item Le système informe l’utilisateur que le lien de réinitialisation est expiré ou déjà utilisé.
+        \end{itemize}
+      \item \textbf{11.1 Mot de passe non conforme :}
+        \begin{itemize}[leftmargin=1em]
+          \item Le système affiche un message d’erreur précisant les critères non respectés (trop court, absence de caractères spéciaux, etc.).
+          \item Retour à l’étape 8 du scénario de base.
+        \end{itemize}
+    \end{itemize} \\ \hline
+  \end{tabularx}
+\end{table}
+
+\subsection{Maquettes des Interfaces}
+
+\begin{figure}[H]
+  \centering
+  % Maquette 1
+  \begin{subfigure}[b]{0.8\textwidth}
+    \includegraphics[width=\textwidth,height=0.3\textheight,keepaspectratio]{C:/Documents issue de one drive/Bureau/TAV Airports/Maquette Balsamic/consulter compte utilisateurs.png}
+    \caption{\textbf{Maquette 1 : Consulter comptes utilisateurs}}
+    \label{fig:maquette1}
+  \end{subfigure}
+
+  \vspace{0.8cm}
+
+  % Maquette 2
+  \begin{subfigure}[b]{0.8\textwidth}
+    \includegraphics[width=\textwidth,height=0.3\textheight,keepaspectratio]{C:/Documents issue de one drive/Bureau/TAV Airports/Maquette Balsamic/ajouter user.png}
+    \caption{\textbf{Maquette 2 : Ajouter utilisateur}}
+    \label{fig:maquette2}
+  \end{subfigure}
+
+  \vspace{0.8cm}
+\newpage
+  % Maquette 3
+  \begin{subfigure}[b]{0.8\textwidth}
+    \includegraphics[width=\textwidth,height=0.3\textheight,keepaspectratio]{C:/Documents issue de one drive/Bureau/TAV Airports/Maquette Balsamic/modifier user.png}
+    \caption{\textbf{Maquette 3 : Modifier utilisateur}}
+    \label{fig:maquette3}
+  \end{subfigure}
+
+  \vspace{0.8cm}
+
+  % Maquette 4 (formulaire)
+  \begin{subfigure}[b]{0.8\textwidth}
+    \includegraphics[width=\textwidth,height=0.3\textheight,keepaspectratio]{C:/Documents issue de one drive/Bureau/TAV Airports/Maquette Balsamic/authentifier.png}
+    \caption{\textbf{Maquette 4 : S’authentifier (formulaire)}}
+    \label{fig:maquette4form}
+  \end{subfigure}
+
+  \vspace{0.8cm}
+
+  % Maquette 5 (QR code)
+  \begin{subfigure}[b]{0.8\textwidth}
+    \includegraphics[width=\textwidth,height=0.3\textheight,keepaspectratio]{C:/Documents issue de one drive/Bureau/TAV Airports/Maquette Balsamic/authenqr.png}
+    \caption{\textbf{Maquette 5 : S’authentifier (QR code)}}
+    \label{fig:maquette4qr}
+  \end{subfigure}
+
+  \vspace{0.8cm}
+
+  % Maquette 6
+  \begin{subfigure}[b]{0.8\textwidth}
+    \includegraphics[width=\textwidth,height=0.3\textheight,keepaspectratio]{C:/Documents issue de one drive/Bureau/TAV Airports/Maquette Balsamic/consulter profil.png}
+    \caption{\textbf{Maquette 6 : Consulter Profil}}
+    \label{fig:maquette5}
+  \end{subfigure}
+
+  \vspace{0.8cm}
+\newpage
+  % Maquette 7
+  \begin{subfigure}[b]{0.8\textwidth}
+    \includegraphics[width=\textwidth,height=0.3\textheight,keepaspectratio]{C:/Documents issue de one drive/Bureau/TAV Airports/Maquette Balsamic/modifier psw1.png}
+    \caption{\textbf{Maquette 7 : Modifier mot de passe}}
+    \label{fig:maquette6}
+  \end{subfigure}
+
+  \caption{Maquettes de l’application disposées verticalement pour une meilleure lisibilité.}
+  \label{fig:vertical-maquettes}
+\end{figure}
+
+
 
 
 
@@ -1244,7 +1430,44 @@ Ce sprint se focalise sur le développement et l’optimisation du module d’au
 \newpage
 
 \section{Conception}
-% Votre texte ici
+\subsection{Diagramme de séquence du Sprint 2}
+
+
+% Diagramme 1 : Consulter Profil
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.8\textwidth]{C:/Users/bouka/Downloads/imageslatex/DS consulter profil.png}
+  \caption{Diagramme de séquence : Consulter Profil}
+  \label{fig:consulter_profil}
+\end{figure}
+
+% Diagramme 2 : Modifier données profil
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.8\textwidth]{C:/Users/bouka/Downloads/imageslatex/modif profil.png}
+  \caption{Diagramme de séquence : Modifier données du profil}
+  \label{fig:modifier_donnees_profil}
+\end{figure}
+
+\vspace*{\fill}  % pousse vers le bas pour centrer verticalement
+
+\begin{figure}[p]
+  \centering
+  \includegraphics[
+    width=0.9\textwidth,       % 90% de la largeur du texte
+    height=0.9\textheight,     % 90% de la hauteur du texte
+    keepaspectratio            % pour ne pas déformer
+  ]{C:/Users/bouka/Downloads/imageslatex/modifpsw.png}
+  \caption{Diagramme de séquence : Modifier mot de passe}
+  \label{fig:modifier_mot_de_passe_plein}
+\end{figure}
+
+\vspace*{\fill}  % pousse vers le haut pour finir le centrage vertical
+
+\clearpage
+
+
+
 
 \section{Réalisation et tests}
 % Votre texte ici
@@ -1254,6 +1477,18 @@ Ce sprint se focalise sur le développement et l’optimisation du module d’au
 
 \section{Conclusion}
 % Votre texte ici
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 \newpage
@@ -1306,8 +1541,8 @@ Ce sprint se focalise sur le développement et l’optimisation du module d’au
 
 Ce sprint se concentre sur le développement et l’optimisation d’un module dédié à la gestion de la consommation de carburant. L’objectif est de fournir un suivi en temps réel, d’analyser les données de consommation pour identifier et corriger les écarts, et d’offrir des rapports dynamiques permettant d’optimiser l’usage des ressources. Le module sera conçu pour s’intégrer harmonieusement avec l’ensemble du système et répondre aux besoins spécifiques des partenaires OLA Energy (Landside) et APS (Airport Petrol Service).
 
-\section{Sprint Backlog}
 
+\section{Sprint Backlog}
 \begin{table}[htbp]
   \centering
   \caption{Sprint Backlog – Sprint 3}
@@ -1813,10 +2048,8 @@ Ce sprint se concentre sur le développement et l’optimisation d’un module d
 
 \begin{figure}[H]
   \centering
-  \setlength{\fboxrule}{1pt}
-  \setlength{\fboxsep}{3pt}
-  \fbox{\includegraphics[width=\textwidth]{C:/Documents issue de one drive/Bureau/TAV Airports/Maquette Balsamic/OLA Dashboard.png
-}}
+  \includegraphics[width=\textwidth]{C:/Documents issue de one drive/Bureau/TAV Airports/Maquette Balsamic/OLA Dashboard.png
+}
   \caption{Dashboard OLA Energy }
   \label{fig:clone-result}
 \end{figure}
@@ -1824,10 +2057,8 @@ Ce sprint se concentre sur le développement et l’optimisation d’un module d
 
 \begin{figure}[H]
   \centering
-  \setlength{\fboxrule}{1pt}
-  \setlength{\fboxsep}{3pt}
-  \fbox{\includegraphics[width=\textwidth]{C:/Documents issue de one drive/Bureau/TAV Airports/Maquette Balsamic/OLA manage vers corrig .png
-}}
+  \includegraphics[width=\textwidth]{C:/Documents issue de one drive/Bureau/TAV Airports/Maquette Balsamic/OLA manage vers corrig .png
+}
   \caption{Gestion OLA energy 
  }
   \label{fig:clone-result}
@@ -1835,10 +2066,8 @@ Ce sprint se concentre sur le développement et l’optimisation d’un module d
 
 \begin{figure}[H]
   \centering
-  \setlength{\fboxrule}{1pt}
-  \setlength{\fboxsep}{3pt}
-  \fbox{\includegraphics[width=\textwidth]{C:/Documents issue de one drive/Bureau/TAV Airports/Maquette Balsamic/Ola consumption details .png
-}}
+  \includegraphics[width=\textwidth]{C:/Documents issue de one drive/Bureau/TAV Airports/Maquette Balsamic/Ola consumption details .png
+}
   \caption{ Détails consommation Carte OLA.
  }
   \label{fig:clone-result}
@@ -1847,18 +2076,14 @@ Ce sprint se concentre sur le développement et l’optimisation d’un module d
 
 \begin{figure}[H]
   \centering
-  \setlength{\fboxrule}{1pt}
-  \setlength{\fboxsep}{3pt}
-  \fbox{\includegraphics[width=\textwidth]{C:/Documents issue de one drive/Bureau/TAV Airports/Maquette Balsamic/OLA Billing.png
-}}
+  \includegraphics[width=\textwidth]{C:/Documents issue de one drive/Bureau/TAV Airports/Maquette Balsamic/OLA Billing.png
+}
   \caption{ Gestion Facturation OLA
  }
   \label{fig:clone-result}
 \end{figure}
 \begin{figure}[H]
   \centering
-  \setlength{\fboxrule}{1pt}
-  \setlength{\fboxsep}{3pt}
   \fbox{\includegraphics[width=\textwidth]{C:/Documents issue de one drive/Bureau/TAV Airports/Maquette Balsamic/OLa history.png
 }}
   \caption{  Historique 
@@ -2109,10 +2334,6 @@ La figure \ref{fig:clone-result} ci-dessous présente l’interface d'ajout d'un
   \label{fig:clone-result}
 \end{figure}
 
-
-
-
-
 \textbf{      \\ 3. Interface  "gestion de facturation OLA "}
 \\
 Cette interface permet de générer, modifier et suivre en temps réel les factures liées aux consommations OLA, avec un accès direct au détail des montants, au calcul automatique des totaux et à l’historique des paiements.
@@ -2124,6 +2345,15 @@ Cette interface permet de générer, modifier et suivre en temps réel les factu
 \end{figure}
 
 
+
+
+
+
+
+
+
+
+
 \section{Utilisation des outils de suivi de Scrum}
 
 \subsection{ScrumBoard : Trello}
@@ -2131,8 +2361,8 @@ Cette interface permet de générer, modifier et suivre en temps réel les factu
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=\textwidth]{C:/Users/bouka/Downloads/imageslatex/trello scrum board.png}
-  \caption{Scrum Board Sprint 3}
+  \includegraphics[width=\textwidth]{C:/Users/bouka/Downloads/imageslatex/trellocorr.png}
+  \caption{Scrum Board du Sprint 3}
   \label{fig:clone-result}
 \end{figure}
 
