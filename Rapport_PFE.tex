@@ -75,7 +75,8 @@
 \captionsetup[subfigure]{labelformat=empty,labelsep=none}
 \usepackage{grffile}    % pour gérer les espaces dans les noms de fichiers
 \usepackage{grffile}    % gérer les espaces dans les noms de fichiers
-
+\usepackage{multirow}
+\usepackage{array}
 
 
 
@@ -1221,7 +1222,8 @@ Ce sprint se focalise sur le développement et l’optimisation du module d’au
   \centering
   \setlength{\fboxrule}{1pt}
   \setlength{\fboxsep}{3pt}
-  \fbox{\includegraphics[width=\textwidth]{C:/Users/bouka/Downloads/imageslatex/DCU.png}}
+  \fbox{\includegraphics[width=\textwidth]{C:/Users/bouka/Downloads/imageslatex/DCU sprint 2 gras.png}
+  }
   \caption{Diagramme de cas d’utilisation Sprint 2.}
   \label{fig:clone-result}
 \end{figure}
@@ -1425,47 +1427,37 @@ Ce sprint se focalise sur le développement et l’optimisation du module d’au
 
 
 
-
-
 \newpage
 
 \section{Conception}
-\subsection{Diagramme de séquence du Sprint 2}
+\subsection{Diagrammes de séquence du Sprint 2}
 
-
-% Diagramme 1 : Consulter Profil
+% Diagramme de séquence : Consulter Profil
+\textbf{Diagramme de séquence : Consulter Profil}
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=0.8\textwidth]{C:/Users/bouka/Downloads/imageslatex/DS consulter profil.png}
+  \includegraphics[width=0.8\textwidth]{C:/Users/bouka/Downloads/imageslatex/DS Consulter profil gras.png}
   \caption{Diagramme de séquence : Consulter Profil}
   \label{fig:consulter_profil}
 \end{figure}
-
-% Diagramme 2 : Modifier données profil
+\newpage
+% Diagramme de séquence : Modifier données profil 
+\textbf{Diagramme de séquence : Modifier données profil}
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=0.8\textwidth]{C:/Users/bouka/Downloads/imageslatex/modif profil.png}
-  \caption{Diagramme de séquence : Modifier données du profil}
+  \includegraphics[width=0.8\textwidth]{C:/Users/bouka/Downloads/imageslatex/DS modifier donnée profil gras.png}
+  \caption{Diagramme de séquence : Modifier données profil}
   \label{fig:modifier_donnees_profil}
 \end{figure}
 
-\vspace*{\fill}  % pousse vers le bas pour centrer verticalement
-
-\begin{figure}[p]
+% Diagramme de séquence : Modifier mot de passe
+\textbf{Diagramme de séquence : Modifier mot de passe}
+\begin{figure}[htbp]
   \centering
-  \includegraphics[
-    width=0.9\textwidth,       % 90% de la largeur du texte
-    height=0.9\textheight,     % 90% de la hauteur du texte
-    keepaspectratio            % pour ne pas déformer
-  ]{C:/Users/bouka/Downloads/imageslatex/modifpsw.png}
+  \includegraphics[width=0.8\textwidth]{C:/Users/bouka/Downloads/imageslatex/modifier psw gras.png}
   \caption{Diagramme de séquence : Modifier mot de passe}
-  \label{fig:modifier_mot_de_passe_plein}
+  \label{fig:modifier_mot_de_passe}
 \end{figure}
-
-\vspace*{\fill}  % pousse vers le haut pour finir le centrage vertical
-
-\clearpage
-
 
 
 
@@ -1592,12 +1584,13 @@ Ce sprint se concentre sur le développement et l’optimisation d’un module d
 \end{table}
 
 \section{Spécification des besoins du Sprint 3}
+
 \subsection{Diagramme de cas d’utilisation Sprint 3}
 \begin{figure}[H]
   \centering
   \setlength{\fboxrule}{1pt}
   \setlength{\fboxsep}{3pt}
-  \fbox{\includegraphics[width=\textwidth]{C:/Users/bouka/Downloads/imageslatex/sprint 3.png}}
+  \fbox{\includegraphics[width=\textwidth]{C:/Users/bouka/Downloads/imageslatex/sprint 3 DCU gras.png}}
   \caption{Diagramme de cas d’utilisation Sprint 3.}
   \label{fig:clone-result}
 \end{figure}
@@ -2102,7 +2095,7 @@ Ce sprint se concentre sur le développement et l’optimisation d’un module d
   \centering
   \setlength{\fboxrule}{1pt}
   \setlength{\fboxsep}{3pt}
-  \fbox{\includegraphics[width=\textwidth]{C:/Users/bouka/Downloads/imageslatex/DCU1 corr.png
+  \fbox{\includegraphics[width=\textwidth]{C:/Users/bouka/Downloads/imageslatex/ajouter carte gras.png
 }}
   \caption{Diagramme de séquence de cu “Ajouter Carte de consommation OLA”
  }
@@ -2372,12 +2365,388 @@ Cette interface permet de générer, modifier et suivre en temps réel les factu
 
 
 
+\newpage
+
+% Chapitre Sprint 4
+\chapter{Étude et réalisation du Sprint 4}
+\thispagestyle{empty}
+\addcontentsline{toc}{chapter}{Chapitre \thechapter\quad Étude et réalisation du Sprint 4}
+
+\vspace{2cm}
+\begin{center}
+  {\Huge\bfseries Sprint 3}\\[0.8em]
+  {\LARGE\bfseries Étude et réalisation du Sprint 4}
+\end{center}
+
+\vspace{1.5cm}
+\begin{center}
+  \color{blue!60!black}\rule{0.6\textwidth}{1pt}
+\end{center}
+\vspace{1.5cm}
+
+\begin{center}
+  {\huge\bfseries Plan}\\[0.5em]
+\end{center}
+\vspace{1em}
+
+\begin{enumerate}[%
+  label=\bfseries\Large\arabic*., 
+  leftmargin=2cm, 
+  itemsep=1em
+]
+   \item Introduction
+  \item Sprint Backlog
+  \item Spécification des besoins du Sprint
+  \item Conception
+  \item Réalisation et tests
+  \item Utilisation des outils de Scrum
+  \item Conclusion
+\end{enumerate}
+
+\vfill
+\begin{center}
+  \color{blue!60!black}\rule{0.6\textwidth}{0.8pt}
+\end{center}
+
+\newpage
+\setcounter{section}{0}
+
+\section{Introduction}
+
+Dans le cadre de la stratégie d’amélioration continue des services techniques et logistiques, ce Sprint a été spécifiquement dédié à trois domaines à fort impact opérationnel : la gestion des télécommunications, la gestion et la maintenance du parc d’impression, ainsi que la gestion des abonnements aux autoroutes. Ces trois rubriques, bien que distinctes, partagent une même finalité : assurer la fluidité, la performance et l’optimisation des ressources nécessaires au bon fonctionnement de l'organisation.
+
+\section{Sprint Backlog}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|>{\raggedright\arraybackslash}p{7cm}|c|c|}
+\hline
+\textbf{User Story} & \textbf{Priorité} & \textbf{Estimation} \\
+\hline
+En tant qu’administrateur, je veux gérer les Télécommunications 
+& 1 & 30 \\
+\hline
+En tant qu’administrateur, je veux gérer les parcs d’impressions 
+& 2 & 20 \\
+\hline
+En tant qu’administrateur, je veux gérer tunisie autoroute 
+& 3 &  \\
+\hline
+\end{tabular}
+\end{table}
+\newpage
+
+
+\textbf{Rubrique B : Gestion  Parcs D'impressions}
+\subsection{Planification de sprint }
+
+\begin{tabular}{|m{4cm}|m{5cm}|c|c|}
+\hline
+\textbf{	CUs} & \textbf{User Story} & \textbf{Priorité} & \textbf{Estimation} \\
+\hline
+
+\multirow{7}{4cm}{En tant qu’administrateur, je veux gérer Parcs d’impressions} 
+& En tant qu' administrateur, je veux ajouter imprimante & 1 & 1 \\
+\cline{2-4}
+& En tant qu' administrateur, je veux modifier statut d’une imprimante & 1 & 1 \\
+\cline{2-4}
+& En tant qu' administrateur, je veux retirer une imprimante défectueuse. & 2 & 1 \\
+\cline{2-4}
+& En tant qu' administrateur, je veux filtrer les imprimantes selon des critères (Ref, dep, type,..) & 3 & 1 \\
+\cline{2-4}
+& En tant qu' administrateur, je veux ajouter une intervention curative & 3 & 1 \\
+\cline{2-4}
+& En tant qu' administrateur, je veux consulter la liste des interventions correctives. & 3 & 1 \\
+\cline{2-4}
+& En tant qu' administrateur, je veux filtrer les données des interventions & 4 & 1 \\
+\hline
+\end{tabular}
+
+\section{Spécification des besoins}
+\subsection{Diagramme de cas d’utilisation }
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{C:/Users/bouka/Downloads/imageslatex/DCU sprint 4 .png}
+  \caption{Diagramme de CU Rubrique : Gestion Parc Impression}
+  \label{fig:clone-result}
+\end{figure}
+
+\subsection{Description textuelle des cas d’utilisations }
+
+% CU 8.2.1.2
+\textbf{Description textuelle de CU "Modifier statut imprimante"}
+
+\begin{tabularx}{\textwidth}{|>{\bfseries}l|X|}
+\hline
+Cas d’utilisation    & Modifier statut imprimante \\
+\hline
+Acteur               & Administrateur \\
+\hline
+Précondition         &
+\begin{itemize}[left=0pt]
+  \item L’administrateur est authentifié dans le système.
+  \item Il est dans la section « Gestion parc Impression ».
+\end{itemize} \\
+\hline
+Post-condition       & Le statut de l’imprimante est mis à jour. \\
+\hline
+Scénario de base     &
+\begin{enumerate}[left=0pt]
+  \item L’administrateur accède à la section « Gestion parc Impression ».
+  \item Le système affiche le tableau des imprimantes et leurs statuts.
+  \item L’administrateur sélectionne l’imprimante à modifier.
+  \item Il clique sur « Update ».
+  \item Le système affiche le formulaire avec le champ statut.
+  \item Il choisit le nouveau statut.
+  \item Le système enregistre le changement.
+  \item Le système met à jour la liste.
+\end{enumerate} \\
+\hline
+Scénario alternatif   &
+\begin{enumerate}[label=\arabic*.a,wide=0pt]
+  \item Liste vide :
+    \begin{itemize}[left=1em]
+      \item Le système informe qu’aucune imprimante n’est enregistrée.
+    \end{itemize}
+\end{enumerate} \\
+\hline
+\end{tabularx}
+
+
+% CU 8.2.1.3
+\textbf{Description textuelle de CU "Supprimer imprimante défectueuse"}
+
+\begin{tabularx}{\textwidth}{|>{\bfseries}l|X|}
+\hline
+Cas d’utilisation    & Supprimer imprimante défectueuse \\
+\hline
+Acteur               & Administrateur \\
+\hline
+Précondition         &
+\begin{itemize}[left=0pt]
+  \item L’administrateur est authentifié dans le système.
+  \item Il est dans la section « Gestion parc Impression ».
+  \item Au moins une imprimante est enregistrée et hors service.
+\end{itemize} \\
+\hline
+Post-condition       & L’imprimante est définitivement retirée du parc actif. \\
+\hline
+Scénario de base     &
+\begin{enumerate}[left=0pt]
+  \item L’administrateur accède à la section « Gestion parc Impression ».
+  \item Le système affiche la liste des imprimantes.
+  \item L’administrateur sélectionne l’imprimante à retirer.
+  \item Il clique sur « Delete ».
+  \item Le système vérifie le statut.
+  \item Le système affiche un message de confirmation.
+  \item L’administrateur confirme la suppression.
+  \item Le système retire l’imprimante de la liste.
+  \item Le système met à jour l’affichage.
+\end{enumerate} \\
+\hline
+Scénarios alternatifs &
+\begin{enumerate}[label=\arabic*.a,wide=0pt]
+  \item Statut activé :
+    \begin{itemize}[left=1em]
+      \item Impossible de supprimer tant que l’imprimante est active.
+    \end{itemize}
+  \item Confirmation annulée :
+    \begin{itemize}[left=1em]
+      \item Retour à l’étape 2 du scénario de base.
+    \end{itemize}
+\end{enumerate} \\
+\hline
+\end{tabularx}
+
+
+% CU 8.2.1.4
+\textbf{Description textuelle de CU "Consulter Historique de maintenance"}
+
+\begin{tabularx}{\textwidth}{|>{\bfseries}l|X|}
+\hline
+Cas d’utilisation    & Consulter Historique de maintenance \\
+\hline
+Acteur               & Administrateur \\
+\hline
+Précondition         &
+\begin{itemize}[left=0pt]
+  \item L’administrateur est authentifié dans le système.
+  \item Il est dans la section « Gestion parc Impression ».
+\end{itemize} \\
+\hline
+Post-condition       & La liste des interventions est affichée. \\
+\hline
+Scénario de base     &
+\begin{enumerate}[left=0pt]
+  \item L’administrateur accède à la section « Gestion parc Impression ».
+  \item Il choisit la section « Maintenance ».
+  \item Le système affiche la liste des interventions.
+  \item \texttt{<<extend>> Filtrer données interventions}
+\end{enumerate} \\
+\hline
+Scénario alternatif   &
+\begin{enumerate}[label=\arabic*.a,wide=0pt]
+  \item Liste vide :
+    \begin{itemize}[left=1em]
+      \item Le système informe qu’aucune intervention n’est enregistrée.
+    \end{itemize}
+\end{enumerate} \\
+\hline
+\end{tabularx}
+
+
+% CU 8.2.1.5
+\textbf{Description textuelle de CU "Planifier une maintenance curative"}
+
+\begin{tabularx}{\textwidth}{|>{\bfseries}l|X|}
+\hline
+Cas d’utilisation    & Planifier une maintenance curative \\
+\hline
+Acteur               & Administrateur \\
+\hline
+Précondition         &
+\begin{itemize}[left=0pt]
+  \item L’administrateur est authentifié dans le système.
+  \item Il est dans la section « Maintenance ».
+\end{itemize} \\
+\hline
+Post-condition       & Une nouvelle intervention est ajoutée à la liste. \\
+\hline
+Scénario de base     &
+\begin{enumerate}[left=0pt]
+  \item L’administrateur accède à la section « Maintenance ».
+  \item Le système affiche le formulaire d’ajout d’intervention.
+  \item Il remplit les champs obligatoires.
+  \item Il valide la planification.
+  \item Le système vérifie les informations.
+  \item Le système enregistre l’intervention.
+  \item Le système met à jour la liste.
+\end{enumerate} \\
+\hline
+Scénario alternatif   &
+\begin{enumerate}[label=\arabic*.a,wide=0pt]
+  \item Champs obligatoires manquants :
+    \begin{itemize}[left=1em]
+      \item Le système informe que des champs sont manquants.
+      \item Retour à l’étape 3 du scénario de base.
+    \end{itemize}
+\end{enumerate} \\
+\hline
+\end{tabularx}
+
+
+% CU 8.2.1.6
+\textbf{Description textuelle de CU "Filtrer données imprimante"}
+
+\begin{tabularx}{\textwidth}{|>{\bfseries}l|X|}
+\hline
+Cas d’utilisation    & Filtrer données imprimante \\
+\hline
+Acteur               & Administrateur \\
+\hline
+Précondition         &
+\begin{itemize}[left=0pt]
+  \item L’administrateur est authentifié dans le système.
+  \item La liste des imprimantes est affichée.
+  \item Il est dans la section « Gestion parc Impression ».
+\end{itemize} \\
+\hline
+Post-condition       & Les imprimantes correspondant aux critères sont affichées. \\
+\hline
+Scénario de base     &
+\begin{enumerate}[left=0pt]
+  \item L’administrateur sélectionne des critères (Réf, statut, dépôt, …).
+  \item Le système applique les filtres.
+  \item Le système met à jour la liste.
+\end{enumerate} \\
+\hline
+Scénario alternatif   &
+\begin{enumerate}[label=\arabic*.a,wide=0pt]
+  \item Aucun résultat :
+    \begin{itemize}[left=1em]
+      \item Le système informe qu’aucune imprimante ne correspond.
+    \end{itemize}
+\end{enumerate} \\
+\hline
+\end{tabularx}
+
+\section{Conception}
+\subsection{Diagramme de séquence du Sprint 4}
+
+\textbf{Diagramme de séquence de cu : "Ajouter Imprimante" }
+
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{C:/Users/bouka/Downloads/imageslatex/DS ajouter imprimante.png}
+  \caption{Diagramme de séquence de CU "Ajouter Imprimante"}
+  \label{fig:clone-result}
+\end{figure}
+
+\textbf{Diagramme de séquence de cu : "Modifier statut imprimante" }
+
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{C:/Users/bouka/Downloads/imageslatex/DS modifier statut imprimante.png}
+  \caption{Diagramme de séquence de CU "DS modifier statut imprimante"}
+  \label{fig:clone-result}
+\end{figure}
 
 
 
 
 
+\textbf{Diagramme de séquence de cu : "supprimer imprimante défectueuse }
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{C:/Users/bouka/Downloads/imageslatex/DS supprimer imprimante défectueuse.png}
+  \caption{Diagramme de séquence de CU "supprimer imprimante défectueuse"}
+  \label{fig:clone-result}
+\end{figure}
 
+
+
+
+\textbf{Diagramme de séquence de cu : "Consulter Historique Maintenance" }
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{C:/Users/bouka/Downloads/imageslatex/Cosulter Historique de maintenance imprimante.png}
+  \caption{Diagramme de séquence de CU "Consulter Historique Maintenance"}
+  \label{fig:clone-result}
+\end{figure}
+
+
+\textbf{Diagramme de séquence de cu : "Planifier une maintenance Curative" }
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{C:/Users/bouka/Downloads/imageslatex/planifier maintenance curative.png}
+  \caption{Diagramme de séquence de CU "Planifier une maintenance Curative"}
+  \label{fig:clone-result}
+\end{figure}
+
+
+
+\textbf{Diagramme de séquence de cu : "Filtrer données Imprimante" }
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{C:/Users/bouka/Downloads/imageslatex/filtrer données imprimante.png}
+  \caption{Diagramme de séquence de CU "Filtrer données Imprimante"}
+  \label{fig:clone-result}
+\end{figure}
+
+
+\newpage
+\subsection{Diagramme de Classe de Sprint 4: Rubrique : gestion parcs Impressions}
+
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{C:/Users/bouka/Downloads/imageslatex/Dclasse sprint 4 .png}
+  \caption{Diagramme de Classe de Sprint 4: Rubrique : gestion parcs Impressions}
+  \label{fig:clone-result}
+\end{figure}
 
 
 
