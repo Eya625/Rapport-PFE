@@ -77,7 +77,23 @@
 \usepackage{grffile}    % gérer les espaces dans les noms de fichiers
 \usepackage{multirow}
 \usepackage{array}
+\usepackage{longtable}
+\definecolor{LightGray}{gray}{0.9}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\DeclareUnicodeCharacter{2009}{\thinspace}
+\usepackage{float}
+\usepackage{subcaption}
+\usepackage{lipsum} % pour texte factice, à retirer
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
 
+\usepackage{booktabs}      % pour \toprule, \midrule, \bottomrule
+\usepackage{etoolbox}      % pour ajuster l’espacement
+\usepackage{caption}       % pour gérer les légendes
+\usepackage[table]{xcolor}
 
 
 \begin{document}
@@ -1425,8 +1441,6 @@ Ce sprint se focalise sur le développement et l’optimisation du module d’au
 \end{figure}
 
 
-
-
 \newpage
 
 \section{Conception}
@@ -2143,7 +2157,7 @@ Ce sprint se concentre sur le développement et l’optimisation d’un module d
   \centering
   \setlength{\fboxrule}{1pt}
   \setlength{\fboxsep}{3pt}
-  \fbox{\includegraphics[width=\textwidth]{C:/Users/bouka/Downloads/imageslatex/DS3.png
+  \fbox{\includegraphics[width=\textwidth]{C:/Users/bouka/Downloads/imageslatex/modifier données consomm ola gras .png
 }}
   \caption{ Diagramme de séquence de cu :modifier donnée de consommation OLA
  }
@@ -2203,7 +2217,7 @@ Ce sprint se concentre sur le développement et l’optimisation d’un module d
   \centering
   \setlength{\fboxrule}{1pt}
   \setlength{\fboxsep}{3pt}
-  \fbox{\includegraphics[width=\textwidth]{C:/Users/bouka/Downloads/imageslatex/DSajout facture.png
+  \fbox{\includegraphics[width=\textwidth]{C:/Users/bouka/Downloads/imageslatex/DS ajouter facture ola gras.png
 }}
   \caption{ Diagramme de séquence de cu : Ajouter Facture 
  }
@@ -2216,26 +2230,14 @@ Ce sprint se concentre sur le développement et l’optimisation d’un module d
   \centering
   \setlength{\fboxrule}{1pt}
   \setlength{\fboxsep}{3pt}
-  \fbox{\includegraphics[width=\textwidth]{C:/Users/bouka/Downloads/imageslatex/DSmodiffactureola.png
+  \fbox{\includegraphics[width=\textwidth]{C:/Users/bouka/Downloads/imageslatex/modifier facture ola gras.png
 }}
   \caption{ Diagramme de séquence de cu : modifier Facture
  }
   \label{fig:clone-result}
 \end{figure}
 
-\newpage
-\textbf{ Diagramme de séquence de cu “supprimer Facture ”}
 
-\begin{figure}[H]
-  \centering
-  \setlength{\fboxrule}{1pt}
-  \setlength{\fboxsep}{3pt}
-  \fbox{\includegraphics[width=\textwidth]{C:/Users/bouka/Downloads/imageslatex/DS suppfactureola.png
-}}
-  \caption{ Diagramme de séquence de cu : supprimer Facture 
- }
-  \label{fig:clone-result}
-\end{figure}
 
 \newpage
 \textbf{ Diagramme de séquence de cu “supprimer Facture ”}
@@ -2274,7 +2276,7 @@ Ce sprint se concentre sur le développement et l’optimisation d’un module d
   \centering
   \setlength{\fboxrule}{1pt}
   \setlength{\fboxsep}{3pt}
-  \fbox{\includegraphics[width=\textwidth]{C:/Users/bouka/Downloads/imageslatex/DS upload relevé 1.png
+  \fbox{\includegraphics[width=\textwidth]{C:/Users/bouka/Downloads/imageslatex/televerser relevé consomm gras.png
 }}
   \caption{ Diagramme de séquence de cu : Téléverser relevé de consommation OLA
  }
@@ -2467,10 +2469,10 @@ En tant qu’administrateur, je veux gérer tunisie autoroute
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=\textwidth]{C:/Users/bouka/Downloads/imageslatex/DCU sprint 4 .png}
+   \fbox{\includegraphics[width=\textwidth]{C:/Users/bouka/Downloads/imageslatex/DCU sprint 4 .png}}
   \caption{Diagramme de CU Rubrique : Gestion Parc Impression}
   \label{fig:clone-result}
-\end{figure}
+\end{figure}          
 
 \subsection{Description textuelle des cas d’utilisations }
 
@@ -2671,6 +2673,12 @@ Scénario alternatif   &
 \hline
 \end{tabularx}
 
+\subsection{Maquettes des interfaces}
+\textbf{* Maquette: }
+
+
+
+
 \section{Conception}
 \subsection{Diagramme de séquence du Sprint 4}
 
@@ -2679,7 +2687,9 @@ Scénario alternatif   &
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=\textwidth]{C:/Users/bouka/Downloads/imageslatex/DS ajouter imprimante.png}
+  \setlength{\fboxrule}{1pt}
+  \setlength{\fboxsep}{3pt}
+  \fbox{\includegraphics[width=\textwidth]{C:/Users/bouka/Downloads/imageslatex/DS ajouter imprimante.png}}
   \caption{Diagramme de séquence de CU "Ajouter Imprimante"}
   \label{fig:clone-result}
 \end{figure}
@@ -2689,7 +2699,9 @@ Scénario alternatif   &
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=\textwidth]{C:/Users/bouka/Downloads/imageslatex/DS modifier statut imprimante.png}
+  \setlength{\fboxrule}{1pt}
+  \setlength{\fboxsep}{3pt}
+  \fbox{\includegraphics[width=\textwidth]{C:/Users/bouka/Downloads/imageslatex/DS modifier statut imprimante.png}}
   \caption{Diagramme de séquence de CU "DS modifier statut imprimante"}
   \label{fig:clone-result}
 \end{figure}
@@ -2701,7 +2713,9 @@ Scénario alternatif   &
 \textbf{Diagramme de séquence de cu : "supprimer imprimante défectueuse }
 \begin{figure}[H]
   \centering
-  \includegraphics[width=\textwidth]{C:/Users/bouka/Downloads/imageslatex/DS supprimer imprimante défectueuse.png}
+  \setlength{\fboxrule}{1pt}
+  \setlength{\fboxsep}{3pt}
+  \fbox{\includegraphics[width=\textwidth]{C:/Users/bouka/Downloads/imageslatex/supprimer imprimante defectueuse gras.png}}
   \caption{Diagramme de séquence de CU "supprimer imprimante défectueuse"}
   \label{fig:clone-result}
 \end{figure}
@@ -2712,7 +2726,9 @@ Scénario alternatif   &
 \textbf{Diagramme de séquence de cu : "Consulter Historique Maintenance" }
 \begin{figure}[H]
   \centering
-  \includegraphics[width=\textwidth]{C:/Users/bouka/Downloads/imageslatex/Cosulter Historique de maintenance imprimante.png}
+  \setlength{\fboxrule}{1pt}
+  \setlength{\fboxsep}{3pt}
+  \fbox{\includegraphics[width=\textwidth]{C:/Users/bouka/Downloads/imageslatex/Cosulter Historique de maintenance imprimante.png}}
   \caption{Diagramme de séquence de CU "Consulter Historique Maintenance"}
   \label{fig:clone-result}
 \end{figure}
@@ -2721,7 +2737,9 @@ Scénario alternatif   &
 \textbf{Diagramme de séquence de cu : "Planifier une maintenance Curative" }
 \begin{figure}[H]
   \centering
-  \includegraphics[width=\textwidth]{C:/Users/bouka/Downloads/imageslatex/planifier maintenance curative.png}
+  \setlength{\fboxrule}{1pt}
+  \setlength{\fboxsep}{3pt}
+  \fbox{\includegraphics[width=\textwidth]{C:/Users/bouka/Downloads/imageslatex/planifier maintenance curative.png}}
   \caption{Diagramme de séquence de CU "Planifier une maintenance Curative"}
   \label{fig:clone-result}
 \end{figure}
@@ -2731,22 +2749,296 @@ Scénario alternatif   &
 \textbf{Diagramme de séquence de cu : "Filtrer données Imprimante" }
 \begin{figure}[H]
   \centering
-  \includegraphics[width=\textwidth]{C:/Users/bouka/Downloads/imageslatex/filtrer données imprimante.png}
+  \setlength{\fboxrule}{1pt}
+  \setlength{\fboxsep}{3pt}
+  \fbox{\includegraphics[width=\textwidth]{C:/Users/bouka/Downloads/imageslatex/filtrer données imprimante DS gras.png}}
   \caption{Diagramme de séquence de CU "Filtrer données Imprimante"}
   \label{fig:clone-result}
 \end{figure}
 
 
-\newpage
-\subsection{Diagramme de Classe de Sprint 4: Rubrique : gestion parcs Impressions}
 
+% Astuce : augmenter légèrement l’espace horizontal dans les cellules
+\setlength{\tabcolsep}{8pt}
+% Astuce : augmenter l’espacement vertical entre les lignes
+\setlength{\extrarowheight}{2pt}
+% Astuce : couleurs alternées pour faciliter la lecture
+\rowcolors{2}{gray!10}{white}
+
+
+\newpage
+\subsection{Schéma de la base de données — Parc d’imprimantes}
+
+% Premier tableau : Printer
+\begin{table}[ht]
+  \centering
+  \small
+  \caption{Structure de la collection \texttt{Printer}}
+  \label{tab:printer-schema}
+  \begin{tabularx}{\textwidth}{l X l X}
+    \toprule
+    \bf Champ              & \bf Type    & \bf Contraintes               & \bf Description                              \\
+    \midrule
+    \texttt{Printer\_ID}      & String     & PK, requis, unique            & Identifiant unique de l’imprimante           \\
+    \addlinespace
+    \texttt{Manufacturer} & String     & —                             & Fabricant                                    \\
+    \addlinespace
+    \texttt{Model}        & String     & —                             & Modèle                                       \\
+    \addlinespace
+    \texttt{Type}         & Enum       & \{Laser, Inkjet\}             & Technologie d’impression                     \\
+    \addlinespace
+    \texttt{Location}     & String     & —                             & Emplacement physique                         \\
+    \addlinespace
+    \texttt{Purchase\_Date}& Date       & —                             & Date d’achat                                 \\
+    \addlinespace
+    \texttt{Warranty\_Expiry}& Date     & —                             & Date d’expiration de la garantie             \\
+    \addlinespace
+    \texttt{Total\_Pages} & Number     & —                             & Nombre total de pages imprimées              \\
+    \addlinespace
+    \texttt{Network\_IP}  & String     & —                             & Adresse IP                                   \\
+    \addlinespace
+    \texttt{Status}       & Enum       & \{Active, Inactive\}          & État de l’imprimante                         \\
+    \addlinespace
+    \texttt{Department}   & String     & —                             & Département d’affectation                    \\
+    \bottomrule
+  \end{tabularx}
+\end{table}
+
+\vspace{1em}  
+
+% Deuxième tableau : CurativeMaintenance
+\begin{table}[ht]
+  \centering
+  \small
+  \caption{Structure de la collection \texttt{curativemaintenances}}
+  \label{tab:curative-schema}
+  \begin{tabularx}{\textwidth}{l X l X}
+    \toprule
+    \bf Champ            & \bf Type      & \bf Contraintes         & \bf Description                              \\
+    \midrule
+    \texttt{Printer\_ID}       & String       & FK, requis             & Référence à \texttt{Printer.Printer\_ID}      \\
+    \addlinespace
+    \texttt{date}        & Date         & requis                 & Date de l’intervention                        \\
+    \addlinespace
+    \texttt{type}        & String       & requis                 & Type d’intervention (réparation, maintenance) \\
+    \addlinespace
+    \texttt{technician}  & String       & requis                 & Nom du technicien                             \\
+    \addlinespace
+    \texttt{description} & String       & —                       & Détails de l’intervention                      \\
+    \addlinespace
+    \texttt{cost}        & Number       & requis                 & Coût de l’intervention (en Dinars)             \\
+    \addlinespace
+    \texttt{createdAt}   & Timestamp    & auto                    & Date de création du document                   \\
+    \addlinespace
+    \texttt{updatedAt}   & Timestamp    & auto                    & Date de dernière mise à jour                   \\
+    \bottomrule
+  \end{tabularx}
+\end{table}
+
+\section{Réalisation et Test de Sprint}
+
+\textbf{B- Rubrique Printer Parc}
+
+\subsection{Interfaces obtenus et fonctionnement de l'application}
+
+\begin{tcolorbox}[
+  enhanced,
+  colback=blue!5,
+  colframe=blue!75!black,
+  boxrule=1pt,
+  arc=4pt,
+  title=\large\bfseries Interface : Gestion d’imprimantes
+]
+\vspace{-1ex}
+\noindent
+Cette interface offre une vue synthétique de l’ensemble des imprimantes enregistrées dans le système, permettant de :
+\begin{itemize}[label=\raisebox{0.2ex}{\tiny\textbullet}, left=1em]
+  \item Consulter rapidement les caractéristiques clés (modèle, statut, site).
+  \item Filtrer et trier selon différents critères (par exemple : statut « En panne », critère de performance).
+  \item Accéder en un clic au détail complet de chaque imprimante.
+\end{itemize}
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=\textwidth]{C:/Users/bouka/Downloads/imageslatex/Dclasse sprint 4 .png}
-  \caption{Diagramme de Classe de Sprint 4: Rubrique : gestion parcs Impressions}
-  \label{fig:clone-result}
+  \includegraphics[width=0.9\linewidth]{C:/Users/bouka/Downloads/imageslatex/maquette 1 _manage printer parc.png}
+  \caption{Vue principale de l’interface de gestion des imprimantes.}
+  \label{fig:gestion-imprimantes}
 \end{figure}
+\end{tcolorbox}
+
+
+\vspace{2ex}
+
+%------------------------
+% Interface : Maintenance Curative
+%------------------------
+\begin{tcolorbox}[
+  enhanced,
+  colback=blue!5,
+  colframe=blue!75!black,
+  boxrule=1pt,
+  arc=4pt,
+  title=\large\bfseries Interface : Maintenance curative et Historique
+]
+\vspace{-1ex}
+\noindent
+Cette interface centralise toutes les opérations de maintenance curative :
+\begin{itemize}[label=\raisebox{0.2ex}{\tiny\textbullet}, left=1em]
+  \item Consultation de l’historique complet des interventions.
+  \item Ajout facile d’une nouvelle maintenance via un formulaire dédié.
+  \item Visualisation d’indicateurs clés : nombres d’imprimantes inactives, coût mensuel total, etc.
+\end{itemize}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.9\linewidth]{C:/Users/bouka/Downloads/imageslatex/interface gérer maintenance .png}
+  \caption{Tableau de bord de la maintenance curative et historique des interventions.}
+  \label{fig:maintenance-curative}
+\end{figure}
+\end{tcolorbox}
+
+
+\newpage
+\begin{tcolorbox}[
+  enhanced,
+  colback=blue!5,
+  colframe=blue!75!black,
+  boxrule=1pt,
+  arc=4pt,
+  title=\large\bfseries Interface : Ajouter Imprimante
+]
+\vspace{-1ex}
+\noindent
+Cette interface présente un formulaire clair et épuré pour l’enregistrement de nouvelles imprimantes.  
+Elle offre :
+\begin{itemize}[label=\raisebox{0.2ex}{\tiny\textbullet}, left=1em]
+  \item Une saisie fluide avec contrôles de validité en temps réel.
+\end{itemize}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.85\linewidth]{C:/Users/bouka/Downloads/imageslatex/interface _add Newprinter.png}
+  \caption{Formulaire d’ajout d’une nouvelle imprimante.}
+  \label{fig:ajouter-imprimante}
+\end{figure}
+\end{tcolorbox}
+
+
+\newpage
+\subsection{Tests de Sprint 4 : Gestion du parc d’imprimantes}
+
+\subsubsection*{TC4.1 – Ajout d’une imprimante}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.8\textwidth,height=0.3\textheight,keepaspectratio]{C:/Users/bouka/Downloads/imageslatex/formulaireajoutremplies.png}
+  \caption{Formulaire pré-rempli (TC4.1.1a).}
+  \label{fig:add-form-filled}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.8\textwidth,height=0.3\textheight,keepaspectratio]{C:/Users/bouka/Downloads/imageslatex/message réussi imprimante ajoutée.png}
+  \caption{Confirmation de succès (TC4.1.1b).}
+  \label{fig:add-success}
+\end{figure}
+
+
+\subsubsection*{TC4.2 – Échec d’ajout pour référence dupliquée}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.8\textwidth,height=0.3\textheight,keepaspectratio]{C:/Users/bouka/Downloads/imageslatex/referenceexiste.png}
+  \caption{Alerte « Reference already exists » (TC4.1.2).}
+  \label{fig:add-duplicate}
+\end{figure}
+
+
+\subsubsection*{TC4.3 – Suppression d’une imprimante inactive}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.8\textwidth,height=0.3\textheight,keepaspectratio]{C:/Users/bouka/Downloads/imageslatex/barre confirmation delete inactive.png}
+  \caption{Confirmation avant suppression (TC4.2.1a).}
+  \label{fig:del-confirm}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.8\textwidth,height=0.3\textheight,keepaspectratio]{C:/Users/bouka/Downloads/imageslatex/delete success.png}
+  \caption{Notification « Deleted! » (TC4.2.1b).}
+  \label{fig:del-success}
+\end{figure}
+
+
+\subsubsection*{TC4.4 – Bloquage de suppression pour imprimante active}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.8\textwidth,height=0.3\textheight,keepaspectratio]{C:/Users/bouka/Downloads/imageslatex/delete forbidden imprimante.png}
+  \caption{Alerte « Forbidden » (TC4.2.2).}
+  \label{fig:delete-active}
+\end{figure}
+
+
+\section{Utilisation des Outils de suivi de Scrum}
+
+\subsection{Scrum Board}
+
+Pour organiser et suivre l’avancement de la rubrique B « Gestion du parc d’imprimantes » durant le sprint 4, nous avons utilisé un tableau Trello dédié.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.85\textwidth,keepaspectratio]{C:/Users/bouka/Downloads/imageslatex/scrum board trello sprint4rubB.png}
+  \caption{Vue d’ensemble du Scrum Board Trello – Sprint 4 (rubrique B : gestion du parc d’imprimantes).}
+  \label{fig:trello-sprint4-printer}
+\end{figure}
+
+\newpage
+\subsection{Burndown Chart du Sprint 4}
+
+Cette figure présente le suivi quotidien de l’avancement du sprint 4, en comparant les tâches planifiées à l’exécution réelle. Elle met en évidence l’évolution du travail restant et le cumul des tâches validées au fil du temps.
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.8\textwidth]{C:/Users/bouka/Downloads/imageslatex/BurnDownChart sprint 4.png}
+  \caption{Burndown Chart du sprint 4}
+  \label{fig:burndown}
+\end{figure}
+
+\section{Conclusion}
+
+Après avoir achevé avec succès le sprint 4, centré sur la gestion des clients, des sociétés et la consultation de l’historique, nous nous apprêtons à lancer le sprint 5. Cette cinquième itération sera entièrement dédiée à la mise en place de la gestion des tableaux de bord, marquant une étape décisive dans la valorisation et l’exploitation interactive des données consolidées.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
