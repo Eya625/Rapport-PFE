@@ -94,9 +94,19 @@
 \usepackage{etoolbox}      % pour ajuster l’espacement
 \usepackage{caption}       % pour gérer les légendes
 \usepackage[table]{xcolor}
-
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue,
+  urlcolor=cyan,
+  pdftitle={PFE – Sprint 5 : Conception et Réalisation du Processus Décisionnel},
+  pdfauthor={Votre Nom},
+  pdfsubject={Sprint 5 – GIMSI},
+  pdfkeywords={PFE, GIMSI, décisionnel, sprint}
+}
 
 \begin{document}
+
 
 % __________ page de garde ____________
 
@@ -114,6 +124,11 @@
 	\end{titlepage}
 
 % table de matière 
+
+
+\tableofcontents
+\clearpage
+
 \newpage 
 \section*{ Introduction générale}
 l'informatique joue un rôle stratégique dans la gestion des entreprises en structurant et on optimisant le traitement des données. Dans un contexte où les organisations doivent gérer d'importants volumes d'informations complexes, hétérogènes et en temps réel, la prise de décision devient un enjeu critique.
@@ -1545,14 +1560,15 @@ Ce sprint se focalise sur le développement et l’optimisation du module d’au
 
 \section{Introduction}
 
-Ce sprint se concentre sur le développement et l’optimisation d’un module dédié à la gestion de la consommation de carburant. L’objectif est de fournir un suivi en temps réel, d’analyser les données de consommation pour identifier et corriger les écarts, et d’offrir des rapports dynamiques permettant d’optimiser l’usage des ressources. Le module sera conçu pour s’intégrer harmonieusement avec l’ensemble du système et répondre aux besoins spécifiques des partenaires OLA Energy (Landside) et APS (Airport Petrol Service).
-
+Ce sprint est consacré à la conception et à l’optimisation d’un module centralisé de gestion de la consommation de carburant des véhicules de TAV. Il vise à assurer un suivi rigoureux des données, à détecter les écarts de consommation, et à fournir des rapports dynamiques facilitant l’analyse et l’optimisation des ressources. En complément, le module intègrera la gestion des véhicules ainsi que les processus de facturation associés, afin de structurer l’ensemble du cycle opérationnel. Un tableau de bord analytique viendra consolider l’ensemble des informations financières liées aux véhicules, offrant ainsi une vision globale et synthétique des dépenses, des tendances et des indicateurs clés, au service de la prise de décision stratégique.
 
 \section{Sprint Backlog}
+
+% Premier tableau : OLA + APS
 \begin{table}[htbp]
   \centering
-  \caption{Sprint Backlog – Sprint 3}
-  \label{tab:sprint3-backlog}
+  \caption{Sprint Backlog – Sprint 3 (partie 1)}
+  \label{tab:sprint3-backlog-part1}
   \begin{tabular}{|p{3.5cm}|p{8cm}|c|c|}
     \hline
     \textbf{CU globale} 
@@ -1597,6 +1613,36 @@ Ce sprint se concentre sur le développement et l’optimisation d’un module d
   \end{tabular}
 \end{table}
 
+\newpage
+
+% Deuxième tableau : Finance
+\begin{table}[htbp]
+  \ContinuedFloat
+  \centering
+  \caption{Sprint Backlog – Sprint 3 (partie 2)}
+  \label{tab:sprint3-backlog-part2}
+  \begin{tabular}{|p{3.5cm}|p{8cm}|c|c|}
+    \hline
+    \textbf{CU globale} 
+      & \textbf{User Story} 
+      & \textbf{Priorité} 
+      & \textbf{Estimation (j)} \\ 
+    \hline
+    \multirow{5}{=}{\parbox{3.5cm}{En tant que responsable financier,\\je veux piloter le parc des véhicules}} 
+      & En tant que responsable financier, je veux gérer la facturation véhicule afin d’enregistrer une facture. 
+      & 2 & 1 \\ \cline{2-4}
+    & En tant que responsable financier, je veux gérer la facturation véhicule afin de consulter la liste des factures. 
+      & 2 & 1 \\ \cline{2-4}
+    & En tant que responsable financier, je veux ajouter un véhicule. 
+      & 3 & 2 \\ \cline{2-4}
+    & En tant que responsable financier, je veux consulter la liste des véhicules afin de supprimer un véhicule vendu. 
+      & 3 & 1 \\ \cline{2-4}
+    & En tant que responsable financier, je veux consulter la liste des véhicules afin de visualiser leurs factures. 
+      & 2 & 1 \\
+    \hline
+  \end{tabular}
+\end{table}
+
 \section{Spécification des besoins du Sprint 3}
 
 \subsection{Diagramme de cas d’utilisation Sprint 3}
@@ -1604,7 +1650,7 @@ Ce sprint se concentre sur le développement et l’optimisation d’un module d
   \centering
   \setlength{\fboxrule}{1pt}
   \setlength{\fboxsep}{3pt}
-  \fbox{\includegraphics[width=\textwidth]{C:/Users/bouka/Downloads/imageslatex/sprint 3 DCU gras.png}}
+  \fbox{\includegraphics[width=\textwidth]{C:/Users/bouka/Downloads/imageslatex/DCUsprint 3.png}}
   \caption{Diagramme de cas d’utilisation Sprint 3.}
   \label{fig:clone-result}
 \end{figure}
@@ -2292,12 +2338,145 @@ Ce sprint se concentre sur le développement et l’optimisation d’un module d
   \centering
   \setlength{\fboxrule}{1pt}
   \setlength{\fboxsep}{3pt}
-  \fbox{\includegraphics[width=\textwidth]{C:/Users/bouka/Downloads/imageslatex/DC sprint 3.png
+  \fbox{\includegraphics[width=\textwidth]{C:/Users/bouka/Downloads/imageslatex/diagramme de classe du sprint 3 complet.png
 }}
   \caption{ Diagramme de Classe de Sprint 3
  }
   \label{fig:clone-result}
 \end{figure}
+\subsection{Schéma de la base de données — Sprint 3}
+
+\begin{table}[ht]
+  \centering
+  \small
+  \caption{Structure de la collection \texttt{OlaConsumption}}
+  \label{tab:olaconsumption-schema}
+  \begin{tabularx}{\textwidth}{l X l X}
+    \toprule
+    \bf Champ                 & \bf Type                                      & \bf Contraintes                    & \bf Description                                                    \\
+    \midrule
+    \texttt{year}             & Number                                       & requis, index                      & Année de la carte de consommation                                  \\
+    \addlinespace
+    \texttt{totalConsumption} & Number                                       & default = 0                        & Consommation totale annuelle                                       \\
+    \addlinespace
+    \texttt{details}          & \texttt{Array\textless{}Obj\textgreater{}}   & default = \texttt{defaultApsDetails} & Détails par carte : \texttt{\{ id, employe, card\_number, dep\_code, location, monthly\_limit, consumptions \}} \\
+    \addlinespace
+    \texttt{isInvoiceGenerated}& Boolean                                     & default = false                   & Indicateur de génération de facture                                 \\
+    \addlinespace
+    \texttt{created\_at}      & Date                                         & default = \texttt{Date.now()}     & Date de création du document                                       \\
+    \bottomrule
+  \end{tabularx}
+\end{table}
+
+\vspace{1em}
+
+\begin{table}[ht]
+  \centering
+  \small
+  \caption{Structure de la collection \texttt{Invoice}}
+  \label{tab:invoice-schema}
+  \begin{tabularx}{\textwidth}{l X l X}
+    \toprule
+    \bf Champ                  & \bf Type                                             & \bf Contraintes           & \bf Description                                                          \\
+    \midrule
+    \texttt{invoiceType}       & String                                               & requis                    & Type de la facture                                                      \\
+    \addlinespace
+    \texttt{month}             & String                                               & requis                    & Mois de la facture (format texte)                                       \\
+    \addlinespace
+    \texttt{grandTotal}        & Number                                               & requis                    & Montant total avant taxes                                               \\
+    \addlinespace
+    \texttt{stampTax}          & Number                                               & requis                    & Taxe de timbre                                                          \\
+    \addlinespace
+    \texttt{totalWithTax}      & Number                                               & requis                    & Montant total TTC                                                       \\
+    \addlinespace
+    \texttt{regions}           & \texttt{Map\textless{}String, regionSchema\textgreater{}} & requis & 
+      \texttt{Map nom\_région → \{ regionTotal, expenseCategory, departments: Map\textless{}depCode, amount\textgreater{} \}} \\
+    \addlinespace
+    \texttt{isInvoiceGenerated}& Boolean                                              & default = false           & Indique si la facture a été générée                                      \\
+    \bottomrule
+  \end{tabularx}
+\end{table}
+
+\vspace{1em}
+
+\begin{table}[ht]
+  \centering
+  \small
+  \caption{Structure de la collection \texttt{ActionHistory}}
+  \label{tab:actionhistory-schema}
+  \begin{tabularx}{\textwidth}{l X l X}
+    \toprule
+    \bf Champ       & \bf Type    & \bf Contraintes                  & \bf Description                                    \\
+    \midrule
+    \texttt{timestamp} & Date     & default = \texttt{Date.now()}     & Date et heure de l’action enregistrée              \\
+    \addlinespace
+    \texttt{type}      & String   & \{add, update, delete\}           & Type d’action (création, modification, suppression)\\
+    \addlinespace
+    \texttt{entity}    & String   & —                                 & Entité concernée (ex. consumption, invoice, etc.)  \\
+    \addlinespace
+    \texttt{data}      & Object   & —                                 & Contenu complet de la donnée avant/après action     \\
+    \bottomrule
+  \end{tabularx}
+\end{table}
+
+\vspace{1em}
+
+\begin{table}[ht]
+  \centering
+  \small
+  \caption{Structure de la collection \texttt{vehicles}}
+  \label{tab:vehicles-schema}
+  \begin{tabularx}{\textwidth}{l X l X}
+    \toprule
+    \bf Champ                   & \bf Type     & \bf Contraintes                     & \bf Description                                     \\
+    \midrule
+    \texttt{N}                  & Number       & requis                              & Identifiant séquentiel du véhicule                  \\
+    \addlinespace
+    \texttt{assignedTo}         & String       & requis                              & Utilisateur ou service auquel le véhicule est affecté \\
+    \addlinespace
+    \texttt{Brunch}             & String       & requis                              & Agence ou site d’affectation                        \\
+    \addlinespace
+    \texttt{model}              & String       & requis                              & Modèle du véhicule                                  \\
+    \addlinespace
+    \texttt{year}               & Number       & requis                              & Année de mise en service                            \\
+    \addlinespace
+    \texttt{dateOf1stRegistration} & Date      & requis                              & Date de première immatriculation                    \\
+    \addlinespace
+    \texttt{registrationNumber} & String       & requis                              & Numéro d’immatriculation                            \\
+    \addlinespace
+    \texttt{allocation}         & String       & requis                              & Type d’utilisation (Airside / Landside)             \\
+    \bottomrule
+  \end{tabularx}
+\end{table}
+
+\vspace{1em}
+
+\begin{table}[ht]
+  \centering
+  \small
+  \caption{Structure de la collection \texttt{billingvehicles}}
+  \label{tab:billingvehicles-schema}
+  \begin{tabularx}{\textwidth}{l X >{\raggedright\arraybackslash}p{3cm} X}
+    \toprule
+    \bf Champ            & \bf Type    & \bf Contraintes                   & \bf Description                           \\
+    \midrule
+    \texttt{Ref}            & String     & requis, unique                   & Référence unique de la facture            \\
+    \addlinespace
+    \texttt{Date}           & Date       & requis                           & Date d’émission de la facture             \\
+    \addlinespace
+    \texttt{Immatriculation}& String     & requis                           & Numéro d’immatriculation du véhicule      \\
+    \addlinespace
+    \texttt{Type}           & String     & —                                & Type de véhicule ou prestation associée   \\
+    \addlinespace
+    \texttt{Montant}        & Number     & requis                           & Montant TTC de la facture                 \\
+    \addlinespace
+    \texttt{statut}         & Enum       & \{payé, non payé, partiellement payé\}, default = non payé
+                                   & État du règlement                         \\
+    \addlinespace
+    \texttt{pdfURL}         & String     & —                                & URL d’accès au fichier PDF de la facture  \\
+    \bottomrule
+  \end{tabularx}
+\end{table}
 
 
 \newpage
@@ -2356,7 +2535,7 @@ Cette interface permet de générer, modifier et suivre en temps réel les factu
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=\textwidth]{C:/Users/bouka/Downloads/imageslatex/trellocorr.png}
+  \includegraphics[width=\textwidth]{C:/Users/bouka/Downloads/imageslatex/planification trello complet avec gestion vehicules.png}
   \caption{Scrum Board du Sprint 3}
   \label{fig:clone-result}
 \end{figure}
@@ -2376,7 +2555,7 @@ Cette interface permet de générer, modifier et suivre en temps réel les factu
 
 \vspace{2cm}
 \begin{center}
-  {\Huge\bfseries Sprint 3}\\[0.8em]
+  {\Huge\bfseries Sprint 4}\\[0.8em]
   {\LARGE\bfseries Étude et réalisation du Sprint 4}
 \end{center}
 
@@ -3009,6 +3188,94 @@ Cette figure présente le suivi quotidien de l’avancement du sprint 4, en comp
 \section{Conclusion}
 
 Après avoir achevé avec succès le sprint 4, centré sur la gestion des clients, des sociétés et la consultation de l’historique, nous nous apprêtons à lancer le sprint 5. Cette cinquième itération sera entièrement dédiée à la mise en place de la gestion des tableaux de bord, marquant une étape décisive dans la valorisation et l’exploitation interactive des données consolidées.
+
+
+
+%sprint 5 : Méthodologie GIMSI
+
+% Chapitre Sprint 5
+\chapter{Étude et réalisation du Sprint 5}
+\thispagestyle{empty}
+\addcontentsline{toc}{chapter}{Chapitre \thechapter\quad Étude et réalisation du Sprint 5}
+
+\vspace{2cm}
+\begin{center}
+  {\Huge\bfseries Sprint 5}\\[0.8em]
+  {\LARGE\bfseries Étude et réalisation du Sprint 5}
+\end{center}
+
+\vspace{1.5cm}
+\begin{center}
+  \color{blue!60!black}\rule{0.6\textwidth}{1pt}
+\end{center}
+\vspace{1.5cm}
+
+\begin{center}
+  {\huge\bfseries Plan}\\[0.5em]
+\end{center}
+\vspace{1em}
+
+\begin{enumerate}[%
+  label=\bfseries\Large\arabic*., 
+  leftmargin=2cm, 
+  itemsep=1em
+]
+  \item Introduction
+  \item Sprint Backlog
+  \item Spécification des besoins du Sprint
+  \item Conception
+  \item Réalisation et tests
+  \item Utilisation des outils de Scrum
+  \item Conclusion
+\end{enumerate}
+
+\vfill
+\begin{center}
+  \color{blue!60!black}\rule{0.6\textwidth}{0.8pt}
+\end{center}
+
+\vspace{1em}
+\section*{Introduction}
+\addcontentsline{toc}{section}{Introduction}
+
+Dans le cadre de notre cinquième sprint, nous abordons la phase cruciale du « Choix de la Méthodologie », qui définira le cadre organisationnel et procédural de notre démarche BI. Ce préalable est déterminant pour garantir à la fois la rigueur nécessaire à la traçabilité des étapes et la souplesse indispensable à l’adaptation des tableaux de bord aux besoins évolutifs des métiers.  
+
+La Business Intelligence, au cœur de tout projet décisionnel, transforme des données disparates en indicateurs stratégiques, tableaux de bord et rapports analytiques. Un choix méthodologique pertinent conditionne notre capacité à intégrer de nouvelles sources, à itérer rapidement sur les visualisations et à maintenir une gouvernance solide du dispositif.  
+
+Nous commencerons par exposer succinctement les approches évaluées, avant de les confronter selon des critères essentiels, puis de motiver la sélection retenue.
+
+\vspace{1em}
+\begin{table}[h!]
+  \centering
+  \rowcolors{2}{gray!15}{white}
+  \begin{tabular}{@{}lccc@{}}
+    \toprule
+    \rowcolor{blue!30} \textbf{Critère}             & \textbf{Waterfall} & \textbf{Scrum}   & \textbf{GIMSI}    \\
+    \midrule
+    Flexibilité face aux imprévus    & Faible             & Élevée           & Moyenne           \\
+    Traçabilité et contrôle          & Élevée             & Moyenne          & Élevée            \\
+    Adaptation aux évolutions        & Faible             & Élevée           & Élevée            \\
+    Gouvernance et conformité        & Structurée         & Collaborative    & Intégrée          \\
+    Charge documentaire              & Lourde             & Léger            & Modérée           \\
+    \bottomrule
+  \end{tabular}
+  \caption{Comparaison des méthodologies selon les critères clés}
+  \label{tab:comparaison-methodos}
+\end{table}
+
+
+
+\section*{Conclusion du choix méthodologique}
+\addcontentsline{toc}{section}{Conclusion du choix méthodologique}
+
+Au terme de cette analyse rigoureuse, la méthode \textbf{GIMSI} s’impose comme le cadre le plus équilibré pour piloter notre projet BI. En effet, elle combine :
+
+
+
+Cette décision nous permettra de déployer nos tableaux de bord de manière structurée, tout en conservant la flexibilité nécessaire pour optimiser en continu la valeur apportée aux métiers. Le sprint 5 pourra ainsi bénéficier d’un socle méthodologique robuste, propice à l’innovation et à l’amélioration continue de notre solution BI.  
+
+
+
 
 
 
