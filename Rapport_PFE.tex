@@ -1,4 +1,4 @@
-\documentclass[a4paper,11pt]{report}
+ \documentclass[a4paper,11pt]{report}
 
 % Encodage et fontes
 \usepackage[utf8]{inputenc}
@@ -93,6 +93,13 @@
 \usepackage{booktabs}      % pour \toprule, \midrule, \bottomrule
 \usepackage{etoolbox}      % pour ajuster l’espacement
 \usepackage{caption}       % pour gérer les légendes
+\usepackage{tikz}
+\usepackage{eso-pic}
+\usepackage{tikz}
+\usepackage{eso-pic}
+\usepackage{graphicx}
+\usepackage[most]{tcolorbox}
+
 \usepackage[table]{xcolor}
 \usepackage{hyperref}
 \hypersetup{
@@ -106,27 +113,85 @@
 }
 
 \begin{document}
-
-
 % __________ page de garde ____________
+\begin{titlepage}
+  % Cadre épais et logos aux coins intérieurs (marge accrue)
+  \AddToShipoutPictureBG*{%
+    \begin{tikzpicture}[remember picture,overlay]
+      % Grand cadre
+      \draw[line width=2.5pt]
+        ([xshift=2cm,yshift=-2cm]current page.north west) rectangle
+        ([xshift=-2cm,yshift=2cm]current page.south east);
+      % Logo coin supérieur gauche
+      \node[anchor=north west, xshift=2cm, yshift=-2cm]
+        at (current page.north west)
+        {\includegraphics[width=3cm]{"C:/Documents issue de one drive/Bureau/TAV Airports/LOGO_Outils/universitésousselogo.png"}};
+      % Logo coin supérieur droit
+      \node[anchor=north east, xshift=-2cm, yshift=-2cm]
+        at (current page.north east)
+        {\includegraphics[width=3cm]{"C:/Documents issue de one drive/Bureau/TAV Airports/LOGO_Outils/logoisgs.png"}};
+    \end{tikzpicture}%
+  }
 
-	\begin{titlepage}
-		\begin{center}
-		% partie haut head (logos / institutions)
-		{\large Ministère de l'enseignement supérieur } \\
-		{\large Université de sousse} \\ 
-		\vspace{2cm}
-	
-		%tit	re principal
-		{ \huge \textbf{Rapport de projet de Fin d'étude }}
-		\end{center}	
-	
-	\end{titlepage}
+  \centering
+  \vspace*{1.5cm}
 
-% table de matière 
+  % Institutions
+  {\Large\scshape
+    Ministère de l'Enseignement Supérieur\\[-0.5ex]
+    et de la Recherche Scientifique\\[1.5ex]
+       Université de Sousse \\[1ex]
+       Institut Supérieur de Gestion de Sousse\\[1ex]
+        
+ 
+  }\par\vspace{3.5ex}
 
+  % Titre principal
+  \begin{tcolorbox}[
+    colback=white, colframe=blue!60!black,
+    boxrule=1pt, arc=3pt,
+    left=8pt, right=8pt, top=8pt, bottom=8pt,
+    halign=center, width=0.85\textwidth
+  ]
+    {\Huge\bfseries Projet de Fin d'Études}
+  \end{tcolorbox}\par\vspace{5ex}
 
+  % Diplôme et spécialité
+  {\large\bfseries En vue de l'obtention du diplôme de}\par\vspace{1ex}
+  {\Large\bfseries Informatique Appliquée à la Gestion}\\[0.5ex]
+  {\normalsize Spécialité \emph{Business Intelligence (BC)}}\par\vspace{5ex}
+
+  % Encadré du titre du projet (hauteur augmentée)
+  {\large\bfseries Titre du projet :}\par\vspace{1ex}
+  \begin{tcolorbox}[
+    colback=blue!10!white, colframe=blue!50!black,
+    boxrule=1pt, arc=4pt,
+    auto outer arc, halign=center,
+    top=8pt, bottom=8pt, left=6pt, right=6pt,
+    width=0.85\textwidth
+  ]
+    {\Large\bfseries Conception et implémentation d'un système de gestion administrative}
+  \end{tcolorbox}\par\vspace{5ex}
+
+  % Binôme
+  {\large\bfseries Présenté par :}\par\vspace{1ex}
+  {\normalsize Doua Dhemayed \& Boukadida Eya}\par\vspace{5ex}
+
+  % Encadrants
+  {\large\bfseries Encadré par :}\par\vspace{1ex}
+  {\normalsize
+    Mme Neila Hochlef \\ Mr Kaies Douiri \\ Mme Bassma Hakim
+  }\par\vspace{5ex}
+
+  % Année universitaire
+  {\small\itshape Année universitaire : 2024/2025}
+
+\end{titlepage}
+
+% table de matière
 \tableofcontents
+
+
 \clearpage
 
 \newpage 
@@ -1559,9 +1624,14 @@ Ce sprint se focalise sur le développement et l’optimisation du module d’au
 \setcounter{section}{0}
 
 \section{Introduction}
+Ce sprint a pour ambition de déployer un module complet qui articule la supervision de la consommation de carburant des véhicules Landside (OLA) et la facturation afférente, tout en couvrant la gestion globale du parc (achats, maintenance et coûts associés). Des tableaux de bord dédiés offriront une interface dynamique, garantissant une lecture claire et en temps réel des indicateurs clés pour chacun de ces deux volets, afin de faciliter le suivi opérationnel et soutenir la prise de décision stratégique.
 
-Ce sprint est consacré à la conception et à l’optimisation d’un module centralisé de gestion de la consommation de carburant des véhicules de TAV. Il vise à assurer un suivi rigoureux des données, à détecter les écarts de consommation, et à fournir des rapports dynamiques facilitant l’analyse et l’optimisation des ressources. En complément, le module intègrera la gestion des véhicules ainsi que les processus de facturation associés, afin de structurer l’ensemble du cycle opérationnel. Un tableau de bord analytique viendra consolider l’ensemble des informations financières liées aux véhicules, offrant ainsi une vision globale et synthétique des dépenses, des tendances et des indicateurs clés, au service de la prise de décision stratégique.
 
+
+
+
+
+c
 \section{Sprint Backlog}
 
 % Premier tableau : OLA + APS
@@ -1582,7 +1652,7 @@ Ce sprint est consacré à la conception et à l’optimisation d’un module ce
     & En tant qu'administrateur, je veux modifier les données d’une carte OLA. 
       & 1 & 1 \\ \cline{2-4}
     & En tant qu'administrateur, je veux consulter le TB de suivi OLA. 
-      & 1 & 1 \\ \cline{2-4}
+      & 1 & 2 \\ \cline{2-4}
     & En tant qu'administrateur, je veux supprimer des enregistrements de consommation carburant OLA. 
       & 2 & 1 \\ \cline{2-4}
     & En tant qu'administrateur, je veux supprimer une carte de consommation carburant OLA. 
@@ -1612,7 +1682,6 @@ Ce sprint est consacré à la conception et à l’optimisation d’un module ce
     \hline
   \end{tabular}
 \end{table}
-
 \newpage
 
 % Deuxième tableau : Finance
@@ -1628,20 +1697,28 @@ Ce sprint est consacré à la conception et à l’optimisation d’un module ce
       & \textbf{Priorité} 
       & \textbf{Estimation (j)} \\ 
     \hline
-    \multirow{5}{=}{\parbox{3.5cm}{En tant que responsable financier,\\je veux piloter le parc des véhicules}} 
-      & En tant que responsable financier, je veux gérer la facturation véhicule afin d’enregistrer une facture. 
-      & 2 & 1 \\ \cline{2-4}
-    & En tant que responsable financier, je veux gérer la facturation véhicule afin de consulter la liste des factures. 
+    \multirow{6}{=}{\parbox{3.5cm}{En tant que responsable financier,\\je veux piloter le parc des véhicules}} 
+      & En tant que responsable financier, je veux enregistrer une facture de véhicule. 
+      & 2 & 2 \\ \cline{2-4}
+    & En tant que responsable financier, je veux consulter la liste des factures. 
       & 2 & 1 \\ \cline{2-4}
     & En tant que responsable financier, je veux ajouter un véhicule. 
-      & 3 & 2 \\ \cline{2-4}
+      & 3 & 1 \\ \cline{2-4}
     & En tant que responsable financier, je veux consulter la liste des véhicules afin de supprimer un véhicule vendu. 
       & 3 & 1 \\ \cline{2-4}
     & En tant que responsable financier, je veux consulter la liste des véhicules afin de visualiser leurs factures. 
-      & 2 & 1 \\
-    \hline
+      & 2 & 1 \\ \cline{2-4}
+    & En tant que responsable financier, je veux consulter le tableau de bord de facturation des véhicules. 
+      & 3 & 3 \\ 
+        \hline
+\multicolumn{1}{|p{3.5cm}|}{\raggedright En tant que responsable des achats,\\je veux consulter le TB de suivi des opérations d'approvisionnement de la flotte.} 
+&  & 3 & 2 \\
+\hline
+
+
   \end{tabular}
 \end{table}
+
 
 \section{Spécification des besoins du Sprint 3}
 
@@ -1650,15 +1727,14 @@ Ce sprint est consacré à la conception et à l’optimisation d’un module ce
   \centering
   \setlength{\fboxrule}{1pt}
   \setlength{\fboxsep}{3pt}
-  \fbox{\includegraphics[width=\textwidth]{C:/Users/bouka/Downloads/imageslatex/DCUsprint 3.png}}
+  \fbox{\includegraphics[width=\textwidth]{C:/Users/bouka/Downloads/imageslatex/DCU_corr_sprt3.png}}
   \caption{Diagramme de cas d’utilisation Sprint 3.}
   \label{fig:clone-result}
 \end{figure}
+
+\newpage
 \subsection{Description textuelle des cas d'utilisation}
-
 \textbf{spécification textuelle de CU “Ajouter Carte OLA”}
-
-
 \begin{table}[H]
   \centering
   \renewcommand{\arraystretch}{1.5}
@@ -1690,19 +1766,17 @@ Ce sprint est consacré à la conception et à l’optimisation d’un module ce
       \item Le système informe l’administrateur de la création de la carte avec succès.
     \end{enumerate} \\ \hline
     \textbf{Scénario alternatif} & 
-    \textbf{6.a Information non valides :}
-    \begin{itemize}
-      \item Le système affiche un message d’erreur.
-      \item Retour à l’étape 4 du scénario de base.
-    \end{itemize} \\ \hline
+    \textbf{7.a Année supérieure à l’année courante :}
+\begin{itemize}
+  \item Le système affiche un message d’erreur : « Vous ne pouvez pas saisir une année supérieure à l’année actuelle. »
+  \item Retour à l’étape 4 du scénario de base.
+\end{itemize} \\ \hline
   \end{tabularx}
 \end{table}
 
 
-
-\textbf{spécification textuelle de CU “Modifier Carte OLA”}
-
-
+\newpage
+\textbf{spécification textuelle de CU “Modifier données Consommations”}
 \begin{table}[H]
   \centering
   \renewcommand{\arraystretch}{1.5}
@@ -1714,7 +1788,7 @@ Ce sprint est consacré à la conception et à l’optimisation d’un module ce
     \textbf{Préconditions} & 
     \begin{itemize}
       \item L’administrateur est authentifié dans le système.
-      \item Il est dans la section \textit{Gestion de consommation OLA}.
+      \item L'administrateur est dans la section \textit{Gestion de consommation OLA}.
       \item La liste des cartes OLA est affichée.
     \end{itemize} \\ \hline
     \textbf{Postconditions} & 
@@ -1743,14 +1817,8 @@ Ce sprint est consacré à la conception et à l’optimisation d’un module ce
     \end{itemize} \\ \hline
   \end{tabularx}
 \end{table}
-
-
-
-\textbf{spécification textuelle de CU “Supprimer Carte OLA”
-}
-
-
-
+\newpage
+\textbf{Spécification textuelle de CU “Supprimer Carte OLA”}
 \begin{table}[H]
   \centering
   \renewcommand{\arraystretch}{1.5}
@@ -1762,7 +1830,7 @@ Ce sprint est consacré à la conception et à l’optimisation d’un module ce
     \textbf{Préconditions} & 
     \begin{itemize}
       \item L’administrateur est authentifié dans le système.
-      \item Il est dans la section \textit{Gestion de consommation OLA}.
+      \item L'administrateur est dans la section \textit{Gestion OLA}.
       \item La liste des cartes OLA est affichée.
     \end{itemize} \\ \hline
     \textbf{Postconditions} & 
@@ -1774,16 +1842,28 @@ Ce sprint est consacré à la conception et à l’optimisation d’un module ce
     \begin{enumerate}
       \item L’administrateur sélectionne une carte OLA à supprimer.
       \item L’administrateur clique sur le bouton de suppression.
+      \item Le système demande la confirmation de la suppression.
+      \item L’administrateur valide la suppression
       \item Le système supprime la carte OLA.
       \item Le système informe l’administrateur de la suppression.
     \end{enumerate} \\ \hline
+    \textbf{Scénario alternatif} & 
+    \textbf{4.a L'administrateur annule la suppression de la carte :}
+    \begin{itemize}
+      \item Le CU se termine avec succès.
+    \end{itemize}
+    \textbf{5.a Carte antérieure avec consommation existante :}
+    \begin{itemize}
+      \item Le système affiche un message d’erreur : « Suppression non autorisée. »
+    \end{itemize} \\ \hline
+    
   \end{tabularx}
 \end{table}
 
 
 
 
-
+\newpage
 \textbf{spécification textuelle de CU “Supprimer données consommations”
 }
 
@@ -1822,7 +1902,7 @@ Ce sprint est consacré à la conception et à l’optimisation d’un module ce
 
 
 
-
+\newpage
 \textbf{spécification textuelle de CU “Consulter Historique OLA”
 }
 
@@ -1845,7 +1925,7 @@ Ce sprint est consacré à la conception et à l’optimisation d’un module ce
     \textbf{Scénario de base}  & 
       \begin{enumerate}
         \item L’administrateur accède à la section gestion de véhicules.
-        \item Il choisit la section historique.
+        \item L'administrateur choisit la section historique.
         \item Le système affiche la liste de l'historique.
       \end{enumerate} \\ \hline
     \textbf{Scénario alternatif} & 
@@ -1856,7 +1936,7 @@ Ce sprint est consacré à la conception et à l’optimisation d’un module ce
   \end{tabularx}
 \end{table}
 
-
+\newpage
 \textbf{Spécification textuelle de CU “Vider Historique OLA”}
 
 \begin{table}[H]
@@ -1870,7 +1950,7 @@ Ce sprint est consacré à la conception et à l’optimisation d’un module ce
     \textbf{Préconditions}     & 
       \begin{itemize}
         \item L’administrateur est authentifié.
-        \item Il est dans la section historique.
+        \item L'administrateur est dans la section historique.
       \end{itemize} \\ \hline
     \textbf{Postconditions}    & 
       \begin{itemize}
@@ -1893,9 +1973,8 @@ Ce sprint est consacré à la conception et à l’optimisation d’un module ce
   \end{tabularx}
 \end{table}
 
-
+\newpage
 \textbf{Spécification textuelle de CU “Ajouter Facture”}
-
 \begin{table}[H]
   \centering
   \renewcommand{\arraystretch}{1.5}
@@ -1916,26 +1995,25 @@ Ce sprint est consacré à la conception et à l’optimisation d’un module ce
     \textbf{Scénario de base}  & 
       \begin{enumerate}
         \item L’administrateur accède à la section facturation.
-        \item Il choisit d’ajouter une nouvelle facture.
+        \item L'administrateur choisit d’ajouter une nouvelle facture.
         \item Le système affiche un formulaire d’ajout.
         \item L’administrateur saisit les informations de la facture.
-        \item Il clique sur “save”.
+        \item L'administrateur clique sur “save”.
         \item Le système vérifie les informations.
         \item Le système ajoute la facture et met à jour le total.
         \item Le système informe de l’ajout.
       \end{enumerate} \\ \hline
     \textbf{Scénario alternatif} & 
-      \textbf{5.a Informations erronées :}
+      \textbf{6.a champs vides :}
       \begin{itemize}
-        \item Le système affiche un message d’erreur.
+        \item Le système affiche un message de remplissage de champ vide.
         \item Retour à l’étape 4 du scénario de base.
       \end{itemize} \\ \hline
   \end{tabularx}
 \end{table}
 
-
+\newpage
 \textbf{Spécification textuelle de CU “Modifier Facture”}
-
 \begin{table}[H]
   \centering
   \renewcommand{\arraystretch}{1.5}
@@ -1947,7 +2025,7 @@ Ce sprint est consacré à la conception et à l’optimisation d’un module ce
     \textbf{Préconditions}     & 
       \begin{itemize}
         \item L’administrateur est authentifié.
-        \item Il est dans la section gestion de véhicules.
+        \item L'administrateur est dans la section gestion de véhicules.
         \item La liste des factures est affichée.
       \end{itemize} \\ \hline
     \textbf{Postconditions}    & 
@@ -1958,11 +2036,11 @@ Ce sprint est consacré à la conception et à l’optimisation d’un module ce
       \begin{enumerate}
         \item L’administrateur accède à la section facturation.
         \item Le système affiche la liste des factures.
-        \item Il choisit une facture à modifier.
-        \item Il clique sur “Update”.
+        \item L'administrateur choisit une facture à modifier.
+        \item L'administrateur clique sur “Update”.
         \item Le système affiche le formulaire prérempli.
-        \item Il modifie les informations.
-        \item Il valide la soumission.
+        \item L'administrateur modifie les informations.
+        \item L'administrateur valide la soumission.
         \item Le système vérifie les nouvelles données.
         \item Le système met à jour la facture.
         \item Le système informe de la modification.
@@ -1976,9 +2054,8 @@ Ce sprint est consacré à la conception et à l’optimisation d’un module ce
   \end{tabularx}
 \end{table}
 
-
+\newpage
 \textbf{Spécification textuelle de CU “Supprimer Facture”}
-
 \begin{table}[H]
   \centering
   \renewcommand{\arraystretch}{1.5}
@@ -1990,7 +2067,7 @@ Ce sprint est consacré à la conception et à l’optimisation d’un module ce
     \textbf{Préconditions}     & 
       \begin{itemize}
         \item L’administrateur est authentifié.
-        \item Il est dans la section gestion de véhicules.
+        \item L'administrateur est dans la section gestion de véhicules.
         \item La liste des factures est affichée.
       \end{itemize} \\ \hline
     \textbf{Postconditions}    & 
@@ -2001,12 +2078,14 @@ Ce sprint est consacré à la conception et à l’optimisation d’un module ce
       \begin{enumerate}
         \item L’administrateur accède à la section facturation.
         \item Le système affiche la liste des factures.
-        \item Il choisit de supprimer une facture.
-        \item Il clique sur “Delete”.
+        \item L'administrateur choisit de supprimer une facture.
+        \item L'administrateur clique sur “Delete”.
+        \item Le système propose une option d’annulation de la suppression pendant un court délai.
+
         \item Le système supprime la facture.
       \end{enumerate} \\ \hline
     \textbf{Scénario alternatif} & 
-      \textbf{5.a Annulation de la suppression :}
+      \textbf{5.a Annulation de la suppression (clique Undo delete):}
       \begin{itemize}
         \item Le système annule la suppression.
         \item Retour à l’étape 2 du scénario de base.
@@ -2014,9 +2093,8 @@ Ce sprint est consacré à la conception et à l’optimisation d’un module ce
   \end{tabularx}
 \end{table}
 
-
+\newpage
 \textbf{Spécification textuelle de CU “Téléverser Facture OLA”}
-
 \begin{table}[H]
   \centering
   \renewcommand{\arraystretch}{1.5}
@@ -2028,7 +2106,7 @@ Ce sprint est consacré à la conception et à l’optimisation d’un module ce
     \textbf{Préconditions}     & 
       \begin{itemize}
         \item L’administrateur est authentifié.
-        \item Il est dans la section facturation.
+        \item L'administrateur est dans la section facturation.
       \end{itemize} \\ \hline
     \textbf{Postconditions}    & 
       \begin{itemize}
@@ -2039,8 +2117,8 @@ Ce sprint est consacré à la conception et à l’optimisation d’un module ce
       \begin{enumerate}
         \item L’administrateur clique sur “Téléverser une facture”.
         \item Le système ouvre la boîte de dialogue sélection de fichier.
-        \item Il choisit un fichier PDF.
-        \item Il clique sur “Upload”.
+        \item L'administrateur choisit un fichier PDF.
+        \item L'administrateur clique sur “Upload”.
         \item Le système vérifie le format.
         \item Le système enregistre la facture.
         \item Le système affiche une notification de succès.
@@ -2054,6 +2132,7 @@ Ce sprint est consacré à la conception et à l’optimisation d’un module ce
   \end{tabularx}
 \end{table}
 
+\newpage
 \textbf{Spécification textuelle de CU “Téléverser relevé de consommation OLA”}
 
 \begin{table}[H]
@@ -2067,7 +2146,7 @@ Ce sprint est consacré à la conception et à l’optimisation d’un module ce
     \textbf{Préconditions}     & 
       \begin{itemize}
         \item L’administrateur est authentifié.
-        \item Il est dans la section consulter carte OLA.
+        \item L'administrateur est dans la section consulter carte OLA.
       \end{itemize} \\ \hline
     \textbf{Postconditions}    & 
       \begin{itemize}
@@ -2078,26 +2157,34 @@ Ce sprint est consacré à la conception et à l’optimisation d’un module ce
       \begin{enumerate}
         \item L’administrateur accède à la section consulter carte OLA.
         \item Le système affiche la liste des cartes.
-        \item Il sélectionne une carte.
-        \item Il clique sur “Téléverser relevé consommation”.
+        \item L'administrateur sélectionne une carte.
+        \item L'administrateur clique sur “Téléverser relevé consommation”.
         \item Le système ouvre la boîte de dialogue.
-        \item Il choisit un fichier PDF.
-        \item Il clique sur “Upload relevé”.
+        \item L'administrateur  choisit un fichier PDF.
+        \item L'administrateur clique sur “Upload relevé”.
         \item Le système vérifie le format.
         \item Le système met à jour les consommations.
         \item Le système affiche une notification de succès.
       \end{enumerate} \\ \hline
-    \textbf{Scénario alternatif} & 
-      \begin{itemize}
-        \item \textbf{8.a Fichier non valide (format) :} Le système affiche un avertissement et revient à l’étape 6.
-        \item \textbf{8.b Relevé déjà existant :} Le système alerte de l’existence et revient à l’étape 6.
-      \end{itemize} \\ \hline
+    \textbf{Scénarios alternatifs} & 
+\begin{itemize}
+  \item \textbf{8.a Fichier non valide (format) :}
+  \begin{itemize}
+    \item Le système affiche un message d'avertissement.
+    \item Retour à l’étape 6 du scénario de base.
+  \end{itemize}
+
+  \item \textbf{8.b Relevé déjà existant :}
+  \begin{itemize}
+    \item Le système signale l’existence d’un relevé similaire.
+    \item Retour à l’étape 6 du scénario de base.
+  \end{itemize}
+\end{itemize} \\ \hline
+
   \end{tabularx}
 \end{table}
 
 \subsection{Maquette des Interfaces du Sprint 3}
-
-
 
 \begin{figure}[H]
   \centering
@@ -2149,15 +2236,15 @@ Ce sprint est consacré à la conception et à l’optimisation d’un module ce
 \subsection{Diagramme de séquence du Sprint 3}
 
 \newpage
-\textbf{Diagramme de séquence :“Ajouter Carte de consommation OLA” }
+\textbf{Diagramme de séquence :“Ajouter Carte OLA” }
 
 \begin{figure}[H]
   \centering
   \setlength{\fboxrule}{1pt}
   \setlength{\fboxsep}{3pt}
-  \fbox{\includegraphics[width=\textwidth]{C:/Users/bouka/Downloads/imageslatex/ajouter carte gras.png
+  \fbox{\includegraphics[width=\textwidth]{C:/Users/bouka/Downloads/imageslatex/DS_ajoutercartecorr.png
 }}
-  \caption{Diagramme de séquence de cu “Ajouter Carte de consommation OLA”
+  \caption{Diagramme de séquence de cu “Ajouter carte OLA”
  }
   \label{fig:clone-result}
 \end{figure}
@@ -2170,7 +2257,7 @@ Ce sprint est consacré à la conception et à l’optimisation d’un module ce
   \centering
   \setlength{\fboxrule}{1pt}
   \setlength{\fboxsep}{3pt}
-  \fbox{\includegraphics[width=\textwidth]{C:/Users/bouka/Downloads/imageslatex/DCU corr.png
+  \fbox{\includegraphics[width=\textwidth]{C:/Users/bouka/Downloads/imageslatex/DSsupprimer_carte_corr.png
 }}
   \caption{ Diagramme de séquence de cu : Supprimer Carte OLA
  }
@@ -2485,7 +2572,7 @@ Ce sprint est consacré à la conception et à l’optimisation d’un module ce
 
 \textbf{      \\ 1. Interface de gestion carburante OLA}
 
-La figure \ref{fig:clone-result} ci-dessous présente l’interface de gestion carburante d’OLA, avec les principaux modules de suivi de consommation et de facturation.
+La figure ci-dessous présente l’interface de gestion carburante d’OLA, avec les principaux modules de suivi de consommation et de facturation.
 
 \begin{figure}[H]
   \centering
@@ -2499,7 +2586,7 @@ La figure \ref{fig:clone-result} ci-dessous présente l’interface de gestion c
 
 \textbf{      \\ 2. Interface  "Ajouter Carte OLA "}
 
-La figure \ref{fig:clone-result} ci-dessous présente l’interface d'ajout d'une carte de consommation Carburante OLA
+La figure ci-dessous présente l’interface d'ajout d'une carte de consommation Carburante OLA
 
 \begin{figure}[H]
   \centering
@@ -2605,20 +2692,20 @@ Dans le cadre de la stratégie d’amélioration continue des services technique
 \textbf{User Story} & \textbf{Priorité} & \textbf{Estimation} \\
 \hline
 En tant qu’administrateur, je veux gérer les Télécommunications 
-& 1 & 30 \\
+& 1 & 10 \\
 \hline
 En tant qu’administrateur, je veux gérer les parcs d’impressions 
-& 2 & 20 \\
+& 2 & 10 \\
 \hline
 En tant qu’administrateur, je veux gérer tunisie autoroute 
-& 3 &  \\
+& 3 & 10 \\
 \hline
 \end{tabular}
 \end{table}
 \newpage
 
 
-\textbf{Rubrique B : Gestion  Parcs D'impressions}
+\textbf{Rubrique B : Gestion  Parcs D'impression}
 \subsection{Planification de sprint }
 
 \begin{tabular}{|m{4cm}|m{5cm}|c|c|}
@@ -2667,7 +2754,7 @@ Acteur               & Administrateur \\
 Précondition         &
 \begin{itemize}[left=0pt]
   \item L’administrateur est authentifié dans le système.
-  \item Il est dans la section « Gestion parc Impression ».
+  \item  L’administrateur est dans la section « Gestion parc Impression ».
 \end{itemize} \\
 \hline
 Post-condition       & Le statut de l’imprimante est mis à jour. \\
@@ -2677,9 +2764,9 @@ Scénario de base     &
   \item L’administrateur accède à la section « Gestion parc Impression ».
   \item Le système affiche le tableau des imprimantes et leurs statuts.
   \item L’administrateur sélectionne l’imprimante à modifier.
-  \item Il clique sur « Update ».
+  \item  L’administrateur clique sur « Update ».
   \item Le système affiche le formulaire avec le champ statut.
-  \item Il choisit le nouveau statut.
+  \item  L’administrateur choisit le nouveau statut.
   \item Le système enregistre le changement.
   \item Le système met à jour la liste.
 \end{enumerate} \\
@@ -2707,7 +2794,7 @@ Acteur               & Administrateur \\
 Précondition         &
 \begin{itemize}[left=0pt]
   \item L’administrateur est authentifié dans le système.
-  \item Il est dans la section « Gestion parc Impression ».
+  \item L’administrateur est dans la section « Gestion parc Impression ».
   \item Au moins une imprimante est enregistrée et hors service.
 \end{itemize} \\
 \hline
@@ -2718,7 +2805,7 @@ Scénario de base     &
   \item L’administrateur accède à la section « Gestion parc Impression ».
   \item Le système affiche la liste des imprimantes.
   \item L’administrateur sélectionne l’imprimante à retirer.
-  \item Il clique sur « Delete ».
+  \item L’administrateur clique sur « Delete ».
   \item Le système vérifie le statut.
   \item Le système affiche un message de confirmation.
   \item L’administrateur confirme la suppression.
@@ -2753,7 +2840,7 @@ Acteur               & Administrateur \\
 Précondition         &
 \begin{itemize}[left=0pt]
   \item L’administrateur est authentifié dans le système.
-  \item Il est dans la section « Gestion parc Impression ».
+  \item  L’administrateur est dans la section « Gestion parc Impression ».
 \end{itemize} \\
 \hline
 Post-condition       & La liste des interventions est affichée. \\
@@ -2761,7 +2848,7 @@ Post-condition       & La liste des interventions est affichée. \\
 Scénario de base     &
 \begin{enumerate}[left=0pt]
   \item L’administrateur accède à la section « Gestion parc Impression ».
-  \item Il choisit la section « Maintenance ».
+  \item  L’administrateur choisit la section « Maintenance ».
   \item Le système affiche la liste des interventions.
   \item \texttt{<<extend>> Filtrer données interventions}
 \end{enumerate} \\
@@ -2789,7 +2876,7 @@ Acteur               & Administrateur \\
 Précondition         &
 \begin{itemize}[left=0pt]
   \item L’administrateur est authentifié dans le système.
-  \item Il est dans la section « Maintenance ».
+  \item  L’administrateur est dans la section « Maintenance ».
 \end{itemize} \\
 \hline
 Post-condition       & Une nouvelle intervention est ajoutée à la liste. \\
@@ -2798,8 +2885,8 @@ Scénario de base     &
 \begin{enumerate}[left=0pt]
   \item L’administrateur accède à la section « Maintenance ».
   \item Le système affiche le formulaire d’ajout d’intervention.
-  \item Il remplit les champs obligatoires.
-  \item Il valide la planification.
+  \item L’administrateur remplit les champs obligatoires.
+  \item L’administrateur valide la planification.
   \item Le système vérifie les informations.
   \item Le système enregistre l’intervention.
   \item Le système met à jour la liste.
@@ -2868,7 +2955,7 @@ Scénario alternatif   &
   \centering
   \setlength{\fboxrule}{1pt}
   \setlength{\fboxsep}{3pt}
-  \fbox{\includegraphics[width=\textwidth]{C:/Users/bouka/Downloads/imageslatex/DS ajouter imprimante.png}}
+  \fbox{\includegraphics[width=\textwidth]{C:/Users/bouka/Downloads/imageslatex/DSajouter_imprimante_corr.png}}
   \caption{Diagramme de séquence de CU "Ajouter Imprimante"}
   \label{fig:clone-result}
 \end{figure}

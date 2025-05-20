@@ -58,36 +58,36 @@
 \contentsline {section}{\numberline {2}Sprint Backlog}{49}{section.5.2}%
 \contentsline {section}{\numberline {3}Spécification des besoins du Sprint 3}{52}{section.5.3}%
 \contentsline {subsection}{\numberline {3.1}Diagramme de cas d’utilisation Sprint 3}{52}{subsection.5.3.1}%
-\contentsline {subsection}{\numberline {3.2}Description textuelle des cas d'utilisation}{52}{subsection.5.3.2}%
-\contentsline {subsection}{\numberline {3.3}Maquette des Interfaces du Sprint 3}{63}{subsection.5.3.3}%
-\contentsline {section}{\numberline {4}Conception}{65}{section.5.4}%
-\contentsline {subsection}{\numberline {4.1}Diagramme de séquence du Sprint 3}{65}{subsection.5.4.1}%
-\contentsline {subsection}{\numberline {4.2}Diagramme de Classe de Sprint 3}{78}{subsection.5.4.2}%
-\contentsline {subsection}{\numberline {4.3}Schéma de la base de données — Sprint 3}{78}{subsection.5.4.3}%
-\contentsline {section}{\numberline {5}Réalisation et tests }{82}{section.5.5}%
-\contentsline {subsection}{\numberline {5.1}Interface Obtenus et Fonctionnement de l'application}{82}{subsection.5.5.1}%
-\contentsline {section}{\numberline {6}Utilisation des outils de suivi de Scrum}{84}{section.5.6}%
-\contentsline {subsection}{\numberline {6.1}ScrumBoard : Trello}{84}{subsection.5.6.1}%
-\contentsline {chapter}{\numberline {6}Étude et réalisation du Sprint 4}{85}{chapter.6}%
-\contentsline {chapter}{Chapitre 6\hskip 1em\relax Étude et réalisation du Sprint 4}{85}{chapter.6}%
-\contentsline {section}{\numberline {1}Introduction}{86}{section.6.1}%
-\contentsline {section}{\numberline {2}Sprint Backlog}{86}{section.6.2}%
-\contentsline {subsection}{\numberline {2.1}Planification de sprint }{87}{subsection.6.2.1}%
-\contentsline {section}{\numberline {3}Spécification des besoins}{88}{section.6.3}%
-\contentsline {subsection}{\numberline {3.1}Diagramme de cas d’utilisation }{88}{subsection.6.3.1}%
-\contentsline {subsection}{\numberline {3.2}Description textuelle des cas d’utilisations }{88}{subsection.6.3.2}%
-\contentsline {subsection}{\numberline {3.3}Maquettes des interfaces}{92}{subsection.6.3.3}%
-\contentsline {section}{\numberline {4}Conception}{92}{section.6.4}%
-\contentsline {subsection}{\numberline {4.1}Diagramme de séquence du Sprint 4}{92}{subsection.6.4.1}%
-\contentsline {subsection}{\numberline {4.2}Schéma de la base de données — Parc d’imprimantes}{99}{subsection.6.4.2}%
-\contentsline {section}{\numberline {5}Réalisation et Test de Sprint}{100}{section.6.5}%
-\contentsline {subsection}{\numberline {5.1}Interfaces obtenus et fonctionnement de l'application}{101}{subsection.6.5.1}%
-\contentsline {subsection}{\numberline {5.2}Tests de Sprint 4 : Gestion du parc d’imprimantes}{104}{subsection.6.5.2}%
-\contentsline {section}{\numberline {6}Utilisation des Outils de suivi de Scrum}{106}{section.6.6}%
-\contentsline {subsection}{\numberline {6.1}Scrum Board}{106}{subsection.6.6.1}%
-\contentsline {subsection}{\numberline {6.2}Burndown Chart du Sprint 4}{107}{subsection.6.6.2}%
-\contentsline {section}{\numberline {7}Conclusion}{107}{section.6.7}%
-\contentsline {chapter}{\numberline {7}Étude et réalisation du Sprint 5}{108}{chapter.7}%
-\contentsline {chapter}{Chapitre 7\hskip 1em\relax Étude et réalisation du Sprint 5}{108}{chapter.7}%
-\contentsline {section}{Introduction}{109}{Item.179}%
-\contentsline {section}{Conclusion du choix méthodologique}{109}{table.caption.95}%
+\contentsline {subsection}{\numberline {3.2}Description textuelle des cas d'utilisation}{53}{subsection.5.3.2}%
+\contentsline {subsection}{\numberline {3.3}Maquette des Interfaces du Sprint 3}{64}{subsection.5.3.3}%
+\contentsline {section}{\numberline {4}Conception}{66}{section.5.4}%
+\contentsline {subsection}{\numberline {4.1}Diagramme de séquence du Sprint 3}{66}{subsection.5.4.1}%
+\contentsline {subsection}{\numberline {4.2}Diagramme de Classe de Sprint 3}{79}{subsection.5.4.2}%
+\contentsline {subsection}{\numberline {4.3}Schéma de la base de données — Sprint 3}{79}{subsection.5.4.3}%
+\contentsline {section}{\numberline {5}Réalisation et tests }{83}{section.5.5}%
+\contentsline {subsection}{\numberline {5.1}Interface Obtenus et Fonctionnement de l'application}{83}{subsection.5.5.1}%
+\contentsline {section}{\numberline {6}Utilisation des outils de suivi de Scrum}{85}{section.5.6}%
+\contentsline {subsection}{\numberline {6.1}ScrumBoard : Trello}{85}{subsection.5.6.1}%
+\contentsline {chapter}{\numberline {6}Étude et réalisation du Sprint 4}{86}{chapter.6}%
+\contentsline {chapter}{Chapitre 6\hskip 1em\relax Étude et réalisation du Sprint 4}{86}{chapter.6}%
+\contentsline {section}{\numberline {1}Introduction}{87}{section.6.1}%
+\contentsline {section}{\numberline {2}Sprint Backlog}{87}{section.6.2}%
+\contentsline {subsection}{\numberline {2.1}Planification de sprint }{88}{subsection.6.2.1}%
+\contentsline {section}{\numberline {3}Spécification des besoins}{89}{section.6.3}%
+\contentsline {subsection}{\numberline {3.1}Diagramme de cas d’utilisation }{89}{subsection.6.3.1}%
+\contentsline {subsection}{\numberline {3.2}Description textuelle des cas d’utilisations }{89}{subsection.6.3.2}%
+\contentsline {subsection}{\numberline {3.3}Maquettes des interfaces}{93}{subsection.6.3.3}%
+\contentsline {section}{\numberline {4}Conception}{93}{section.6.4}%
+\contentsline {subsection}{\numberline {4.1}Diagramme de séquence du Sprint 4}{93}{subsection.6.4.1}%
+\contentsline {subsection}{\numberline {4.2}Schéma de la base de données — Parc d’imprimantes}{100}{subsection.6.4.2}%
+\contentsline {section}{\numberline {5}Réalisation et Test de Sprint}{101}{section.6.5}%
+\contentsline {subsection}{\numberline {5.1}Interfaces obtenus et fonctionnement de l'application}{102}{subsection.6.5.1}%
+\contentsline {subsection}{\numberline {5.2}Tests de Sprint 4 : Gestion du parc d’imprimantes}{105}{subsection.6.5.2}%
+\contentsline {section}{\numberline {6}Utilisation des Outils de suivi de Scrum}{107}{section.6.6}%
+\contentsline {subsection}{\numberline {6.1}Scrum Board}{107}{subsection.6.6.1}%
+\contentsline {subsection}{\numberline {6.2}Burndown Chart du Sprint 4}{108}{subsection.6.6.2}%
+\contentsline {section}{\numberline {7}Conclusion}{108}{section.6.7}%
+\contentsline {chapter}{\numberline {7}Étude et réalisation du Sprint 5}{109}{chapter.7}%
+\contentsline {chapter}{Chapitre 7\hskip 1em\relax Étude et réalisation du Sprint 5}{109}{chapter.7}%
+\contentsline {section}{Introduction}{110}{Item.182}%
+\contentsline {section}{Conclusion du choix méthodologique}{110}{table.caption.95}%
