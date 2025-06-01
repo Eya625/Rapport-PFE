@@ -58,86 +58,92 @@
 \contentsline {section}{\numberline {3}Spécification des besoins du Sprint 2}{52}{section.4.3}%
 \contentsline {subsection}{\numberline {3.1}Diagramme de Cas d'utilisation 2}{52}{subsection.4.3.1}%
 \contentsline {subsection}{\numberline {3.2} Description textuelle des cas d’utilisations}{52}{subsection.4.3.2}%
-\contentsline {subsection}{\numberline {3.3}Maquettes des Interfaces}{60}{subsection.4.3.3}%
-\contentsline {section}{\numberline {4}Conception}{64}{section.4.4}%
-\contentsline {subsection}{\numberline {4.1}Diagrammes de séquence du Sprint 2}{64}{subsection.4.4.1}%
-\contentsline {subsection}{\numberline {4.2}Diagramme de classe Sprint 2}{69}{subsection.4.4.2}%
-\contentsline {subsection}{\numberline {4.3}Schéma de la base de données}{70}{subsection.4.4.3}%
-\contentsline {section}{\numberline {5}Réalisation et tests}{71}{section.4.5}%
-\contentsline {subsection}{\numberline {5.1}Interfaces obtenues et fonctionnement de l’application}{71}{subsection.4.5.1}%
-\contentsline {subsubsection}{Interface 1 : S’authentifier}{71}{subsubsection*.58}%
-\contentsline {subsubsection}{Interface 2 : Dashboard}{71}{subsubsection*.60}%
-\contentsline {subsubsection}{Interface 3 : Consulter Compte Utilisateur}{72}{subsubsection*.62}%
-\contentsline {subsubsection}{Interface 4 : Ajouter Compte}{72}{subsubsection*.64}%
-\contentsline {subsection}{\numberline {5.2}Tests}{73}{subsection.4.5.2}%
-\contentsline {subsubsection}{Interface 1 : S’authentifier}{73}{subsubsection*.66}%
-\contentsline {paragraph}{Cas 1 : Vérification des champs}{73}{paragraph*.67}%
-\contentsline {paragraph}{Cas 2 : Vérification de l’existence des champs}{73}{paragraph*.69}%
-\contentsline {paragraph}{Cas 3 : Vérification de l’existence du compte}{74}{paragraph*.71}%
-\contentsline {subsubsection}{Interface 2 : Consulter Compte Utilisateur}{74}{subsubsection*.73}%
-\contentsline {paragraph}{Cas 1 : Vérification de la validité du mot de passe}{74}{paragraph*.74}%
-\contentsline {subsubsection}{Interface 3 : Ajouter Compte}{75}{subsubsection*.76}%
-\contentsline {paragraph}{Cas 1 : Tentatives égales à 10}{75}{paragraph*.77}%
-\contentsline {subsubsection}{Interface 4 : Consulter Compte }{76}{subsubsection*.79}%
-\contentsline {paragraph}{Cas 1 : Aucun utilisateur n’existe dans la liste}{76}{paragraph*.80}%
-\contentsline {subsubsection}{Interface 5 : Ajouter Compte }{76}{subsubsection*.82}%
-\contentsline {paragraph}{Cas 1 : Vérification des champs}{76}{paragraph*.83}%
-\contentsline {section}{\numberline {6}Conclusion}{77}{section.4.6}%
-\contentsline {chapter}{\numberline {5}Sprint 3 : Étude et Réalisation du Sprint 3}{78}{chapter.5}%
-\contentsline {section}{\numberline {1}Introduction}{79}{section.5.1}%
-\contentsline {section}{\numberline {2}Sprint Backlog}{79}{section.5.2}%
-\contentsline {section}{\numberline {3}Spécification des besoins du Sprint 3}{81}{section.5.3}%
-\contentsline {subsection}{\numberline {3.1}Diagramme de cas d’utilisation Sprint 3}{81}{subsection.5.3.1}%
-\contentsline {subsection}{\numberline {3.2}Description textuelle des cas d'utilisation}{82}{subsection.5.3.2}%
-\contentsline {subsection}{\numberline {3.3}Maquette des Interfaces du Sprint 3}{92}{subsection.5.3.3}%
-\contentsline {section}{\numberline {4}Conception}{94}{section.5.4}%
-\contentsline {subsection}{\numberline {4.1}Diagramme de séquence du Sprint 3}{94}{subsection.5.4.1}%
-\contentsline {subsection}{\numberline {4.2}Diagramme de Classe de Sprint 3}{108}{subsection.5.4.2}%
-\contentsline {subsection}{\numberline {4.3}Schéma de la base de données — Sprint 3}{109}{subsection.5.4.3}%
-\contentsline {section}{\numberline {5}Réalisation et tests }{112}{section.5.5}%
-\contentsline {subsection}{\numberline {5.1}Interface Obtenus et Fonctionnement de l'application}{112}{subsection.5.5.1}%
-\contentsline {section}{\numberline {6}Utilisation des outils de suivi de Scrum}{114}{section.5.6}%
-\contentsline {subsection}{\numberline {6.1}ScrumBoard : Trello}{114}{subsection.5.6.1}%
-\contentsline {subsection}{\numberline {6.2}Burndown Chart du Sprint 3}{115}{subsection.5.6.2}%
-\contentsline {section}{\numberline {7}Conclusion}{115}{section.5.7}%
-\contentsline {chapter}{\numberline {6}Sprint 4: Étude et Réalisation du Sprint 4}{116}{chapter.6}%
-\contentsline {section}{Partie A : Gestion Télécommunication et Tunisie Autoroute}{117}{Item.166}%
-\contentsline {section}{\numberline {1}Introduction}{117}{section.6.1}%
-\contentsline {section}{\numberline {2}Sprint Backlog}{118}{section.6.2}%
-\contentsline {section}{\numberline {3}Spécification des besoins de sprint 4 - Partie A}{119}{section.6.3}%
-\contentsline {subsection}{\numberline {3.1}Diagramme de Cas d'utilisation}{119}{subsection.6.3.1}%
-\contentsline {subsection}{\numberline {3.2}Description textuelle des Cas d'utilisation}{120}{subsection.6.3.2}%
-\contentsline {section}{\numberline {4}Conception}{122}{section.6.4}%
-\contentsline {subsection}{\numberline {4.1}Diagramme de séquence de Sprint 4 - Partie A}{123}{subsection.6.4.1}%
-\contentsline {subsection}{\numberline {4.2}Diagramme de classe - Partie A}{126}{subsection.6.4.2}%
-\contentsline {subsection}{\numberline {4.3}Schéma de la Base de données}{127}{subsection.6.4.3}%
-\contentsline {subsection}{\numberline {4.4}Consommation Corporate}{128}{subsection.6.4.4}%
-\contentsline {section}{Partie B : Gestion Printer Parc}{135}{lstnumber.6.8.21}%
-\contentsline {section}{\numberline {1}Introduction}{135}{section.6.1}%
-\contentsline {section}{\numberline {2}Sprint Backlog}{135}{section.6.2}%
-\contentsline {section}{\numberline {3}Spécification des besoins}{136}{section.6.3}%
-\contentsline {subsection}{\numberline {3.1}Diagramme de cas d’utilisation }{136}{subsection.6.3.1}%
-\contentsline {subsection}{\numberline {3.2}Description textuelle des cas d’utilisations }{136}{subsection.6.3.2}%
-\contentsline {section}{\numberline {4}Conception}{141}{section.6.4}%
-\contentsline {subsection}{\numberline {4.1}Diagrammes de séquence du Sprint 4 - Partie B}{141}{subsection.6.4.1}%
-\contentsline {subsection}{\numberline {4.2}Schéma de la base de données — Parc d’impression}{149}{subsection.6.4.2}%
-\contentsline {section}{\numberline {5}Réalisation et Test de Sprint 4 - Partie B}{151}{section.6.5}%
-\contentsline {subsection}{\numberline {5.1}Interfaces obtenus et fonctionnement de l'application}{151}{subsection.6.5.1}%
-\contentsline {subsection}{\numberline {5.2}Tests de Sprint 4 : Gestion du parc d’imprimantes}{154}{subsection.6.5.2}%
-\contentsline {section}{\numberline {6}Utilisation des Outils de suivi de Scrum}{156}{section.6.6}%
-\contentsline {subsection}{\numberline {6.1}Scrum Board}{156}{subsection.6.6.1}%
-\contentsline {subsection}{\numberline {6.2}Burndown Chart du Sprint 4}{157}{subsection.6.6.2}%
-\contentsline {section}{\numberline {7}Conclusion}{157}{section.6.7}%
-\contentsline {chapter}{\numberline {7}Sprint 5 : Business Intelligence BI}{158}{chapter.7}%
-\contentsline {section}{\numberline {1} Introduction}{159}{section.7.1}%
-\contentsline {section}{\numberline {2}Conclusion du choix méthodologique}{159}{section.7.2}%
-\contentsline {section}{Conclusion du choix méthodologique}{159}{section.7.2}%
-\contentsline {section}{\numberline {3}Analyse globale et sélection des indicateurs}{160}{section.7.3}%
-\contentsline {subsection}{Introduction à la méthodologie GIMSI}{160}{section*.160}%
-\contentsline {subsection}{\numberline {3.1}Vue d’ensemble du dashboard OLA Energy}{161}{subsection.7.3.1}%
-\contentsline {section}{\numberline {4}Définition de l’objectif stratégique}{165}{section.7.4}%
-\contentsline {section}{Définition de l’objectif stratégique}{165}{section.7.4}%
-\contentsline {subsection}{\numberline {4.1}Analyse de l’objectif selon la méthode SMART}{166}{subsection.7.4.1}%
-\contentsline {section}{\numberline {5}Conclusion}{166}{section.7.5}%
-\contentsline {chapter}{Résumé}{167}{chapter*.168}%
-\contentsline {chapter}{Webographie}{169}{chapter*.169}%
+\contentsline {subsection}{\numberline {3.3}Maquettes des Interfaces}{59}{subsection.4.3.3}%
+\contentsline {section}{\numberline {4}Conception}{63}{section.4.4}%
+\contentsline {subsection}{\numberline {4.1}Diagrammes de séquence du Sprint 2}{63}{subsection.4.4.1}%
+\contentsline {subsection}{\numberline {4.2}Diagramme de classe Sprint 2}{68}{subsection.4.4.2}%
+\contentsline {subsection}{\numberline {4.3}Schéma de la base de données}{69}{subsection.4.4.3}%
+\contentsline {section}{\numberline {5}Réalisation et tests}{70}{section.4.5}%
+\contentsline {subsection}{\numberline {5.1}Interfaces obtenues et fonctionnement de l’application}{70}{subsection.4.5.1}%
+\contentsline {subsubsection}{Interface 1 : S’authentifier}{70}{subsubsection*.58}%
+\contentsline {subsubsection}{Interface 2 : Dashboard}{70}{subsubsection*.60}%
+\contentsline {subsubsection}{Interface 3 : Consulter Compte Utilisateur}{71}{subsubsection*.62}%
+\contentsline {subsubsection}{Interface 4 : Ajouter Compte}{71}{subsubsection*.64}%
+\contentsline {subsection}{\numberline {5.2}Tests}{72}{subsection.4.5.2}%
+\contentsline {subsubsection}{Interface 1 : S’authentifier}{72}{subsubsection*.66}%
+\contentsline {paragraph}{Cas 1 : Vérification des champs}{72}{paragraph*.67}%
+\contentsline {paragraph}{Cas 2 : Vérification de l’existence des champs}{72}{paragraph*.69}%
+\contentsline {paragraph}{Cas 3 : Vérification de l’existence du compte}{73}{paragraph*.71}%
+\contentsline {subsubsection}{Interface 2 : Consulter Compte Utilisateur}{73}{subsubsection*.73}%
+\contentsline {paragraph}{Cas 1 : Vérification de la validité du mot de passe}{73}{paragraph*.74}%
+\contentsline {subsubsection}{Interface 3 : Ajouter Compte}{74}{subsubsection*.76}%
+\contentsline {paragraph}{Cas 1 : Tentatives égales à 10}{74}{paragraph*.77}%
+\contentsline {subsubsection}{Interface 4 : Consulter Compte }{75}{subsubsection*.79}%
+\contentsline {paragraph}{Cas 1 : Aucun utilisateur n’existe dans la liste}{75}{paragraph*.80}%
+\contentsline {subsubsection}{Interface 5 : Ajouter Compte }{75}{subsubsection*.82}%
+\contentsline {paragraph}{Cas 1 : Vérification des champs}{75}{paragraph*.83}%
+\contentsline {section}{\numberline {6}Conclusion}{76}{section.4.6}%
+\contentsline {chapter}{\numberline {5}Sprint 3 : Étude et Réalisation du Sprint 3}{77}{chapter.5}%
+\contentsline {section}{\numberline {1}Introduction}{78}{section.5.1}%
+\contentsline {section}{\numberline {2}Sprint Backlog}{78}{section.5.2}%
+\contentsline {section}{\numberline {3}Spécification des besoins du Sprint 3}{80}{section.5.3}%
+\contentsline {subsection}{\numberline {3.1}Diagramme de cas d’utilisation Sprint 3}{80}{subsection.5.3.1}%
+\contentsline {subsection}{\numberline {3.2}Description textuelle des cas d'utilisation}{81}{subsection.5.3.2}%
+\contentsline {subsection}{\numberline {3.3}Maquette des Interfaces du Sprint 3}{90}{subsection.5.3.3}%
+\contentsline {section}{\numberline {4}Conception}{92}{section.5.4}%
+\contentsline {subsection}{\numberline {4.1}Diagramme de séquence du Sprint 3}{92}{subsection.5.4.1}%
+\contentsline {subsection}{\numberline {4.2}Diagramme de Classe de Sprint 3}{106}{subsection.5.4.2}%
+\contentsline {subsection}{\numberline {4.3}Schéma de la base de données — Sprint 3}{107}{subsection.5.4.3}%
+\contentsline {section}{\numberline {5}Réalisation et tests }{110}{section.5.5}%
+\contentsline {subsection}{\numberline {5.1}Interface Obtenus et Fonctionnement de l'application}{110}{subsection.5.5.1}%
+\contentsline {section}{\numberline {6}Utilisation des outils de suivi de Scrum}{112}{section.5.6}%
+\contentsline {subsection}{\numberline {6.1}ScrumBoard : Trello}{112}{subsection.5.6.1}%
+\contentsline {subsection}{\numberline {6.2}Burndown Chart du Sprint 3}{113}{subsection.5.6.2}%
+\contentsline {section}{\numberline {7}Conclusion}{113}{section.5.7}%
+\contentsline {chapter}{\numberline {6}Sprint 4: Étude et Réalisation du Sprint 4}{114}{chapter.6}%
+\contentsline {section}{Partie A : Gestion Télécommunication et Tunisie Autoroute}{115}{Item.166}%
+\contentsline {section}{\numberline {1}Introduction}{115}{section.6.1}%
+\contentsline {section}{\numberline {2}Sprint Backlog}{116}{section.6.2}%
+\contentsline {section}{\numberline {3}Spécification des besoins de sprint 4 - Partie A}{117}{section.6.3}%
+\contentsline {subsection}{\numberline {3.1}Diagramme de Cas d'utilisation}{117}{subsection.6.3.1}%
+\contentsline {subsection}{\numberline {3.2}Description textuelle des Cas d'utilisation}{118}{subsection.6.3.2}%
+\contentsline {section}{\numberline {4}Conception}{120}{section.6.4}%
+\contentsline {subsection}{\numberline {4.1}Diagramme de séquence de Sprint 4 - Partie A}{121}{subsection.6.4.1}%
+\contentsline {subsection}{\numberline {4.2}Diagramme de classe - Partie A}{124}{subsection.6.4.2}%
+\contentsline {subsection}{\numberline {4.3}Schéma de la Base de données}{125}{subsection.6.4.3}%
+\contentsline {subsection}{\numberline {4.4}Consommation Corporate}{126}{subsection.6.4.4}%
+\contentsline {section}{Partie B : Gestion Printer Parc}{133}{lstnumber.6.8.21}%
+\contentsline {section}{\numberline {1}Introduction}{133}{section.6.1}%
+\contentsline {section}{\numberline {2}Sprint Backlog}{133}{section.6.2}%
+\contentsline {section}{\numberline {3}Spécification des besoins}{134}{section.6.3}%
+\contentsline {subsection}{\numberline {3.1}Diagramme de cas d’utilisation }{134}{subsection.6.3.1}%
+\contentsline {subsection}{\numberline {3.2}Description textuelle des cas d’utilisations }{134}{subsection.6.3.2}%
+\contentsline {section}{\numberline {4}Conception}{139}{section.6.4}%
+\contentsline {subsection}{\numberline {4.1}Diagrammes de séquence du Sprint 4 - Partie B}{139}{subsection.6.4.1}%
+\contentsline {subsection}{\numberline {4.2}Schéma de la base de données — Parc d’impression}{147}{subsection.6.4.2}%
+\contentsline {section}{\numberline {5}Réalisation et Test de Sprint 4 - Partie B}{149}{section.6.5}%
+\contentsline {subsection}{\numberline {5.1}Interfaces obtenus et fonctionnement de l'application}{149}{subsection.6.5.1}%
+\contentsline {subsection}{\numberline {5.2}Tests de Sprint 4 : Gestion du parc d’imprimantes}{152}{subsection.6.5.2}%
+\contentsline {section}{\numberline {6}Utilisation des Outils de suivi de Scrum}{154}{section.6.6}%
+\contentsline {subsection}{\numberline {6.1}Scrum Board}{154}{subsection.6.6.1}%
+\contentsline {subsection}{\numberline {6.2}Burndown Chart du Sprint 4}{155}{subsection.6.6.2}%
+\contentsline {section}{\numberline {7}Conclusion}{155}{section.6.7}%
+\contentsline {chapter}{\numberline {7}Sprint 5 : Business Intelligence BI}{156}{chapter.7}%
+\contentsline {section}{\numberline {1} Introduction}{157}{section.7.1}%
+\contentsline {section}{\numberline {2}Choix méthodologique}{157}{section.7.2}%
+\contentsline {section}{\numberline {3}Conception des DataMarts (fact/dimensions) dans MongoDB}{158}{section.7.3}%
+\contentsline {paragraph}{Contexte et enjeux d’un datamart en NoSQL\\}{158}{paragraph*.160}%
+\contentsline {paragraph}{a. Identification des dimensions et de la table de faits\\}{158}{paragraph*.161}%
+\contentsline {paragraph}{b. Choix de modélisation: embedding vs referencing\\}{160}{paragraph*.166}%
+\contentsline {paragraph}{Conclusion sur le choix entre \texttt {embedding} et \texttt {referencing}\\}{161}{paragraph*.167}%
+\contentsline {paragraph}{c. Proposition de schéma de collections « star » dans MongoDB\\}{162}{paragraph*.168}%
+\contentsline {paragraph}{d. Intégration des données agrégées dans Chart.js\\}{162}{paragraph*.169}%
+\contentsline {paragraph}{e. Conclusion sur l’intérêt de cette architecture NoSQL\\}{163}{paragraph*.171}%
+\contentsline {section}{\numberline {4}Analyse globale et sélection des indicateurs}{163}{section.7.4}%
+\contentsline {subsection}{\numberline {4.1}démarche de la méthodologie GIMSI}{163}{subsection.7.4.1}%
+\contentsline {subsection}{\numberline {4.2}Vue d’ensemble du dashboard OLA Energy}{164}{subsection.7.4.2}%
+\contentsline {section}{\numberline {5}Définition de l’objectif stratégique}{167}{section.7.5}%
+\contentsline {subsection}{\numberline {5.1}Analyse de l’objectif selon la méthode SMART}{168}{subsection.7.5.1}%
+\contentsline {section}{\numberline {6}Conclusion}{168}{section.7.6}%
+\contentsline {chapter}{Résumé}{169}{chapter*.179}%
+\contentsline {chapter}{Webographie}{171}{chapter*.180}%

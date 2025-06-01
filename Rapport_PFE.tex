@@ -180,6 +180,19 @@
 % Si le problème persiste, ajoute en tout premier dans le fichier LaTeX (avant \documentclass)
 %\UseRawInputEncoding
 
+\usepackage{tcolorbox}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{enumitem} % pour leftmargin dans itemize/enumerate
+\lstset{
+  basicstyle=\ttfamily\small,
+  keywordstyle=\color{blue},
+  commentstyle=\color{gray},
+  stringstyle=\color{red},
+  breaklines=true,
+  frame=single
+}
 
 
 \begin{document}
@@ -546,7 +559,7 @@ En combinant informatique décisionnelle et automatisation, cette plateforme per
 \vspace*{2cm}
 
 \begin{center}
-    {\LARGE \textbf{Plan du Chapitre}}
+    {\LARGE \textbf{Plan du Chapitre 1}}
 \end{center}
 
 \vspace{1cm}
@@ -789,7 +802,7 @@ La suite de ce rapport protera sur l'identification des besoins ainsi que sur l'
 \vspace*{2cm}
 
 \begin{center}
-    {\LARGE \textbf{Plan du Chapitre 1}}
+    {\LARGE \textbf{Plan du Chapitre 2}}
 \end{center}
 
 \vspace{1cm}
@@ -1933,7 +1946,6 @@ Ce sprint est centré sur l'élaboration et l'amélioration du module d'authenti
 \end{figure}
 \subsection{ Description textuelle des cas d’utilisations}
 
-
 \newpage
 \textbf{Description textuelle de CU Consulter liste utilisateurs}
 
@@ -2049,37 +2061,14 @@ Ce sprint est centré sur l'élaboration et l'amélioration du module d'authenti
   \end{tabularx}
 \end{table}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-\newpage
-\textbf{Description textuelle de cu Consulter Profil }
+% Réduction de la taille du deuxième tableau pour tenir sur la même page
+\begingroup
+\small
+\renewcommand{\arraystretch}{1.2}
+\textbf{Description textuelle de CU Consulter Profil}
 
 \begin{table}[H]
   \centering
-  \renewcommand{\arraystretch}{1.5}
   \caption{Spécification textuelle du cas d'utilisation "Consulter Profil"}
   \begin{tabularx}{\textwidth}{|l|X|}
     \hline
@@ -2102,6 +2091,7 @@ Ce sprint est centré sur l'élaboration et l'amélioration du module d'authenti
     \end{enumerate} \\ \hline
   \end{tabularx}
 \end{table}
+\endgroup
 
 \newpage
 \textbf{Description textuelle de cas d’utilisation “Modifier données profil”}
@@ -2916,15 +2906,17 @@ Ce sprint a pour ambition de déployer un module complet qui articule la supervi
       \end{itemize} \\ \hline
   \end{tabularx}
 \end{table}
+\begingroup
+\small
+\setlength{\tabcolsep}{4pt} % Réduit l'espacement horizontal des colonnes
+\renewcommand{\arraystretch}{1.1} % Réduit légèrement l'espacement vertical des lignes
 
-\vspace{2em}
-
+\newpage
 \textbf{Spécification textuelle de CU ``Vider Historique OLA''}
 
-\begin{table}[H]
+\begin{table}[!htbp]
   \centering
-  \renewcommand{\arraystretch}{1.5}
-  \caption{Spécification textuelle du cas d’utilisation ``Vider Historique OLA''}
+  \resizebox{\textwidth}{!}{%
   \begin{tabularx}{\textwidth}{|l|X|}
     \hline
     \textbf{Cas d’utilisation}    & Vider Historique OLA \\ \hline
@@ -2952,31 +2944,29 @@ Ce sprint a pour ambition de déployer un module complet qui articule la supervi
       \begin{itemize}[left=1em]
         \item La liste historique est réaffichée.
       \end{itemize} \\ \hline
-  \end{tabularx}
+  \end{tabularx}%
+  }
 \end{table}
-\endgroup
+\textbf{Spécification textuelle de CU ``Ajouter Facture''}
 
-\newpage
-\textbf{Spécification textuelle de CU “Ajouter Facture”}
-\begin{table}[H]
+\begin{table}[!htbp]
   \centering
-  \renewcommand{\arraystretch}{1.5}
-  \caption{Spécification textuelle du cas d'utilisation "Ajouter Facture"}
+  \resizebox{\textwidth}{!}{%
   \begin{tabularx}{\textwidth}{|l|X|}
     \hline
     \textbf{Cas d'utilisation} & Ajouter Facture \\ \hline
     \textbf{Acteur}            & Administrateur \\ \hline
     \textbf{Préconditions}     & 
-      \begin{itemize}
+      \begin{itemize}[left=0pt]
         \item L’administrateur est authentifié.
         \item Il est dans la section gestion de véhicules.
       \end{itemize} \\ \hline
     \textbf{Postconditions}    & 
-      \begin{itemize}
+      \begin{itemize}[left=0pt]
         \item Une facture de consommation est ajoutée à la liste.
       \end{itemize} \\ \hline
     \textbf{Scénario de base}  & 
-      \begin{enumerate}
+      \begin{enumerate}[left=0pt]
         \item L’administrateur accède à la section facturation.
         \item L'administrateur choisit d’ajouter une nouvelle facture.
         \item Le système affiche un formulaire d’ajout.
@@ -2988,12 +2978,15 @@ Ce sprint a pour ambition de déployer un module complet qui articule la supervi
       \end{enumerate} \\ \hline
     \textbf{Scénario alternatif} & 
       \textbf{6.a champs vides :}
-      \begin{itemize}
+      \begin{itemize}[left=0pt]
         \item Le système affiche un message de remplissage de champ vide.
         \item Retour à l’étape 4 du scénario de base.
       \end{itemize} \\ \hline
-  \end{tabularx}
+  \end{tabularx}%
+  }
 \end{table}
+
+\endgroup
 
 \newpage
 \textbf{Spécification textuelle de CU “Modifier Facture”}
@@ -3039,6 +3032,7 @@ Ce sprint a pour ambition de déployer un module complet qui articule la supervi
 
 \newpage
 \textbf{Spécification textuelle de CU “Supprimer Facture”}
+
 \begin{table}[H]
   \centering
   \renewcommand{\arraystretch}{1.5}
@@ -3048,28 +3042,27 @@ Ce sprint a pour ambition de déployer un module complet qui articule la supervi
     \textbf{Cas d'utilisation} & Supprimer Facture \\ \hline
     \textbf{Acteur}            & Administrateur \\ \hline
     \textbf{Préconditions}     & 
-      \begin{itemize}
+      \begin{itemize}[leftmargin=*]
         \item L’administrateur est authentifié.
         \item L'administrateur est dans la section gestion de véhicules.
         \item La liste des factures est affichée.
       \end{itemize} \\ \hline
     \textbf{Postconditions}    & 
-      \begin{itemize}
+      \begin{itemize}[leftmargin=*]
         \item La facture est supprimée de la liste.
       \end{itemize} \\ \hline
     \textbf{Scénario de base}  & 
-      \begin{enumerate}
+      \begin{enumerate}[leftmargin=*]
         \item L’administrateur accède à la section facturation.
         \item Le système affiche la liste des factures.
         \item L'administrateur choisit de supprimer une facture.
         \item L'administrateur clique sur “Delete”.
         \item Le système propose une option d’annulation de la suppression pendant un court délai.
-
         \item Le système supprime la facture.
       \end{enumerate} \\ \hline
     \textbf{Scénario alternatif} & 
       \textbf{5.a Annulation de la suppression (clique Undo delete):}
-      \begin{itemize}
+      \begin{itemize}[leftmargin=*]
         \item Le système annule la suppression.
         \item Retour à l’étape 2 du scénario de base.
       \end{itemize} \\ \hline
@@ -3078,6 +3071,7 @@ Ce sprint a pour ambition de déployer un module complet qui articule la supervi
 
 \newpage
 \textbf{Spécification textuelle de CU “Téléverser Facture OLA”}
+
 \begin{table}[H]
   \centering
   \renewcommand{\arraystretch}{1.5}
@@ -3087,17 +3081,17 @@ Ce sprint a pour ambition de déployer un module complet qui articule la supervi
     \textbf{Cas d'utilisation} & Téléverser Facture OLA \\ \hline
     \textbf{Acteur}            & Administrateur \\ \hline
     \textbf{Préconditions}     & 
-      \begin{itemize}
+      \begin{itemize}[leftmargin=*]
         \item L’administrateur est authentifié.
         \item L'administrateur est dans la section facturation.
       \end{itemize} \\ \hline
     \textbf{Postconditions}    & 
-      \begin{itemize}
+      \begin{itemize}[leftmargin=*]
         \item La facture est ajoutée à la liste.
         \item Une notification confirme le succès.
       \end{itemize} \\ \hline
     \textbf{Scénario de base}  & 
-      \begin{enumerate}
+      \begin{enumerate}[leftmargin=*]
         \item L’administrateur clique sur “Téléverser une facture”.
         \item Le système ouvre la boîte de dialogue sélection de fichier.
         \item L'administrateur choisit un fichier PDF.
@@ -3108,7 +3102,7 @@ Ce sprint a pour ambition de déployer un module complet qui articule la supervi
       \end{enumerate} \\ \hline
     \textbf{Scénario alternatif} & 
       \textbf{6.a Fichier non valide (format) :}
-      \begin{itemize}
+      \begin{itemize}[leftmargin=*]
         \item Le système affiche un message d’erreur.
         \item Retour à l’étape 4 du scénario de base.
       \end{itemize} \\ \hline
@@ -4986,7 +4980,7 @@ Après avoir achevé avec succès le sprint 4, centré sur la gestion des client
 \vspace*{2cm}
 
 \begin{center}
-    {\LARGE \textbf{Plan du Chapitre}}
+    {\LARGE \textbf{Plan du Chapitre 7}}
 \end{center}
 
 \vspace{1cm}
@@ -4999,6 +4993,7 @@ Après avoir achevé avec succès le sprint 4, centré sur la gestion des client
 \begin{enumerate}[label=\textbf{\large\arabic*.}, leftmargin=*, itemsep=1.2em]
     \item Introduction
     \item Choix de la méthodologie
+    \item Conception des DataMarts dans MongoDB
     \item Analyse globale et sélection des indicateurs
     \item Définition de l'objectif stratégique
     \item Conclusion
@@ -5039,9 +5034,7 @@ Nous commencerons par exposer succinctement les approches évaluées, avant de l
   \label{tab:comparaison-methodos}
 \end{table}
 
-\section{Conclusion du choix méthodologique}
-\addcontentsline{toc}{section}{Conclusion du choix méthodologique}
-
+\section{Choix méthodologique}
 Au terme de cette analyse rigoureuse, la méthode \textbf{GIMSI} s’impose comme le cadre le plus équilibré pour piloter notre projet BI. En effet, elle combine :
 
 
@@ -5086,8 +5079,371 @@ Au terme de cette analyse rigoureuse, la méthode \textbf{GIMSI} s’impose comm
 
 Cette décision nous permettra de déployer nos tableaux de bord de manière structurée, tout en conservant la flexibilité nécessaire pour optimiser en continu la valeur apportée aux métiers. Le sprint 5 pourra ainsi bénéficier d’un socle méthodologique robuste, propice à l’innovation et à l’amélioration continue de notre solution BI.  
 
+
+% try partie datamarts 
+
+% ---------------------------------------------------------------------
+%   À INSÉRER APRÈS :
+%   \section{Analyse globale et sélection des indicateurs}
+%   (juste avant \section{Définition de l’objectif stratégique})
+% ---------------------------------------------------------------------
+
+\section{Conception des DataMarts (fact/dimensions) dans MongoDB}
+
+\paragraph{Contexte et enjeux d’un datamart en NoSQL\\}
+Dans un entrepôt de données relationnel, un datamart se compose traditionnellement de tables de faits et de tables de dimensions : la table de faits enregistre chaque événement mesurable (par exemple, une consommation de carburant), tandis que les tables de dimensions fournissent le contexte descriptif (date, site, employé, etc.).
+
+MongoDB, en revanche, ne gère pas de tables au sens SQL, mais repose sur des collections de documents JSON. Il reste néanmoins possible de reproduire cette même architecture « fait et dimensions » en environnement NoSQL, afin de :
+\begin{itemize}[leftmargin=*]
+\item assurer une cohérence sémantique en identifiant clairement chaque référentiel de données.
+\item optimiser les performances des analyses BI en limitant le nombre de jointures coûteuses et en facilitant les opérations d’agrégation.
+\item tirer parti de la flexibilité inhérente à MongoDB pour faire évoluer rapidement le modèle, qu’il s’agisse d’ajouter une nouvelle dimension ou d’enrichir les attributs existants.
+\end{itemize}
+
+
+Dans cette sous-section, nous détaillons :
+\begin{enumerate}[label=\alph*., leftmargin=*]
+  \item Identification des dimensions et du fait central pour OLA Energy
+  \item Choix de modélisation : \texttt{embedding} vs \texttt{referencing}
+  \item Proposition de schéma de collections « star »
+  \item Intégration des données agrégées dans Chart.js
+  \item Conclusion sur l’intérêt de cette architecture NoSQL
+\end{enumerate}
+
+\vspace{0.5em}
+
+
+
+\paragraph{a. Identification des dimensions et de la table de faits\\}  
+Sur la base d’un document \texttt{OlaConsumption}, nous structurons les données en une collection de faits et trois collections de dimensions.  
+\newpage
+\medskip
+
+%-------------------------------------------------------------------
+% Table pour la collection fact_consumption
+%-------------------------------------------------------------------
+La collection \texttt{fact\_consumption} enregistre les consommations mensuelles de chaque carte.
+\begin{table}[h!]
+  \centering
+  \renewcommand{\arraystretch}{1.2}
+  \begin{tabular}{|l|l|}
+    \hline
+    \rowcolor{gray!20}
+    \multicolumn{2}{|c|}{\textbf{Collection : fact\_consumption}}         \\ \hline
+    \textbf{Champ}         & \textbf{Type / Référence}                                \\ \hline
+    cardNumber             & String                                                     \\ \hline
+    year                   & NumberInt                                                   \\ \hline
+    month                  & String                                                      \\ \hline
+    volume                 & Double                                                      \\ \hline
+    monthlyLimit           & Double                                                      \\ \hline
+    dateId                 & ObjectId \(\rightarrow\) dim\_date.\_id                      \\ \hline
+    empId                  & ObjectId \(\rightarrow\) dim\_emp.\_id                       \\ \hline
+    LocationId                 & ObjectId \(\rightarrow\) dim\_Location.\_id                      \\ \hline
+  \end{tabular}
+  \caption{Schéma de la collection \texttt{fact\_consumption}}
+\end{table}
+
+\vspace{1em}
+La collection \texttt{dim\_date} sert de référentiel temporel simple.
+
+%-------------------------------------------------------------------
+% Table pour la collection dim_date
+%-------------------------------------------------------------------
+\begin{table}[h!]
+  \centering
+  \renewcommand{\arraystretch}{1.2}
+  \begin{tabular}{|l|l|}
+    \hline
+    \rowcolor{gray!20}
+    \multicolumn{2}{|c|}{\textbf{Collection : dim\_date}}                 \\ \hline
+    \textbf{Champ}         & \textbf{Type / Description}                                \\ \hline
+    \_id                   & ObjectId                                                    \\ \hline
+    year                   & NumberInt                                                   \\ \hline
+    month                  & String                                                      \\ \hline
+  \end{tabular}
+  \caption{Schéma de la collection \texttt{dim\_date}}
+\end{table}
+
+\vspace{1em}
+La collection \texttt{dim\_emp} regroupe les informations liées aux cartes et aux employés.
+
+%-------------------------------------------------------------------
+% Table pour la collection dim_emp
+%-------------------------------------------------------------------
+\begin{table}[h!]
+  \centering
+  \renewcommand{\arraystretch}{1.2}
+  \begin{tabular}{|l|l|}
+    \hline
+    \rowcolor{gray!20}
+    \multicolumn{2}{|c|}{\textbf{Collection : dim\_emp}}                  \\ \hline
+    \textbf{Champ}         & \textbf{Type / Description}                                \\ \hline
+    \_id                   & ObjectId                                                    \\ \hline
+    cardNumber             & String                                                      \\ \hline
+    employeeName           & String                                                      \\ \hline
+    depCode                & String                                                      \\ \hline
+  \end{tabular}
+  \caption{Schéma de la collection \texttt{dim\_emp}}
+\end{table}
+
+
+\newpage
+\vspace{1em}
+La collection \texttt{dim\_Location} identifie chaque site ou location.
+
+%-------------------------------------------------------------------
+% Table pour la collection dim_location
+%-------------------------------------------------------------------
+\begin{table}[h!]
+  \centering
+  \renewcommand{\arraystretch}{1.2}
+  \begin{tabular}{|l|l|}
+    \hline
+    \rowcolor{gray!20}
+    \multicolumn{2}{|c|}{\textbf{Collection : dim\_Location}}                 \\ \hline
+    \textbf{Champ}         & \textbf{Type / Description}                                \\ \hline
+    \_id                   & ObjectId                                                    \\ \hline
+    LocationName               & String                                                      \\ \hline
+  \end{tabular}
+  \caption{Schéma de la collection \texttt{dim\_Location}}
+\end{table}
+Cette organisation regroupe les mesures de consommation (volume, plafonds, total annuel dans \texttt{fact\_consumption}) tout en séparant clairement les dimensions \texttt{dim\_date}, \texttt{dim\_emp} et \texttt{dim\_Location}, ce qui garantit cohérence et maintenabilité du modèle NoSQL.
+\vspace{0.5em}
+\paragraph{b. Choix de modélisation: embedding vs referencing\\}  
+Dans MongoDB, deux approches permettent de lier la \texttt{fact\_consumption} à ses dimensions (\texttt{dim\_date}, \texttt{dim\_emp}, \texttt{dim\_Location}).
+
+\vspace{0.5em}
+\begin{tcolorbox}[colback=blue!5!white,colframe=blue!40!black,title={\texttt{embedding} : dimensions imbriquées}]
+  \begin{verbatim}
+{
+  "_id": ObjectId("..."),
+  "cardNumber": "31771",
+  "year": 2024,
+  "month": "January",
+  "volume": 1337.596,
+  "monthlyLimit": 2000,
+  "date": {
+    "year": 2024,
+    "month": "January"
+  },
+  "emp": {
+    "cardNumber": "31771",
+    "employeeName": "MELANIE LEFEBVRE",
+    "depCode": "150501"
+  },
+  "location": {
+    "LocationName": "HO"
+  }
+}
+  \end{verbatim}
+
+  \textbf{Avantages :}
+  \begin{itemize}[leftmargin=1.2em]
+    \item Accès direct à toutes les informations (pas de jointure nécessaire).  
+    \item Document autonome, lisible sans référence externe.  
+  \end{itemize}
+
+  \textbf{Inconvénients :}
+  \begin{itemize}[leftmargin=1.2em]
+    \item Duplication des mêmes données dans chaque document \texttt{fact\_consumption}.  
+    \item Mise à jour complexe si un employé ou un site change de nom.  
+  \end{itemize}
+\end{tcolorbox}
+
+\vspace{0.5em}
+\begin{tcolorbox}[colback=blue!5!white,colframe=blue!40!black,title={\texttt{referencing} : dimensions séparées}]
+  \begin{verbatim}
+{
+  "_id": ObjectId("..."),
+  "cardNumber": "31771",
+  "year": 2024,
+  "month": "January",
+  "volume": 1337.596,
+  "monthlyLimit": 2000,
+  "dateId": ObjectId("..."),       // Réf → dim_date._id
+  "empId": ObjectId("..."),        // Réf → dim_emp._id
+  "LocationId": ObjectId("...")    // Réf → dim_Location._id
+}
+  \end{verbatim}
+
+  \textbf{dim\_date} :
+  \begin{verbatim}
+{
+  "_id": ObjectId("..."),
+  "year": 2024,
+  "month": "January"
+}
+  \end{verbatim}
+
+  \textbf{dim\_emp} :
+  \begin{verbatim}
+{
+  "_id": ObjectId("..."),
+  "cardNumber": "31771",
+  "employeeName": "MELANIE LEFEBVRE",
+  "depCode": "150501"
+}
+  \end{verbatim}
+
+  \textbf{dim\_Location} :
+  \begin{verbatim}
+{
+  "_id": ObjectId("..."),
+  "LocationName": "HO"
+}
+  \end{verbatim}
+
+  \textbf{Avantages :}
+  \begin{itemize}[leftmargin=1.2em]
+    \item Évite la duplication des dimensions (DRY).  
+    \item Mise à jour d’un employé ou d’un site à un seul endroit.  
+  \end{itemize}
+
+  \textbf{Inconvénients :}
+  \begin{itemize}[leftmargin=1.2em]
+    \item Nécessite un \$lookup pour reconstituer le contexte BI.  
+    \item Performances dépendantes d’index bien définis.  
+  \end{itemize}
+\end{tcolorbox}
+
+% conclusion sur le choix 
+\paragraph{Conclusion sur le choix entre \texttt{embedding} et \texttt{referencing}\\}  
+Pour notre cas d’usage BI (modélisation en étoile), nous recommandons d’utiliser la stratégie \texttt{referencing}. En effet, elle évite la duplication des données dimensionnelles (employés, sites, dates) et facilite les mises à jour ultérieures (changement de nom d’un site ou d’un employé). Les jointures nécessaires seront traitées via des opérations \texttt{\$lookup} lors de l’agrégation, sans compromettre la scalabilité du modèle.
+\vspace{0.5em}
+
+
+
+
+
+
+% Proposition de schéma de collections « star » dans MongoDB
+\newpage
+\paragraph{c. Proposition de schéma de collections « star » dans MongoDB\\}  
+Sur la base du choix du \texttt{referencing}, voici la représentation en schéma étoile :
+
+\begin{center}
+  \begin{tikzpicture}[
+    every node/.style={
+      draw,
+      rectangle,
+      rounded corners=4pt,
+      align=left,
+      font=\small,
+      inner sep=6pt,
+      minimum width=3.5cm
+    },
+    font=\small
+  ]
+    % Nœud dim_date
+    \node[fill=blue!15] (Date) at (0,0) {
+      \texttt{dim\_date}\\[0.2em]
+      \_id : ObjectId\\
+      year : NumberInt\\
+      month : String
+    };
+    % Nœud dim_Location
+    \node[fill=blue!15] (Location) at (-5,-2) {
+      \texttt{dim\_Location}\\[0.2em]
+      \_id : ObjectId\\
+      LocationName : String
+    };
+    % Nœud dim_emp
+    \node[fill=blue!15] (Emp) at (5,-2) {
+      \texttt{dim\_emp}\\[0.2em]
+      \_id : ObjectId\\
+      cardNumber : String\\
+      employeeName : String\\
+      depCode : String
+    };
+    % Nœud fact_consumption
+    \node[fill=green!15] (Fact) at (0,-6) {
+      \texttt{fact\_consumption}\\[0.2em]
+      \_id : ObjectId\\
+      dateId : ObjectId → dim\_date.\_id\\
+      LocationId : ObjectId → dim\_Location.\_id\\
+      empId : ObjectId → dim\_emp.\_id\\
+      cardNumber : String\\
+      year : NumberInt\\
+      month : String\\
+      volume : Double\\
+      monthlyLimit : Double
+    };
+    % Flèches entre dimensions et faits
+    \draw[->, thick] (Date) -- (Fact);
+    \draw[->, thick] (Location) -- (Fact);
+    \draw[->, thick] (Emp)  -- (Fact);
+  \end{tikzpicture}
+
+  \captionof{figure}{Schéma en étoile des collections MongoDB}
+\end{center}
+
+
+
+\paragraph{d. Intégration des données agrégées dans Chart.js\\}  
+
+
+Le schéma suivant illustre l’intégration des données agrégées depuis MongoDB vers Chart.js :  
+Le flux démarre par les collections MongoDB (fait et dimensions), passe par un pipeline d’agrégation qui consolide les champs clés (année, mois, localisation, volume total), puis génère un JSON structuré exploitable directement par Chart.js pour afficher les séries temporelles et comparatives.
+
+
+\begin{figure}[h!]
+  \centering
+  \begin{tikzpicture}[
+    every node/.style={
+      draw,
+      rectangle,
+      rounded corners=2pt,
+      align=center,
+      font=\footnotesize,
+      inner sep=4pt
+    },
+    arrow/.style={->, thick}
+  ]
+    % Nœud Collections MongoDB
+    \node[fill=blue!15] (Mongo) at (0, 0) {
+      Collections MongoDB\\
+      \texttt{fact\_consumption},\\
+      \texttt{dim\_date}, \texttt{dim\_Location},\\
+      \texttt{dim\_emp}\\
+      (referencing)
+    };
+    % Nœud Pipeline d’agrégation
+    \node[fill=orange!15] (Pipeline) at (0, -2) {
+      Pipeline d’agrégation\\
+      (join date, location, emp)
+    };
+    % Nœud Jeu JSON structuré
+    \node[fill=gray!15] (API) at (0, -4) {
+      Jeu JSON structuré\\
+      \{\texttt{year, month, LocationName,}\\
+      \texttt{totalVolume, totalLimit}\}
+    };
+    % Nœud Chart.js
+    \node[fill=green!15] (Chart) at (0, -6) {
+      Chart.js\\
+      Abscisses : « Month Year – Location »\\
+      Ordonnées : totalVolume / totalLimit
+    };
+    % Flèches de flux
+    \draw[arrow] (Mongo) -- (Pipeline);
+    \draw[arrow] (Pipeline) -- (API);
+    \draw[arrow] (API) -- (Chart);
+  \end{tikzpicture}
+  \caption{Intégration des données agrégées dans Chart.js}
+\end{figure}
+
+
+\newpage
+\paragraph{e. Conclusion sur l’intérêt de cette architecture NoSQL\\}  
+Le modèle « fact et dimensions » implémenté en MongoDB combine la simplicité du \texttt{referencing} (aucune redondance des référentiels) avec la rapidité des agrégations. Il assure une gouvernance claire (chaque dimension évolue indépendamment), une traçabilité totale des données et une flexibilité maximale pour intégrer de nouvelles dimensions ou indicateurs. En somme, cette architecture NoSQL se révèle parfaitement alignée avec les exigences BI : robustesse, évolutivité et performance pour un reporting dynamique via Chart.js.  
+
+
+
+
+
 \section{Analyse globale et sélection des indicateurs}
-\addcontentsline{toc}{subsection}{Introduction à la méthodologie GIMSI}
+\subsection{démarche de la méthodologie GIMSI}
+
 
 La méthode \textbf{GIMSI} structure notre démarche décisionnelle selon cinq phases itératives et complémentaires.  
 Elle garantit à la fois un cadre solide (\emph{traçabilité, conformité}) et une agilité opérationnelle (\emph{adaptation rapide, feedback continu}).  
@@ -5142,8 +5498,6 @@ Il servira de point de départ à l’analyse détaillée de chaque indicateur, 
 Ce cadre \textbf{GIMSI} est appliqué à chacun des indicateurs clés de notre dashboard \textit{OLA Energy} :
 
 \bigskip
-\newpage
-
 \subsection*{Indicateur  : Consommation mensuelle totale}
 \begin{figure}[h!]
   \centering
@@ -5156,7 +5510,6 @@ Cette courbe chronologique illustre l’évolution mensuelle des volumes de carb
 
 
 \bigskip
-\newpage
 \subsection*{Indicateur  : Coût par agence}
 \begin{figure}[h!]
   \centering
@@ -5170,7 +5523,7 @@ Ce graphique en camembert segmente la consommation annuelle par localisation (pa
 
 \bigskip
 \newpage
-\subsection*{Indicateur  : TOP 10 des emplyés consommateurs}
+\subsection*{Indicateur  : TOP 10 des employés consommateurs}
 \begin{figure}[h!]
   \centering
    \includegraphics[width=0.6\textwidth]{C:/Users/bouka/Downloads/imageslatex/top10employes.png}
@@ -5204,8 +5557,9 @@ Cette carte métrique restitue en un unique KPI le coût global des consommation
 Ce tableau permet de savoir, en pourcentage, l’écart de consommation de carburant OLA entre deux exercices consécutifs. Il met en relief les hausses et les baisses, facilitant la compréhension rapide des évolutions de tendance.
 
 
+
+
 \section{Définition de l’objectif stratégique}
-\addcontentsline{toc}{section}{Définition de l’objectif stratégique}
 
 Pour aligner nos actions sur une vision claire et mesurable, nous formulons ici l’objectif stratégique principal issu de l’analyse de nos KPI :
 
